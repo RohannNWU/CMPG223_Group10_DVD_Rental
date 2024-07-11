@@ -1,8 +1,12 @@
 Meeting 1 - 11/07/2024
 
-Created GitHub repository and invited Collaborators
+1. Created GitHub repository and invited Collaborators
 * Stefan Venter
 * Rohann Venter
 * Christo Prinsloo
 * Francois Verster
 * Jacques van Heerden
+
+2. Cloned the Repository in Visual Studio
+
+3. Added all student numbers and names to Form1 to ensure everyone can access, change and commit the changes
