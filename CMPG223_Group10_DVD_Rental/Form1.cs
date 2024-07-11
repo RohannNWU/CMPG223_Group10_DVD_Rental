@@ -19,7 +19,6 @@ namespace CMPG223_Group10_DVD_Rental
         public Form1()
         {
             InitializeComponent();
-            //test
         }
     }
 }
