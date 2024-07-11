@@ -1,6 +1,8 @@
 ﻿/* 
  * Group 10 - DVD Rental Program
- * Francois Verster 40723380
+ * 
+ * Francois Verster, 40723380
+ * Rohann Venter, 25130757
  */
 
 using System;
