@@ -6,3 +6,9 @@ Created GitHub repository and invited Collaborators
 * Christo Prinsloo
 * Francois Verster
 * Jacques van Heerden
+
+
+Meeting 2 - 19/07/2024
+
+- Went over project scope
+- Discussed and started working on Process- and Data model
