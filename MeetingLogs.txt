@@ -13,7 +13,11 @@ Meeting 1 - 11/07/2024
 
 Meeting 2 - 20/07/2024
 
+1. Discussed PDM and Scope
+2. All instructed to create own PPMs and PDMs 
+
 Meeting 3 - 27/07/2024
 
 1.	Discussed PDMs and PDFDs
-2.	Created First database for Login Form
+2.	Created database for the program
+3.	Created Employees Table
