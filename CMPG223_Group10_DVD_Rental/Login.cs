@@ -17,9 +17,16 @@ namespace CMPG223_Group10_DVD_Rental
             InitializeComponent();
         }
 
+<<<<<<< HEAD:CMPG223_Group10_DVD_Rental/Login.cs
         private void button1_Click(object sender, EventArgs e)
         {
 
+=======
+        // Code to close the application
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+>>>>>>> RohannBranch:CMPG223_Group10_DVD_Rental/Form1.cs
         }
     }
 }
