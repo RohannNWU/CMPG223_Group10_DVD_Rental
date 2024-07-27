@@ -10,3 +10,10 @@ Meeting 1 - 11/07/2024
 2. Cloned the Repository in Visual Studio
 
 3. Added all student numbers and names to Form1 to ensure everyone can access, change and commit the changes
+
+Meeting 2 - 20/07/2024
+
+Meeting 3 - 27/07/2024
+
+1.	Discussed PDMs and PDFDs
+2.	Created First database for Login Form
