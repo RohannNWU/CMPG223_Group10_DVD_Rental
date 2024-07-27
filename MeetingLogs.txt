@@ -13,6 +13,9 @@ Meeting 1 - 11/07/2024
 
 Meeting 2 - 20/07/2024
 
+1. Discussed PDM and Scope
+2. All instructed to create own PPMs and PDMs 
+
 Meeting 3 - 27/07/2024
 
 1.	Discussed PDMs and PDFDs
