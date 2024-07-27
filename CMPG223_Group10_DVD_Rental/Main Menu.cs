@@ -16,10 +16,5 @@ namespace CMPG223_Group10_DVD_Rental
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

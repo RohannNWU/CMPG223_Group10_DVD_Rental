@@ -28,58 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.bntRental = new System.Windows.Forms.Button();
+            this.Inventory = new System.Windows.Forms.Button();
+            this.btnEmployee = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // bntRental
             // 
-            this.button1.Location = new System.Drawing.Point(75, 110);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Manage Member";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bntRental.Location = new System.Drawing.Point(138, 118);
+            this.bntRental.Name = "bntRental";
+            this.bntRental.Size = new System.Drawing.Size(128, 23);
+            this.bntRental.TabIndex = 0;
+            this.bntRental.Text = "Rental";
+            this.bntRental.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // Inventory
             // 
-            this.button2.Location = new System.Drawing.Point(75, 179);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Manage Inventory";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Inventory.Location = new System.Drawing.Point(138, 189);
+            this.Inventory.Name = "Inventory";
+            this.Inventory.Size = new System.Drawing.Size(128, 23);
+            this.Inventory.TabIndex = 1;
+            this.Inventory.Text = "Inventory";
+            this.Inventory.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnEmployee
             // 
-            this.button3.Location = new System.Drawing.Point(75, 247);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(142, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "New Rental";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEmployee.Location = new System.Drawing.Point(138, 264);
+            this.btnEmployee.Name = "btnEmployee";
+            this.btnEmployee.Size = new System.Drawing.Size(128, 23);
+            this.btnEmployee.TabIndex = 2;
+            this.btnEmployee.Text = "Employee";
+            this.btnEmployee.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnExit
             // 
-            this.button4.Location = new System.Drawing.Point(75, 311);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(142, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Exit";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnExit.Location = new System.Drawing.Point(138, 346);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(128, 23);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
             // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnEmployee);
+            this.Controls.Add(this.Inventory);
+            this.Controls.Add(this.bntRental);
             this.Name = "Main_Menu";
             this.Text = "Main_Menu";
             this.ResumeLayout(false);
@@ -88,9 +87,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button bntRental;
+        private System.Windows.Forms.Button Inventory;
+        private System.Windows.Forms.Button btnEmployee;
+        private System.Windows.Forms.Button btnExit;
     }
 }
