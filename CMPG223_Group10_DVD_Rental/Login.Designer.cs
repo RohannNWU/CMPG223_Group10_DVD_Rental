@@ -1,6 +1,6 @@
 ﻿namespace CMPG223_Group10_DVD_Rental
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             this.passwordLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // headerLabel
+            // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(140, 150);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -107,4 +107,3 @@
         private System.Windows.Forms.Label passwordLabel;
     }
 }
-
