@@ -17,6 +17,7 @@ namespace CMPG223_Group10_DVD_Rental
             InitializeComponent();
         }
 
+        // Code to close the application
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

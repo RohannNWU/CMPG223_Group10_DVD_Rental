@@ -33,20 +33,15 @@
             this.label1 = new System.Windows.Forms.Label();
 =======
             this.usernameLabel = new System.Windows.Forms.Label();
-            this.usernameTextBox = new System.Windows.Forms.TextBox();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.usernameTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.passwordTextBox = new System.Windows.Forms.MaskedTextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
 >>>>>>> RohannBranch
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-<<<<<<< HEAD
-            this.btnLogin.Location = new System.Drawing.Point(290, 260);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-=======
-            this.btnLogin.Location = new System.Drawing.Point(140, 150);
+            this.btnLogin.Location = new System.Drawing.Point(176, 158);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 28);
@@ -77,42 +72,42 @@
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(13, 40);
+            this.usernameLabel.Location = new System.Drawing.Point(65, 43);
             this.usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(107, 16);
+            this.usernameLabel.Size = new System.Drawing.Size(136, 16);
             this.usernameLabel.TabIndex = 1;
-            this.usernameLabel.Text = "Enter Username:";
+            this.usernameLabel.Text = "Enter your Username:";
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(140, 34);
+            this.usernameTextBox.Location = new System.Drawing.Point(226, 40);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(189, 22);
+            this.usernameTextBox.Size = new System.Drawing.Size(198, 22);
             this.usernameTextBox.TabIndex = 2;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(140, 87);
+            this.passwordTextBox.Location = new System.Drawing.Point(226, 97);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(189, 22);
+            this.passwordTextBox.Size = new System.Drawing.Size(198, 22);
             this.passwordTextBox.TabIndex = 4;
             // 
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(13, 93);
+            this.passwordLabel.Location = new System.Drawing.Point(65, 100);
             this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(104, 16);
+            this.passwordLabel.Size = new System.Drawing.Size(133, 16);
             this.passwordLabel.TabIndex = 3;
-            this.passwordLabel.Text = "Enter Password:";
+            this.passwordLabel.Text = "Enter your Password:";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 221);
+            this.ClientSize = new System.Drawing.Size(498, 222);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameTextBox);
@@ -131,7 +126,10 @@
 
         private System.Windows.Forms.Button btnLogin;
 <<<<<<< HEAD
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.MaskedTextBox usernameTextBox;
+        private System.Windows.Forms.MaskedTextBox passwordTextBox;
+        private System.Windows.Forms.Label passwordLabel;
 =======
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.TextBox usernameTextBox;
