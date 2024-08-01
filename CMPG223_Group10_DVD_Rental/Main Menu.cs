@@ -22,5 +22,10 @@ namespace CMPG223_Group10_DVD_Rental
         {
             Application.Exit();
         }
+
+        private void bntRental_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
