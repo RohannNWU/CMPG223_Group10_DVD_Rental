@@ -67,6 +67,7 @@
     <Compile Include="AdminMainMenu.Designer.cs">
       <DependentUpon>AdminMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomRenderer.cs" />
     <Compile Include="Employee.cs">
       <SubType>Form</SubType>
     </Compile>
