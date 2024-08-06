@@ -56,10 +56,16 @@ namespace CMPG223_Group10_DVD_Rental
 
                         if (role == "Administrator")
                         {
-
+                            AdminMainMenu dashboard = new AdminMainMenu();
+                            dashboard.Show();
+                            this.Hide();
+                            dashboard.FormClosed += (s, args) => this.Close(); // closes the login form that is hidden when the main program is closed
                         } else
                         {
-
+                            EmployeeMainMenu dashboard = new EmployeeMainMenu();
+                            dashboard.Show();
+                            this.Hide();
+                            dashboard.FormClosed += (s, args) => this.Close(); // closes the login form that is hidden when the main program is closed
                         }
                     }
                     else
@@ -73,10 +79,10 @@ namespace CMPG223_Group10_DVD_Rental
                 conn.Close();
             } catch (SqlException sqlEx)
             {
-                MessageBox.Show("SQL Error: " + sqlEx.Message); // displays the sql error
+                MessageBox.Show("SQL Error: " + sqlEx.Message); // displays the SQL error
             } catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message); // displays any normal error
+                MessageBox.Show("Error: " + ex.Message); // displays any normal error encountered
             }
         }
     }

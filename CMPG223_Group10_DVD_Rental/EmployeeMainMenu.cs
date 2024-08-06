@@ -10,22 +10,11 @@ using System.Windows.Forms;
 
 namespace CMPG223_Group10_DVD_Rental
 {
-    public partial class Main_Menu : Form
+    public partial class EmployeeMainMenu : Form
     {
-        public Main_Menu()
+        public EmployeeMainMenu()
         {
             InitializeComponent();
-        }
-
-        // Code to close the application
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void bntRental_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
