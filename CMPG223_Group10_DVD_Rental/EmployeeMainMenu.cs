@@ -32,7 +32,14 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+        }
 
+        private void EmployeeMainMenu_Load(object sender, EventArgs e)
+        {
+            DashboardForm dashboard = new DashboardForm();
+            dashboard.MdiParent = this;
+            dashboard.Show();
         }
     }
 }

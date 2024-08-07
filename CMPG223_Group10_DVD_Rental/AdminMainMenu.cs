@@ -34,5 +34,12 @@ namespace CMPG223_Group10_DVD_Rental
         {
             Application.Exit();
         }
+
+        private void AdminMainMenu_Load(object sender, EventArgs e)
+        {
+            DashboardForm dashboard = new DashboardForm();
+            dashboard.MdiParent = this;
+            dashboard.Show();
+        }
     }
 }
