@@ -170,6 +170,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dbo.Employee.sql" />
+    <Content Include="DVDRentalShop.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DVDRentalShop_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>DVDRentalShop.mdf</DependentUpon>
+    </Content>
     <None Include="Resources\LoginLogo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
