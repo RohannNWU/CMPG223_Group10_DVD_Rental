@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/CMPG223_Group10_DVD_Rental/DVDRentalShop.mdf
+/CMPG223_Group10_DVD_Rental/DVDRentalShop_log.ldf
