@@ -171,11 +171,11 @@
   <ItemGroup>
     <Content Include="dbo.Employee.sql" />
     <Content Include="DVDRentalShop.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="DVDRentalShop_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>DVDRentalShop.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\LoginLogo.ico" />
   </ItemGroup>
