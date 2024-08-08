@@ -185,6 +185,7 @@
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.DashboardForm_Load);
             this.outstandingDVD.ResumeLayout(false);
             this.outstandingDVD.PerformLayout();
             this.ResumeLayout(false);

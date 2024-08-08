@@ -24,9 +24,20 @@ namespace CMPG223_Group10_DVD_Rental
 {
     public partial class AdminMainMenu : Form
     {
+        private string name;
+        private string role;
+
         public AdminMainMenu()
         {
             InitializeComponent();
+            this.menuStrip.Renderer = new CustomRenderer();
+        }
+
+        public AdminMainMenu(string name, string role)
+        {
+            InitializeComponent();
+            this.name = name;
+            this.role = role;
             this.menuStrip.Renderer = new CustomRenderer();
         }
 
@@ -37,7 +48,7 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void AdminMainMenu_Load(object sender, EventArgs e)
         {
-            DashboardForm dashboard = new DashboardForm();
+            DashboardForm dashboard = new DashboardForm(name, role);
             dashboard.MdiParent = this;
             dashboard.Show();
         }
