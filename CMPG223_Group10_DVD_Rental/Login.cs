@@ -25,7 +25,7 @@ namespace CMPG223_Group10_DVD_Rental
 {
     public partial class Login : Form
     {
-        private string connectionString = "Data Source=MSI;Initial Catalog=DVDRentals;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+        private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DVDRentalShop.mdf;Integrated Security=True";
         private SqlConnection conn;
         private SqlCommand command;
         private SqlDataReader reader;
