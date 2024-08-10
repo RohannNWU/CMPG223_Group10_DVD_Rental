@@ -177,7 +177,6 @@
       <DependentUpon>DVDRentalShop.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="EmployeeTable.sql" />
     <None Include="Resources\LoginLogo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
