@@ -1,5 +1,4 @@
 ﻿/*
- *
  * CMPG223 Project - G10 DVD Rentals
  * Date Created: 03/08/2024
  * Rohann Venter, 25130757
