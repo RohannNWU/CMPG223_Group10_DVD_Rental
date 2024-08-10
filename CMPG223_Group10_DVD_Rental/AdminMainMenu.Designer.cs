@@ -44,6 +44,7 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rentDVDsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,7 +89,8 @@
             // 
             this.dvdsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dVDInventoryToolStripMenuItem,
-            this.shelvesToolStripMenuItem});
+            this.shelvesToolStripMenuItem,
+            this.rentDVDsToolStripMenuItem});
             this.dvdsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.dvdsToolStripMenuItem.Name = "dvdsToolStripMenuItem";
             this.dvdsToolStripMenuItem.Size = new System.Drawing.Size(74, 26);
@@ -177,7 +179,7 @@
             this.reportsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.reportsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.reportsToolStripMenuItem.Text = "&Reports";
             // 
             // helpGuideToolStripMenuItem
@@ -185,7 +187,7 @@
             this.helpGuideToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.helpGuideToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.helpGuideToolStripMenuItem.Name = "helpGuideToolStripMenuItem";
-            this.helpGuideToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.helpGuideToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.helpGuideToolStripMenuItem.Text = "&Help Guide";
             // 
             // windowsToolStripMenuItem
@@ -194,6 +196,12 @@
             this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
             this.windowsToolStripMenuItem.Size = new System.Drawing.Size(104, 26);
             this.windowsToolStripMenuItem.Text = "&Windows";
+            // 
+            // rentDVDsToolStripMenuItem
+            // 
+            this.rentDVDsToolStripMenuItem.Name = "rentDVDsToolStripMenuItem";
+            this.rentDVDsToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.rentDVDsToolStripMenuItem.Text = "&Rent DVDs";
             // 
             // AdminMainMenu
             // 
@@ -236,5 +244,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpGuideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dvdsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rentDVDsToolStripMenuItem;
     }
 }
