@@ -45,10 +45,9 @@
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.loginButton.Location = new System.Drawing.Point(179, 421);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(4);
+            this.loginButton.Location = new System.Drawing.Point(134, 342);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(141, 56);
+            this.loginButton.Size = new System.Drawing.Size(106, 46);
             this.loginButton.TabIndex = 0;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
@@ -59,12 +58,11 @@
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.usernameLabel.Location = new System.Drawing.Point(26, 319);
-            this.usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.usernameLabel.Location = new System.Drawing.Point(20, 259);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(197, 21);
+            this.usernameLabel.Size = new System.Drawing.Size(124, 20);
             this.usernameLabel.TabIndex = 1;
-            this.usernameLabel.Text = "Enter your Username:";
+            this.usernameLabel.Text = "Enter your anus:";
             // 
             // usernameTextBox
             // 
@@ -72,9 +70,10 @@
             this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usernameTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(195)))));
-            this.usernameTextBox.Location = new System.Drawing.Point(274, 319);
+            this.usernameTextBox.Location = new System.Drawing.Point(206, 259);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(198, 23);
+            this.usernameTextBox.Size = new System.Drawing.Size(148, 18);
             this.usernameTextBox.TabIndex = 2;
             // 
             // passwordTextBox
@@ -83,9 +82,10 @@
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(195)))));
-            this.passwordTextBox.Location = new System.Drawing.Point(274, 370);
+            this.passwordTextBox.Location = new System.Drawing.Point(206, 301);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(198, 23);
+            this.passwordTextBox.Size = new System.Drawing.Size(148, 18);
             this.passwordTextBox.TabIndex = 4;
             // 
             // passwordLabel
@@ -93,10 +93,9 @@
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.passwordLabel.Location = new System.Drawing.Point(26, 370);
-            this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.passwordLabel.Location = new System.Drawing.Point(20, 301);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(189, 21);
+            this.passwordLabel.Size = new System.Drawing.Size(160, 20);
             this.passwordLabel.TabIndex = 3;
             this.passwordLabel.Text = "Enter your Password:";
             // 
@@ -105,9 +104,10 @@
             this.loginHeaderLabel.AutoSize = true;
             this.loginHeaderLabel.Font = new System.Drawing.Font("Century Gothic", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.loginHeaderLabel.Location = new System.Drawing.Point(90, 250);
+            this.loginHeaderLabel.Location = new System.Drawing.Point(68, 203);
+            this.loginHeaderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.loginHeaderLabel.Name = "loginHeaderLabel";
-            this.loginHeaderLabel.Size = new System.Drawing.Size(298, 39);
+            this.loginHeaderLabel.Size = new System.Drawing.Size(247, 32);
             this.loginHeaderLabel.TabIndex = 5;
             this.loginHeaderLabel.Text = "G10 DVD RENTALS";
             // 
@@ -115,19 +115,20 @@
             // 
             this.pictureBox1.Image = global::CMPG223_Group10_DVD_Rental.Properties.Resources.LoginLogo;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(149, 30);
+            this.pictureBox1.Location = new System.Drawing.Point(112, 24);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox1.Size = new System.Drawing.Size(150, 162);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.ClientSize = new System.Drawing.Size(498, 507);
+            this.ClientSize = new System.Drawing.Size(374, 412);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.loginHeaderLabel);
             this.Controls.Add(this.passwordTextBox);
@@ -136,7 +137,6 @@
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.loginButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
