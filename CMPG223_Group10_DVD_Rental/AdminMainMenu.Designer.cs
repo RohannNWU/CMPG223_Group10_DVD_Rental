@@ -34,6 +34,7 @@
             this.dvdsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dVDInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shelvesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rentDVDsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +45,6 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rentDVDsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,6 +111,12 @@
             this.shelvesToolStripMenuItem.Name = "shelvesToolStripMenuItem";
             this.shelvesToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.shelvesToolStripMenuItem.Text = "&Edit Shelves";
+            // 
+            // rentDVDsToolStripMenuItem
+            // 
+            this.rentDVDsToolStripMenuItem.Name = "rentDVDsToolStripMenuItem";
+            this.rentDVDsToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.rentDVDsToolStripMenuItem.Text = "&Rent DVDs";
             // 
             // customersToolStripMenuItem
             // 
@@ -189,6 +195,7 @@
             this.helpGuideToolStripMenuItem.Name = "helpGuideToolStripMenuItem";
             this.helpGuideToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.helpGuideToolStripMenuItem.Text = "&Help Guide";
+            this.helpGuideToolStripMenuItem.Click += new System.EventHandler(this.helpGuideToolStripMenuItem_Click);
             // 
             // windowsToolStripMenuItem
             // 
@@ -196,12 +203,6 @@
             this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
             this.windowsToolStripMenuItem.Size = new System.Drawing.Size(104, 26);
             this.windowsToolStripMenuItem.Text = "&Windows";
-            // 
-            // rentDVDsToolStripMenuItem
-            // 
-            this.rentDVDsToolStripMenuItem.Name = "rentDVDsToolStripMenuItem";
-            this.rentDVDsToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
-            this.rentDVDsToolStripMenuItem.Text = "&Rent DVDs";
             // 
             // AdminMainMenu
             // 

@@ -49,5 +49,17 @@ namespace CMPG223_Group10_DVD_Rental
             dashboard.MdiParent = this;
             dashboard.Show();
         }
+
+        private void helpGuideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://wonderful-flower-0f477a010.5.azurestaticapps.net/");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link that was clicked.");
+            }
+        }
     }
 }
