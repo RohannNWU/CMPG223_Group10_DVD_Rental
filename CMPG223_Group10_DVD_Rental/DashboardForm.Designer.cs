@@ -46,9 +46,10 @@
             this.empLabel.AutoSize = true;
             this.empLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.empLabel.Location = new System.Drawing.Point(25, 30);
+            this.empLabel.Location = new System.Drawing.Point(19, 24);
+            this.empLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.empLabel.Name = "empLabel";
-            this.empLabel.Size = new System.Drawing.Size(204, 22);
+            this.empLabel.Size = new System.Drawing.Size(164, 20);
             this.empLabel.TabIndex = 0;
             this.empLabel.Text = "Employee Logged In:";
             // 
@@ -57,9 +58,10 @@
             this.memberLabel.AutoSize = true;
             this.memberLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.memberLabel.Location = new System.Drawing.Point(712, 30);
+            this.memberLabel.Location = new System.Drawing.Point(534, 24);
+            this.memberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.memberLabel.Name = "memberLabel";
-            this.memberLabel.Size = new System.Drawing.Size(92, 22);
+            this.memberLabel.Size = new System.Drawing.Size(76, 20);
             this.memberLabel.TabIndex = 1;
             this.memberLabel.Text = "Member:";
             // 
@@ -68,9 +70,10 @@
             this.dvdLabel.AutoSize = true;
             this.dvdLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dvdLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.dvdLabel.Location = new System.Drawing.Point(25, 94);
+            this.dvdLabel.Location = new System.Drawing.Point(19, 76);
+            this.dvdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dvdLabel.Name = "dvdLabel";
-            this.dvdLabel.Size = new System.Drawing.Size(119, 22);
+            this.dvdLabel.Size = new System.Drawing.Size(94, 20);
             this.dvdLabel.TabIndex = 2;
             this.dvdLabel.Text = "DVD Name:";
             // 
@@ -79,9 +82,10 @@
             this.todayLabel.AutoSize = true;
             this.todayLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.todayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.todayLabel.Location = new System.Drawing.Point(25, 159);
+            this.todayLabel.Location = new System.Drawing.Point(19, 129);
+            this.todayLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.todayLabel.Name = "todayLabel";
-            this.todayLabel.Size = new System.Drawing.Size(134, 22);
+            this.todayLabel.Size = new System.Drawing.Size(105, 20);
             this.todayLabel.TabIndex = 3;
             this.todayLabel.Text = "Today\'s Date:";
             // 
@@ -90,9 +94,10 @@
             this.returnLabel.AutoSize = true;
             this.returnLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.returnLabel.Location = new System.Drawing.Point(532, 159);
+            this.returnLabel.Location = new System.Drawing.Point(399, 129);
+            this.returnLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.returnLabel.Name = "returnLabel";
-            this.returnLabel.Size = new System.Drawing.Size(127, 22);
+            this.returnLabel.Size = new System.Drawing.Size(100, 20);
             this.returnLabel.TabIndex = 4;
             this.returnLabel.Text = "Return Date:";
             // 
@@ -102,10 +107,10 @@
             this.checkoutButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
             this.checkoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkoutButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkoutButton.Location = new System.Drawing.Point(729, 215);
-            this.checkoutButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkoutButton.Location = new System.Drawing.Point(547, 175);
+            this.checkoutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkoutButton.Name = "checkoutButton";
-            this.checkoutButton.Size = new System.Drawing.Size(168, 57);
+            this.checkoutButton.Size = new System.Drawing.Size(126, 46);
             this.checkoutButton.TabIndex = 5;
             this.checkoutButton.Text = "Checkout";
             this.checkoutButton.UseVisualStyleBackColor = false;
@@ -117,11 +122,11 @@
             this.outstandingDVD.Controls.Add(this.outstandingDVDsListBox);
             this.outstandingDVD.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outstandingDVD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.outstandingDVD.Location = new System.Drawing.Point(204, 288);
-            this.outstandingDVD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.outstandingDVD.Location = new System.Drawing.Point(153, 234);
+            this.outstandingDVD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.outstandingDVD.Name = "outstandingDVD";
-            this.outstandingDVD.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.outstandingDVD.Size = new System.Drawing.Size(900, 350);
+            this.outstandingDVD.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.outstandingDVD.Size = new System.Drawing.Size(675, 284);
             this.outstandingDVD.TabIndex = 6;
             this.outstandingDVD.TabStop = false;
             this.outstandingDVD.Text = "Outstanding DVDs";
@@ -133,10 +138,10 @@
             this.payButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.payButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.payButton.Location = new System.Drawing.Point(661, 238);
-            this.payButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.payButton.Location = new System.Drawing.Point(496, 193);
+            this.payButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.payButton.Name = "payButton";
-            this.payButton.Size = new System.Drawing.Size(168, 57);
+            this.payButton.Size = new System.Drawing.Size(126, 46);
             this.payButton.TabIndex = 7;
             this.payButton.Text = "Pay Now";
             this.payButton.UseVisualStyleBackColor = false;
@@ -146,9 +151,10 @@
             this.fineLabel.AutoSize = true;
             this.fineLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fineLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.fineLabel.Location = new System.Drawing.Point(657, 30);
+            this.fineLabel.Location = new System.Drawing.Point(493, 24);
+            this.fineLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fineLabel.Name = "fineLabel";
-            this.fineLabel.Size = new System.Drawing.Size(111, 22);
+            this.fineLabel.Size = new System.Drawing.Size(89, 20);
             this.fineLabel.TabIndex = 7;
             this.fineLabel.Text = "Fine Due: R";
             // 
@@ -157,19 +163,19 @@
             this.outstandingDVDsListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
             this.outstandingDVDsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.outstandingDVDsListBox.FormattingEnabled = true;
-            this.outstandingDVDsListBox.ItemHeight = 21;
-            this.outstandingDVDsListBox.Location = new System.Drawing.Point(19, 38);
-            this.outstandingDVDsListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.outstandingDVDsListBox.ItemHeight = 20;
+            this.outstandingDVDsListBox.Location = new System.Drawing.Point(14, 31);
+            this.outstandingDVDsListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.outstandingDVDsListBox.Name = "outstandingDVDsListBox";
-            this.outstandingDVDsListBox.Size = new System.Drawing.Size(560, 252);
+            this.outstandingDVDsListBox.Size = new System.Drawing.Size(420, 200);
             this.outstandingDVDsListBox.TabIndex = 0;
             // 
             // DashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.ClientSize = new System.Drawing.Size(1300, 650);
+            this.ClientSize = new System.Drawing.Size(975, 528);
             this.Controls.Add(this.outstandingDVD);
             this.Controls.Add(this.checkoutButton);
             this.Controls.Add(this.returnLabel);
@@ -179,7 +185,7 @@
             this.Controls.Add(this.empLabel);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DashboardForm";

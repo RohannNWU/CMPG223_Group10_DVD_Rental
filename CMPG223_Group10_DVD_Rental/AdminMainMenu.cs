@@ -64,5 +64,12 @@ namespace CMPG223_Group10_DVD_Rental
                 MessageBox.Show("Unable to open link that was clicked.");
             }
         }
+
+        // Open Employee form when clicked on MenuStrip
+        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Employee employeeForm = new Employee();
+            employeeForm.Show();
+        }
     }
 }
