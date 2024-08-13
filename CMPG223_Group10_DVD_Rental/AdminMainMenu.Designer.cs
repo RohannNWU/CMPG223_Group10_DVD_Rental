@@ -32,15 +32,8 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dvdsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dVDInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.shelvesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rentDVDsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,89 +80,25 @@
             // 
             // dvdsToolStripMenuItem
             // 
-            this.dvdsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dVDInventoryToolStripMenuItem,
-            this.shelvesToolStripMenuItem,
-            this.rentDVDsToolStripMenuItem});
             this.dvdsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.dvdsToolStripMenuItem.Name = "dvdsToolStripMenuItem";
             this.dvdsToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.dvdsToolStripMenuItem.Text = "&DVDs";
             // 
-            // dVDInventoryToolStripMenuItem
-            // 
-            this.dVDInventoryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.dVDInventoryToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.dVDInventoryToolStripMenuItem.Name = "dVDInventoryToolStripMenuItem";
-            this.dVDInventoryToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
-            this.dVDInventoryToolStripMenuItem.Text = "&DVD Inventory";
-            // 
-            // shelvesToolStripMenuItem
-            // 
-            this.shelvesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.shelvesToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.shelvesToolStripMenuItem.Name = "shelvesToolStripMenuItem";
-            this.shelvesToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
-            this.shelvesToolStripMenuItem.Text = "&Edit Shelves";
-            // 
-            // rentDVDsToolStripMenuItem
-            // 
-            this.rentDVDsToolStripMenuItem.Name = "rentDVDsToolStripMenuItem";
-            this.rentDVDsToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
-            this.rentDVDsToolStripMenuItem.Text = "&Rent DVDs";
-            // 
             // customersToolStripMenuItem
             // 
-            this.customersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewCustomerToolStripMenuItem,
-            this.editCustomerToolStripMenuItem});
             this.customersToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
             this.customersToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.customersToolStripMenuItem.Text = "&Customers";
             // 
-            // addNewCustomerToolStripMenuItem
-            // 
-            this.addNewCustomerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.addNewCustomerToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.addNewCustomerToolStripMenuItem.Name = "addNewCustomerToolStripMenuItem";
-            this.addNewCustomerToolStripMenuItem.Size = new System.Drawing.Size(222, 24);
-            this.addNewCustomerToolStripMenuItem.Text = "&Add New Customer";
-            // 
-            // editCustomerToolStripMenuItem
-            // 
-            this.editCustomerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.editCustomerToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.editCustomerToolStripMenuItem.Name = "editCustomerToolStripMenuItem";
-            this.editCustomerToolStripMenuItem.Size = new System.Drawing.Size(222, 24);
-            this.editCustomerToolStripMenuItem.Text = "&Edit Customer";
-            // 
             // employeesToolStripMenuItem
             // 
-            this.employeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewEmployeeToolStripMenuItem,
-            this.editEmployeeToolStripMenuItem});
             this.employeesToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
             this.employeesToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
             this.employeesToolStripMenuItem.Text = "&Employees";
             this.employeesToolStripMenuItem.Click += new System.EventHandler(this.employeesToolStripMenuItem_Click);
-            // 
-            // addNewEmployeeToolStripMenuItem
-            // 
-            this.addNewEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.addNewEmployeeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.addNewEmployeeToolStripMenuItem.Name = "addNewEmployeeToolStripMenuItem";
-            this.addNewEmployeeToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
-            this.addNewEmployeeToolStripMenuItem.Text = "&Add New Employee";
-            // 
-            // editEmployeeToolStripMenuItem
-            // 
-            this.editEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.editEmployeeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.editEmployeeToolStripMenuItem.Name = "editEmployeeToolStripMenuItem";
-            this.editEmployeeToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
-            this.editEmployeeToolStripMenuItem.Text = "&Edit Employee";
             // 
             // helpToolStripMenuItem
             // 
@@ -233,19 +162,12 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dVDInventoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem shelvesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewCustomerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewEmployeeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editEmployeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpGuideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dvdsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rentDVDsToolStripMenuItem;
     }
 }

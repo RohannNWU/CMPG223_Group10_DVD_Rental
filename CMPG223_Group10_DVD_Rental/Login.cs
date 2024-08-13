@@ -77,10 +77,12 @@ namespace CMPG223_Group10_DVD_Rental
                     MessageBox.Show("Population Error: Fields cannot be empty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 conn.Close();
-            } catch (SqlException sqlEx)
+            } 
+            catch (SqlException sqlEx)
             {
                 MessageBox.Show("SQL Error: " + sqlEx.Message); // displays the SQL error
-            } catch (Exception ex)
+            } 
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message); // displays any normal error encountered
             }
