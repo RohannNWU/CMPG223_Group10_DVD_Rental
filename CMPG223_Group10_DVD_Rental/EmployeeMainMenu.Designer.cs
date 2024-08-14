@@ -32,11 +32,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dVDsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dVDInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editShelvesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +53,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(982, 30);
+            this.menuStrip.Size = new System.Drawing.Size(982, 28);
             this.menuStrip.TabIndex = 1;
             // 
             // fileToolStripMenuItem
@@ -66,7 +62,7 @@
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(51, 26);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // quitToolStripMenuItem
@@ -74,61 +70,24 @@
             this.quitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.quitToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
             this.quitToolStripMenuItem.Text = "&Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // dVDsToolStripMenuItem
             // 
-            this.dVDsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dVDInventoryToolStripMenuItem,
-            this.editShelvesToolStripMenuItem});
             this.dVDsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.dVDsToolStripMenuItem.Name = "dVDsToolStripMenuItem";
-            this.dVDsToolStripMenuItem.Size = new System.Drawing.Size(74, 26);
+            this.dVDsToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.dVDsToolStripMenuItem.Text = "&DVDs";
-            // 
-            // dVDInventoryToolStripMenuItem
-            // 
-            this.dVDInventoryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.dVDInventoryToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.dVDInventoryToolStripMenuItem.Name = "dVDInventoryToolStripMenuItem";
-            this.dVDInventoryToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
-            this.dVDInventoryToolStripMenuItem.Text = "&DVD Inventory";
-            // 
-            // editShelvesToolStripMenuItem
-            // 
-            this.editShelvesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.editShelvesToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.editShelvesToolStripMenuItem.Name = "editShelvesToolStripMenuItem";
-            this.editShelvesToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
-            this.editShelvesToolStripMenuItem.Text = "&Edit Shelves";
             // 
             // customersToolStripMenuItem
             // 
-            this.customersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewCustomerToolStripMenuItem,
-            this.editCustomerToolStripMenuItem});
             this.customersToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(119, 26);
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.customersToolStripMenuItem.Text = "&Customers";
-            // 
-            // addNewCustomerToolStripMenuItem
-            // 
-            this.addNewCustomerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.addNewCustomerToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.addNewCustomerToolStripMenuItem.Name = "addNewCustomerToolStripMenuItem";
-            this.addNewCustomerToolStripMenuItem.Size = new System.Drawing.Size(275, 26);
-            this.addNewCustomerToolStripMenuItem.Text = "&Add New Customer";
-            // 
-            // editCustomerToolStripMenuItem
-            // 
-            this.editCustomerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.editCustomerToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.editCustomerToolStripMenuItem.Name = "editCustomerToolStripMenuItem";
-            this.editCustomerToolStripMenuItem.Size = new System.Drawing.Size(275, 26);
-            this.editCustomerToolStripMenuItem.Text = "&Edit Customer";
+            this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
             // employeesToolStripMenuItem
             // 
@@ -136,7 +95,7 @@
             this.helpGuideToolStripMenuItem});
             this.employeesToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
-            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
+            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(54, 24);
             this.employeesToolStripMenuItem.Text = "&Help";
             // 
             // helpGuideToolStripMenuItem
@@ -144,7 +103,7 @@
             this.helpGuideToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.helpGuideToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.helpGuideToolStripMenuItem.Name = "helpGuideToolStripMenuItem";
-            this.helpGuideToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.helpGuideToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
             this.helpGuideToolStripMenuItem.Text = "&Help Guide";
             this.helpGuideToolStripMenuItem.Click += new System.EventHandler(this.helpGuideToolStripMenuItem_Click);
             // 
@@ -152,12 +111,12 @@
             // 
             this.windowsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
-            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(104, 26);
+            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.windowsToolStripMenuItem.Text = "&Windows";
             // 
             // EmployeeMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 653);
             this.Controls.Add(this.menuStrip);
@@ -184,11 +143,7 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dVDsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dVDInventoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editShelvesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewCustomerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpGuideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;

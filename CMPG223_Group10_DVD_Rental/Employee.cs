@@ -93,7 +93,7 @@ namespace CMPG223_Group10_DVD_Rental
             }
         }
 
-        //Method clear + change visibility for input labels and textboxes
+        //Method reset input controls
         private void EmptyInput()
         {
             lblName.Text = "Name:";

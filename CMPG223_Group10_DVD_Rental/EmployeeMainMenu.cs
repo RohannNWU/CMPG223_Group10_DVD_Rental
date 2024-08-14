@@ -61,5 +61,11 @@ namespace CMPG223_Group10_DVD_Rental
                 MessageBox.Show("Unable to open link that was clicked.");
             }
         }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Customer CustomerForm = new Customer();
+            CustomerForm.Show();
+        }
     }
 }

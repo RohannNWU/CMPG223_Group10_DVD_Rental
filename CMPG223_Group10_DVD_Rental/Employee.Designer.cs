@@ -39,15 +39,15 @@
             this.lblContactNumber = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.gbInput = new System.Windows.Forms.GroupBox();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtSurname = new System.Windows.Forms.TextBox();
-            this.txtDOB = new System.Windows.Forms.TextBox();
-            this.txtContactNumber = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.cbAdmin = new System.Windows.Forms.CheckBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtContactNumber = new System.Windows.Forms.TextBox();
+            this.txtDOB = new System.Windows.Forms.TextBox();
+            this.txtSurname = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.btnSubmit = new System.Windows.Forms.Button();
             lblCommand = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmployee)).BeginInit();
             this.gbInput.SuspendLayout();
@@ -56,9 +56,10 @@
             // lblCommand
             // 
             lblCommand.AutoSize = true;
+            lblCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblCommand.Location = new System.Drawing.Point(279, 324);
             lblCommand.Name = "lblCommand";
-            lblCommand.Size = new System.Drawing.Size(90, 13);
+            lblCommand.Size = new System.Drawing.Size(113, 16);
             lblCommand.TabIndex = 4;
             lblCommand.Text = "Select Command:";
             // 
@@ -77,15 +78,15 @@
             // DGVEmployee
             // 
             this.DGVEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVEmployee.Location = new System.Drawing.Point(81, 70);
+            this.DGVEmployee.Location = new System.Drawing.Point(26, 70);
             this.DGVEmployee.Name = "DGVEmployee";
-            this.DGVEmployee.Size = new System.Drawing.Size(649, 215);
+            this.DGVEmployee.Size = new System.Drawing.Size(789, 215);
             this.DGVEmployee.TabIndex = 1;
             // 
             // btnShowAll
             // 
             this.btnShowAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowAll.Location = new System.Drawing.Point(81, 291);
+            this.btnShowAll.Location = new System.Drawing.Point(26, 291);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(87, 28);
             this.btnShowAll.TabIndex = 2;
@@ -101,7 +102,7 @@
             "Update",
             "Delete",
             "Add"});
-            this.cmbCommand.Location = new System.Drawing.Point(375, 321);
+            this.cmbCommand.Location = new System.Drawing.Point(398, 323);
             this.cmbCommand.Name = "cmbCommand";
             this.cmbCommand.Size = new System.Drawing.Size(121, 21);
             this.cmbCommand.TabIndex = 3;
@@ -154,6 +155,7 @@
             // 
             // gbInput
             // 
+            this.gbInput.BackColor = System.Drawing.SystemColors.ControlDark;
             this.gbInput.Controls.Add(this.cbAdmin);
             this.gbInput.Controls.Add(this.txtPassword);
             this.gbInput.Controls.Add(this.txtUsername);
@@ -177,68 +179,6 @@
             this.gbInput.Text = "Input";
             this.gbInput.Visible = false;
             // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(123, 248);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 25);
-            this.btnSubmit.TabIndex = 10;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(25, 199);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(56, 13);
-            this.lblPassword.TabIndex = 11;
-            this.lblPassword.Text = "Password:";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(98, 42);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 12;
-            // 
-            // txtSurname
-            // 
-            this.txtSurname.Location = new System.Drawing.Point(98, 73);
-            this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(100, 20);
-            this.txtSurname.TabIndex = 13;
-            // 
-            // txtDOB
-            // 
-            this.txtDOB.Location = new System.Drawing.Point(98, 103);
-            this.txtDOB.Name = "txtDOB";
-            this.txtDOB.Size = new System.Drawing.Size(100, 20);
-            this.txtDOB.TabIndex = 14;
-            // 
-            // txtContactNumber
-            // 
-            this.txtContactNumber.Location = new System.Drawing.Point(113, 134);
-            this.txtContactNumber.Name = "txtContactNumber";
-            this.txtContactNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtContactNumber.TabIndex = 15;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(98, 166);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(100, 20);
-            this.txtUsername.TabIndex = 16;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(98, 196);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(100, 20);
-            this.txtPassword.TabIndex = 17;
-            // 
             // cbAdmin
             // 
             this.cbAdmin.AutoSize = true;
@@ -249,6 +189,68 @@
             this.cbAdmin.TabIndex = 18;
             this.cbAdmin.Text = "Admin:        ";
             this.cbAdmin.UseVisualStyleBackColor = true;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(98, 196);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.TabIndex = 17;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(98, 166);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(100, 20);
+            this.txtUsername.TabIndex = 16;
+            // 
+            // txtContactNumber
+            // 
+            this.txtContactNumber.Location = new System.Drawing.Point(113, 134);
+            this.txtContactNumber.Name = "txtContactNumber";
+            this.txtContactNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtContactNumber.TabIndex = 15;
+            // 
+            // txtDOB
+            // 
+            this.txtDOB.Location = new System.Drawing.Point(98, 103);
+            this.txtDOB.Name = "txtDOB";
+            this.txtDOB.Size = new System.Drawing.Size(100, 20);
+            this.txtDOB.TabIndex = 14;
+            // 
+            // txtSurname
+            // 
+            this.txtSurname.Location = new System.Drawing.Point(98, 73);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(100, 20);
+            this.txtSurname.TabIndex = 13;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(98, 42);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.TabIndex = 12;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(25, 199);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(56, 13);
+            this.lblPassword.TabIndex = 11;
+            this.lblPassword.Text = "Password:";
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Location = new System.Drawing.Point(123, 248);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 25);
+            this.btnSubmit.TabIndex = 10;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // Employee
             // 

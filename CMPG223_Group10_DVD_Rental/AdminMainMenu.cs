@@ -71,5 +71,11 @@ namespace CMPG223_Group10_DVD_Rental
             Employee employeeForm = new Employee();
             employeeForm.Show();
         }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Customer CustomerForm = new Customer();
+            CustomerForm.Show();
+        }
     }
 }

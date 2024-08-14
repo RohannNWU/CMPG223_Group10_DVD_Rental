@@ -91,6 +91,7 @@
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
             this.customersToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.customersToolStripMenuItem.Text = "&Customers";
+            this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
             // employeesToolStripMenuItem
             // 
