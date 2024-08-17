@@ -62,10 +62,17 @@ namespace CMPG223_Group10_DVD_Rental
             }
         }
 
+        // Open respective forms when clicked on Menu Strip
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Customer CustomerForm = new Customer();
             CustomerForm.Show();
+        }
+
+        private void dVDsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DVD DVDForm = new DVD();
+            DVDForm.Show();
         }
     }
 }

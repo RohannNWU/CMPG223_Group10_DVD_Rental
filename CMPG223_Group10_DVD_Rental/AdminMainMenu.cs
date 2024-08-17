@@ -65,7 +65,7 @@ namespace CMPG223_Group10_DVD_Rental
             }
         }
 
-        // Open Employee form when clicked on MenuStrip
+        // Open respective forms when clicked on Menu Strip
         private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Employee employeeForm = new Employee();
@@ -76,6 +76,12 @@ namespace CMPG223_Group10_DVD_Rental
         {
             Customer CustomerForm = new Customer();
             CustomerForm.Show();
+        }
+
+        private void dvdsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DVD DVDForm = new DVD();
+            DVDForm.Show();
         }
     }
 }

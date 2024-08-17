@@ -80,6 +80,7 @@
             this.dVDsToolStripMenuItem.Name = "dVDsToolStripMenuItem";
             this.dVDsToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.dVDsToolStripMenuItem.Text = "&DVDs";
+            this.dVDsToolStripMenuItem.Click += new System.EventHandler(this.dVDsToolStripMenuItem_Click);
             // 
             // customersToolStripMenuItem
             // 
