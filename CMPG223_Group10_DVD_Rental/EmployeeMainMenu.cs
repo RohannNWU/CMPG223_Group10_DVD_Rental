@@ -58,20 +58,22 @@ namespace CMPG223_Group10_DVD_Rental
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to open link that was clicked.");
+                MessageBox.Show("Unable to open link that was clicked.\n" + ex.Message);
             }
         }
 
         // Open respective forms when clicked on Menu Strip
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Customer CustomerForm = new Customer();
-            CustomerForm.Show();
+            Customer customerForm = new Customer();
+            customerForm.MdiParent = this;
+            customerForm.Show();
         }
 
         private void dVDsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DVD DVDForm = new DVD();
+            DVDForm.MdiParent = this;
             DVDForm.Show();
         }
     }

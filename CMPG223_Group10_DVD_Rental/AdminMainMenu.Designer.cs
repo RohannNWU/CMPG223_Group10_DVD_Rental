@@ -57,7 +57,7 @@
             this.menuStrip.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(982, 28);
+            this.menuStrip.Size = new System.Drawing.Size(982, 30);
             this.menuStrip.TabIndex = 1;
             // 
             // fileToolStripMenuItem
@@ -66,7 +66,7 @@
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(51, 26);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // quitToolStripMenuItem
@@ -74,7 +74,7 @@
             this.quitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.quitToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quitToolStripMenuItem.Text = "&Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -82,7 +82,7 @@
             // 
             this.dvdsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.dvdsToolStripMenuItem.Name = "dvdsToolStripMenuItem";
-            this.dvdsToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.dvdsToolStripMenuItem.Size = new System.Drawing.Size(74, 26);
             this.dvdsToolStripMenuItem.Text = "&DVDs";
             this.dvdsToolStripMenuItem.Click += new System.EventHandler(this.dvdsToolStripMenuItem_Click);
             // 
@@ -90,7 +90,7 @@
             // 
             this.customersToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(119, 26);
             this.customersToolStripMenuItem.Text = "&Customers";
             this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
@@ -98,7 +98,7 @@
             // 
             this.employeesToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
-            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
+            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
             this.employeesToolStripMenuItem.Text = "&Employees";
             this.employeesToolStripMenuItem.Click += new System.EventHandler(this.employeesToolStripMenuItem_Click);
             // 
@@ -109,7 +109,7 @@
             this.helpGuideToolStripMenuItem});
             this.helpToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(54, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
             // reportsToolStripMenuItem
@@ -117,7 +117,7 @@
             this.reportsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.reportsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.reportsToolStripMenuItem.Text = "&Reports";
             // 
             // helpGuideToolStripMenuItem
@@ -125,7 +125,7 @@
             this.helpGuideToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.helpGuideToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.helpGuideToolStripMenuItem.Name = "helpGuideToolStripMenuItem";
-            this.helpGuideToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.helpGuideToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.helpGuideToolStripMenuItem.Text = "&Help Guide";
             this.helpGuideToolStripMenuItem.Click += new System.EventHandler(this.helpGuideToolStripMenuItem_Click);
             // 
@@ -133,12 +133,12 @@
             // 
             this.windowsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
-            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(104, 26);
             this.windowsToolStripMenuItem.Text = "&Windows";
             // 
             // AdminMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 653);
             this.Controls.Add(this.menuStrip);
