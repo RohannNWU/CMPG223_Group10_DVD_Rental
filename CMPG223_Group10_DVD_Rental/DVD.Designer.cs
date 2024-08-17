@@ -33,15 +33,15 @@
             this.cmbCommand = new System.Windows.Forms.ComboBox();
             this.lblCommand = new System.Windows.Forms.Label();
             this.gbInput = new System.Windows.Forms.GroupBox();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblGenre = new System.Windows.Forms.Label();
-            this.lblYear = new System.Windows.Forms.Label();
-            this.lblCopies = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblCopies = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblGenre = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.lblSelectName = new System.Windows.Forms.Label();
             this.cmbNames = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -77,7 +77,7 @@
             "Add DVD",
             "Delete DVD",
             "Edit DVD",
-            "Search Genre"});
+            "Search Genre and Location"});
             this.cmbCommand.Location = new System.Drawing.Point(407, 260);
             this.cmbCommand.Name = "cmbCommand";
             this.cmbCommand.Size = new System.Drawing.Size(121, 21);
@@ -113,32 +113,42 @@
             this.gbInput.Text = "Input";
             this.gbInput.Visible = false;
             // 
-            // lblName
+            // btnSubmit
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(26, 39);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(41, 13);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name: ";
+            this.btnSubmit.Location = new System.Drawing.Point(100, 166);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 8;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
             // 
-            // lblGenre
+            // textBox4
             // 
-            this.lblGenre.AutoSize = true;
-            this.lblGenre.Location = new System.Drawing.Point(31, 105);
-            this.lblGenre.Name = "lblGenre";
-            this.lblGenre.Size = new System.Drawing.Size(42, 13);
-            this.lblGenre.TabIndex = 1;
-            this.lblGenre.Text = "Genre: ";
+            this.textBox4.Location = new System.Drawing.Point(90, 140);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 7;
             // 
-            // lblYear
+            // textBox3
             // 
-            this.lblYear.AutoSize = true;
-            this.lblYear.Location = new System.Drawing.Point(35, 75);
-            this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(32, 13);
-            this.lblYear.TabIndex = 2;
-            this.lblYear.Text = "Year:";
+            this.textBox3.Location = new System.Drawing.Point(90, 105);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 6;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(90, 72);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 5;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(90, 39);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 4;
             // 
             // lblCopies
             // 
@@ -149,42 +159,32 @@
             this.lblCopies.TabIndex = 3;
             this.lblCopies.Text = "Copies:";
             // 
-            // textBox1
+            // lblYear
             // 
-            this.textBox1.Location = new System.Drawing.Point(90, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(35, 75);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(32, 13);
+            this.lblYear.TabIndex = 2;
+            this.lblYear.Text = "Year:";
             // 
-            // textBox2
+            // lblGenre
             // 
-            this.textBox2.Location = new System.Drawing.Point(90, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.lblGenre.AutoSize = true;
+            this.lblGenre.Location = new System.Drawing.Point(31, 105);
+            this.lblGenre.Name = "lblGenre";
+            this.lblGenre.Size = new System.Drawing.Size(42, 13);
+            this.lblGenre.TabIndex = 1;
+            this.lblGenre.Text = "Genre: ";
             // 
-            // textBox3
+            // lblName
             // 
-            this.textBox3.Location = new System.Drawing.Point(90, 105);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(90, 140);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(100, 166);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 8;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(26, 39);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(41, 13);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name: ";
             // 
             // lblSelectName
             // 
@@ -210,6 +210,7 @@
             this.cmbNames.Size = new System.Drawing.Size(121, 21);
             this.cmbNames.TabIndex = 9;
             this.cmbNames.Visible = false;
+            this.cmbNames.SelectedIndexChanged += new System.EventHandler(this.cmbNames_SelectedIndexChanged);
             // 
             // DVD
             // 
