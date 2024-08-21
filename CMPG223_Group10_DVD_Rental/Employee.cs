@@ -185,7 +185,29 @@ namespace CMPG223_Group10_DVD_Rental
                     gbInput.Visible = true;
                     try
                     {
+                        conn.Open();
 
+                        SqlCommand cmd = new SqlCommand("INSERT INTO Employee (Employee_Name_Surname, Date_of_Birth, Contact_Number, Username, Password, Role) VALUES (@NameSurname, @DOB, @Number, @Username, @Password, @Role)", conn);
+
+                        cmd.Parameters.AddWithValue("@NameSurname", txtName.Text + txtSurname.Text);
+                        cmd.Parameters.AddWithValue("@DOB", txtDOB.Text);
+                        cmd.Parameters.AddWithValue("@Number", txtContactNumber.Text);
+                        cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
+                        cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
+
+                        if (cbAdmin.Checked)
+                        {
+                            cmd.Parameters.AddWithValue("@Role", "Administrator");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@Role", "Employee");
+                        }
+                        cmd.ExecuteNonQuery();
+
+                        conn.Close();
+
+                        EmptyInput();
                     }
                     catch (SqlException sqlEx)
                     {

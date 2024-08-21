@@ -34,7 +34,6 @@
             this.lblCommand = new System.Windows.Forms.Label();
             this.gbInput = new System.Windows.Forms.GroupBox();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.txtGenre = new System.Windows.Forms.TextBox();
             this.txtYear = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblCopies = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.lblSelectName = new System.Windows.Forms.Label();
             this.cmbNames = new System.Windows.Forms.ComboBox();
             this.txtCopies = new System.Windows.Forms.TextBox();
+            this.cmbDrop = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbInput.SuspendLayout();
             this.SuspendLayout();
@@ -96,9 +96,9 @@
             // 
             // gbInput
             // 
+            this.gbInput.Controls.Add(this.cmbDrop);
             this.gbInput.Controls.Add(this.btnSubmit);
             this.gbInput.Controls.Add(this.txtCopies);
-            this.gbInput.Controls.Add(this.txtGenre);
             this.gbInput.Controls.Add(this.txtYear);
             this.gbInput.Controls.Add(this.txtName);
             this.gbInput.Controls.Add(this.lblCopies);
@@ -115,19 +115,13 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(100, 166);
+            this.btnSubmit.Location = new System.Drawing.Point(100, 178);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
-            // 
-            // txtGenre
-            // 
-            this.txtGenre.Location = new System.Drawing.Point(90, 105);
-            this.txtGenre.Name = "txtGenre";
-            this.txtGenre.Size = new System.Drawing.Size(100, 20);
-            this.txtGenre.TabIndex = 6;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // txtYear
             // 
@@ -212,6 +206,23 @@
             this.txtCopies.Size = new System.Drawing.Size(100, 20);
             this.txtCopies.TabIndex = 7;
             // 
+            // cmbDrop
+            // 
+            this.cmbDrop.FormattingEnabled = true;
+            this.cmbDrop.Items.AddRange(new object[] {
+            "Horror",
+            "Comedy",
+            "Drama",
+            "Action",
+            "Romance",
+            "Science Fiction",
+            "Fantasy",
+            "Animation"});
+            this.cmbDrop.Location = new System.Drawing.Point(90, 105);
+            this.cmbDrop.Name = "cmbDrop";
+            this.cmbDrop.Size = new System.Drawing.Size(100, 21);
+            this.cmbDrop.TabIndex = 9;
+            // 
             // DVD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,7 +255,6 @@
         private System.Windows.Forms.ComboBox cmbCommand;
         private System.Windows.Forms.Label lblCommand;
         private System.Windows.Forms.GroupBox gbInput;
-        private System.Windows.Forms.TextBox txtGenre;
         private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblCopies;
@@ -255,5 +265,6 @@
         private System.Windows.Forms.Label lblSelectName;
         private System.Windows.Forms.ComboBox cmbNames;
         private System.Windows.Forms.TextBox txtCopies;
+        private System.Windows.Forms.ComboBox cmbDrop;
     }
 }

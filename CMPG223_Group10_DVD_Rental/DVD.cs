@@ -81,7 +81,6 @@ namespace CMPG223_Group10_DVD_Rental
             
             int selectedIndex = cmbCommand.SelectedIndex;
 
-            
             string selectedDVDName = cmbNames.SelectedItem.ToString();
 
             conn = new SqlConnection(connectionString);
@@ -114,35 +113,64 @@ namespace CMPG223_Group10_DVD_Rental
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
-
-            //Method reset input controls
-            private void ResetInput()
-            {
-                lblName.Text = "Name:";
-                txtName.Text = "";
-                txtName.Visible = true;
-                lblName.Visible = true;
-                txtYear.Text = "";
-                txtYear.Visible = true;
-                lblYear.Visible = true;
-                txtGenre.Text = "";
-                txtGenre.Visible = true;
-                lblGenre.Visible = true;
-                txtCopies.Text = "";
-                txtCopies.Visible = true;
-                lblCopies.Visible = true;
-                txtUsername.Text = "";
-                txtUsername.Visible = true;
-                lblUserName.Visible = true;
-                txtPassword.Text = "";
-                txtPassword.Visible = true;
-                lblPassword.Visible = true;
-                cbAdmin.Checked = false;
-                cbAdmin.Visible = true;
-
-                gbInput.Visible = false;
-            }
-
         }
+
+        //Method reset input controls
+        private void ResetInput()
+        {
+            lblName.Text = "Name:";
+            txtName.Text = "";
+            txtName.Visible = true;
+            lblName.Visible = true;
+            txtYear.Text = "";
+            txtYear.Visible = true;
+            lblYear.Visible = true;
+            txtGenre.Text = "";
+            txtGenre.Visible = true;
+            lblGenre.Visible = true;
+            txtCopies.Text = "";
+            txtCopies.Visible = true;
+            lblCopies.Visible = true;
+
+            gbInput.Visible = false;
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = cmbCommand.SelectedIndex;
+
+            switch (selectedIndex)
+            {
+                case 0:
+                    conn = new SqlConnection(connectionString);
+                    try
+                    {
+                        conn.Open();
+
+                        conn.Close();
+
+                        ResetInput();
+                    }
+                    catch (SqlException sqlEx)
+                    {
+                        MessageBox.Show("SQL Error: " + sqlEx.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                    break;
+                case 1:
+                    break;
+
+                case 2:
+
+                    break;
+                default:
+                    break;
+
+            }
+        }
+    }
     }
 }
