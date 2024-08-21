@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace CMPG223_Group10_DVD_Rental
 {
@@ -32,7 +33,10 @@ namespace CMPG223_Group10_DVD_Rental
 
             switch (selectedIndex)
             {
+                case 0:
 
+                    gbInput.Visible = true;
+                    break;
 
                 case 3:
 
@@ -111,7 +115,33 @@ namespace CMPG223_Group10_DVD_Rental
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
 
+            //Method reset input controls
+            private void ResetInput()
+            {
+                lblName.Text = "Name:";
+                txtName.Text = "";
+                txtName.Visible = true;
+                lblName.Visible = true;
+                txtYear.Text = "";
+                txtYear.Visible = true;
+                lblYear.Visible = true;
+                txtGenre.Text = "";
+                txtGenre.Visible = true;
+                lblGenre.Visible = true;
+                txtCopies.Text = "";
+                txtCopies.Visible = true;
+                lblCopies.Visible = true;
+                txtUsername.Text = "";
+                txtUsername.Visible = true;
+                lblUserName.Visible = true;
+                txtPassword.Text = "";
+                txtPassword.Visible = true;
+                lblPassword.Visible = true;
+                cbAdmin.Checked = false;
+                cbAdmin.Visible = true;
 
+                gbInput.Visible = false;
+            }
 
         }
     }
