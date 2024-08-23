@@ -38,6 +38,18 @@ namespace CMPG223_Group10_DVD_Rental
 
                     gbInput.Visible = true;
                     break;
+                case 1:
+
+                    //Hide un-used input controls
+                    gbInput.Visible = true;
+                    lblName.Text = "Insert ID to delete: ";
+                    lblGenre.Visible = false;
+                    lblYear.Visible = false;
+                    lblCopies.Visible = false;
+                    txtCopies.Visible = false; 
+                    txtYear.Visible = false;
+                    cmbDrop.Visible = false;
+                    break;
 
                 case 4:
 
@@ -130,7 +142,7 @@ namespace CMPG223_Group10_DVD_Rental
             txtCopies.Text = "";
             txtCopies.Visible = true;
             lblCopies.Visible = true;
-
+            cmbDrop.Visible = true;
             gbInput.Visible = false;
         }
 
@@ -188,6 +200,31 @@ namespace CMPG223_Group10_DVD_Rental
                     }
                     break;
                 case 1:
+
+                    gbInput.Visible = true;
+
+                    int DVDId = int.Parse(txtName.Text);
+                    try
+                    {
+                        conn.Open();
+
+                        SqlCommand cmd = new SqlCommand(@"DELETE FROM DVD WHERE DVD_ID = @DVD_ID", conn);
+                        cmd.Parameters.AddWithValue("@DVD_ID", DVDId);
+                        cmd.ExecuteNonQuery();
+
+                        conn.Close();
+                        shelfLabel.Visible = false;
+                        ResetInput();
+                    }
+                    catch (SqlException sqlEx)
+                    {
+                        MessageBox.Show("SQL Error: " + sqlEx.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+
                     break;
 
                 case 2:
