@@ -20,15 +20,16 @@ namespace CMPG223_Group10_DVD_Rental
         private SqlCommand command;
         private SqlDataReader reader;
         private string sqlQuery;
+        private string expectedShelf;
         public DVD()
         {
             InitializeComponent();
+            ShowAll();
         }
 
         //Change input according to command selection
         private void cmbCommand_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             int selectedIndex = cmbCommand.SelectedIndex;
 
             switch (selectedIndex)
@@ -38,7 +39,7 @@ namespace CMPG223_Group10_DVD_Rental
                     gbInput.Visible = true;
                     break;
 
-                case 3:
+                case 4:
 
                     //Code for Search command 
                     cmbNames.Items.Clear();
@@ -125,14 +126,33 @@ namespace CMPG223_Group10_DVD_Rental
             txtYear.Text = "";
             txtYear.Visible = true;
             lblYear.Visible = true;
-            txtGenre.Text = "";
-            txtGenre.Visible = true;
             lblGenre.Visible = true;
             txtCopies.Text = "";
             txtCopies.Visible = true;
             lblCopies.Visible = true;
 
             gbInput.Visible = false;
+        }
+
+        private void ShowAll()
+        {
+            dvdGridView.DataSource = null;
+            conn = new SqlConnection(connectionString);
+            try
+            {
+                conn.Open();
+                sqlQuery = "SELECT * FROM DVD";
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlQuery, conn);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dvdGridView.DataSource = dataTable;
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -146,10 +166,17 @@ namespace CMPG223_Group10_DVD_Rental
                     try
                     {
                         conn.Open();
-
+                        sqlQuery = "INSERT INTO DVD (Shelf_ID, DVD_Name, DVD_Year, DVD_Genre, DVD_Copies) VALUES (@shelf, @name, @year, @genre, @copies)";
+                        command = new SqlCommand(sqlQuery, conn);
+                        command.Parameters.AddWithValue("@shelf", expectedShelf);
+                        command.Parameters.AddWithValue("@name", txtName.Text);
+                        command.Parameters.AddWithValue("@year", txtYear.Text);
+                        command.Parameters.AddWithValue("@genre", cmbDrop.Text);
+                        command.Parameters.AddWithValue("@copies", txtCopies.Text);
+                        command.ExecuteNonQuery();
                         conn.Close();
-
                         ResetInput();
+                        shelfLabel.Visible = false;
                     }
                     catch (SqlException sqlEx)
                     {
@@ -170,7 +197,46 @@ namespace CMPG223_Group10_DVD_Rental
                     break;
 
             }
+            ShowAll();
         }
-    }
+
+        private void cmbDrop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedGenre = cmbDrop.Text;
+
+            conn = new SqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+                sqlQuery = "SELECT * FROM Shelf";
+                command = new SqlCommand(sqlQuery, conn);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string[] genres = new string[0];
+                    genres = reader.GetValue(1).ToString().Split(',');
+                    for (int i = 0; i < genres.Length; i++)
+                    {
+                        if (selectedGenre == genres[i])
+                        {
+                            shelfLabel.Text = "Expected Shelf Location: " + reader.GetValue(0).ToString();
+                            expectedShelf = reader.GetValue(0).ToString();
+                        }
+                    }
+                }
+                reader.Close();
+                conn.Close();
+                shelfLabel.Visible = true;
+            }
+            catch (SqlException sqlEx) {
+                MessageBox.Show("Couldn't connect to database. " + sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error. " + ex.Message);
+            }
+        }
     }
 }

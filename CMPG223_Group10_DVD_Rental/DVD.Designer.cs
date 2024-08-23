@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dvdGridView = new System.Windows.Forms.DataGridView();
             this.lblHeader = new System.Windows.Forms.Label();
             this.cmbCommand = new System.Windows.Forms.ComboBox();
             this.lblCommand = new System.Windows.Forms.Label();
             this.gbInput = new System.Windows.Forms.GroupBox();
+            this.cmbDrop = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.txtCopies = new System.Windows.Forms.TextBox();
             this.txtYear = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblCopies = new System.Windows.Forms.Label();
@@ -42,20 +44,20 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblSelectName = new System.Windows.Forms.Label();
             this.cmbNames = new System.Windows.Forms.ComboBox();
-            this.txtCopies = new System.Windows.Forms.TextBox();
-            this.cmbDrop = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.shelfLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dvdGridView)).BeginInit();
             this.gbInput.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dvdGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 74);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(683, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.dvdGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvdGridView.Location = new System.Drawing.Point(25, 91);
+            this.dvdGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.dvdGridView.Name = "dvdGridView";
+            this.dvdGridView.RowHeadersWidth = 51;
+            this.dvdGridView.Size = new System.Drawing.Size(911, 185);
+            this.dvdGridView.TabIndex = 0;
             // 
             // lblHeader
             // 
@@ -63,9 +65,10 @@
             this.lblHeader.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.lblHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(248, 20);
+            this.lblHeader.Location = new System.Drawing.Point(331, 25);
+            this.lblHeader.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(250, 31);
+            this.lblHeader.Size = new System.Drawing.Size(311, 39);
             this.lblHeader.TabIndex = 4;
             this.lblHeader.Text = "DVD Management";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -76,11 +79,12 @@
             this.cmbCommand.Items.AddRange(new object[] {
             "Add DVD",
             "Delete DVD",
-            "Edit DVD",
+            "Update DVD",
             "Search Genre and Location"});
-            this.cmbCommand.Location = new System.Drawing.Point(361, 236);
+            this.cmbCommand.Location = new System.Drawing.Point(481, 290);
+            this.cmbCommand.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCommand.Name = "cmbCommand";
-            this.cmbCommand.Size = new System.Drawing.Size(121, 21);
+            this.cmbCommand.Size = new System.Drawing.Size(160, 24);
             this.cmbCommand.TabIndex = 5;
             this.cmbCommand.SelectedIndexChanged += new System.EventHandler(this.cmbCommand_SelectedIndexChanged);
             // 
@@ -88,9 +92,10 @@
             // 
             this.lblCommand.AutoSize = true;
             this.lblCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCommand.Location = new System.Drawing.Point(238, 236);
+            this.lblCommand.Location = new System.Drawing.Point(317, 290);
+            this.lblCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCommand.Name = "lblCommand";
-            this.lblCommand.Size = new System.Drawing.Size(116, 17);
+            this.lblCommand.Size = new System.Drawing.Size(139, 20);
             this.lblCommand.TabIndex = 6;
             this.lblCommand.Text = "Select command:";
             // 
@@ -105,71 +110,107 @@
             this.gbInput.Controls.Add(this.lblYear);
             this.gbInput.Controls.Add(this.lblGenre);
             this.gbInput.Controls.Add(this.lblName);
-            this.gbInput.Location = new System.Drawing.Point(220, 293);
+            this.gbInput.Location = new System.Drawing.Point(75, 375);
+            this.gbInput.Margin = new System.Windows.Forms.Padding(4);
             this.gbInput.Name = "gbInput";
-            this.gbInput.Size = new System.Drawing.Size(303, 216);
+            this.gbInput.Padding = new System.Windows.Forms.Padding(4);
+            this.gbInput.Size = new System.Drawing.Size(404, 266);
             this.gbInput.TabIndex = 7;
             this.gbInput.TabStop = false;
             this.gbInput.Text = "Input";
             this.gbInput.Visible = false;
             // 
+            // cmbDrop
+            // 
+            this.cmbDrop.FormattingEnabled = true;
+            this.cmbDrop.Items.AddRange(new object[] {
+            "Action",
+            "Animation",
+            "Comedy",
+            "Drama",
+            "Fantasy",
+            "Horror",
+            "Romance",
+            "Science Fiction"});
+            this.cmbDrop.Location = new System.Drawing.Point(120, 129);
+            this.cmbDrop.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbDrop.Name = "cmbDrop";
+            this.cmbDrop.Size = new System.Drawing.Size(132, 24);
+            this.cmbDrop.TabIndex = 9;
+            this.cmbDrop.SelectedIndexChanged += new System.EventHandler(this.cmbDrop_SelectedIndexChanged);
+            // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(100, 178);
+            this.btnSubmit.Location = new System.Drawing.Point(133, 219);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(100, 28);
             this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // txtCopies
+            // 
+            this.txtCopies.Location = new System.Drawing.Point(120, 172);
+            this.txtCopies.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCopies.Name = "txtCopies";
+            this.txtCopies.Size = new System.Drawing.Size(132, 22);
+            this.txtCopies.TabIndex = 7;
+            // 
             // txtYear
             // 
-            this.txtYear.Location = new System.Drawing.Point(90, 72);
+            this.txtYear.Location = new System.Drawing.Point(120, 89);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(4);
             this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(100, 20);
+            this.txtYear.Size = new System.Drawing.Size(132, 22);
             this.txtYear.TabIndex = 5;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(90, 39);
+            this.txtName.Location = new System.Drawing.Point(120, 48);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 4;
             // 
             // lblCopies
             // 
             this.lblCopies.AutoSize = true;
-            this.lblCopies.Location = new System.Drawing.Point(26, 140);
+            this.lblCopies.Location = new System.Drawing.Point(35, 172);
+            this.lblCopies.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCopies.Name = "lblCopies";
-            this.lblCopies.Size = new System.Drawing.Size(42, 13);
+            this.lblCopies.Size = new System.Drawing.Size(53, 16);
             this.lblCopies.TabIndex = 3;
             this.lblCopies.Text = "Copies:";
             // 
             // lblYear
             // 
             this.lblYear.AutoSize = true;
-            this.lblYear.Location = new System.Drawing.Point(35, 75);
+            this.lblYear.Location = new System.Drawing.Point(47, 92);
+            this.lblYear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(32, 13);
+            this.lblYear.Size = new System.Drawing.Size(39, 16);
             this.lblYear.TabIndex = 2;
             this.lblYear.Text = "Year:";
             // 
             // lblGenre
             // 
             this.lblGenre.AutoSize = true;
-            this.lblGenre.Location = new System.Drawing.Point(31, 105);
+            this.lblGenre.Location = new System.Drawing.Point(41, 129);
+            this.lblGenre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGenre.Name = "lblGenre";
-            this.lblGenre.Size = new System.Drawing.Size(42, 13);
+            this.lblGenre.Size = new System.Drawing.Size(50, 16);
             this.lblGenre.TabIndex = 1;
             this.lblGenre.Text = "Genre: ";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(26, 39);
+            this.lblName.Location = new System.Drawing.Point(35, 48);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(41, 13);
+            this.lblName.Size = new System.Drawing.Size(50, 16);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name: ";
             // 
@@ -177,9 +218,10 @@
             // 
             this.lblSelectName.AutoSize = true;
             this.lblSelectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectName.Location = new System.Drawing.Point(238, 269);
+            this.lblSelectName.Location = new System.Drawing.Point(317, 331);
+            this.lblSelectName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSelectName.Name = "lblSelectName";
-            this.lblSelectName.Size = new System.Drawing.Size(111, 13);
+            this.lblSelectName.Size = new System.Drawing.Size(139, 17);
             this.lblSelectName.TabIndex = 8;
             this.lblSelectName.Text = "Select DVD name:";
             this.lblSelectName.Visible = false;
@@ -192,55 +234,44 @@
             "Delete DVD",
             "Edit DVD",
             "Search Genre"});
-            this.cmbNames.Location = new System.Drawing.Point(361, 266);
+            this.cmbNames.Location = new System.Drawing.Point(481, 327);
+            this.cmbNames.Margin = new System.Windows.Forms.Padding(4);
             this.cmbNames.Name = "cmbNames";
-            this.cmbNames.Size = new System.Drawing.Size(121, 21);
+            this.cmbNames.Size = new System.Drawing.Size(160, 24);
             this.cmbNames.TabIndex = 9;
             this.cmbNames.Visible = false;
             this.cmbNames.SelectedIndexChanged += new System.EventHandler(this.cmbNames_SelectedIndexChanged);
             // 
-            // txtCopies
+            // shelfLabel
             // 
-            this.txtCopies.Location = new System.Drawing.Point(90, 140);
-            this.txtCopies.Name = "txtCopies";
-            this.txtCopies.Size = new System.Drawing.Size(100, 20);
-            this.txtCopies.TabIndex = 7;
-            // 
-            // cmbDrop
-            // 
-            this.cmbDrop.FormattingEnabled = true;
-            this.cmbDrop.Items.AddRange(new object[] {
-            "Horror",
-            "Comedy",
-            "Drama",
-            "Action",
-            "Romance",
-            "Science Fiction",
-            "Fantasy",
-            "Animation"});
-            this.cmbDrop.Location = new System.Drawing.Point(90, 105);
-            this.cmbDrop.Name = "cmbDrop";
-            this.cmbDrop.Size = new System.Drawing.Size(100, 21);
-            this.cmbDrop.TabIndex = 9;
+            this.shelfLabel.AutoSize = true;
+            this.shelfLabel.Location = new System.Drawing.Point(507, 507);
+            this.shelfLabel.Name = "shelfLabel";
+            this.shelfLabel.Size = new System.Drawing.Size(154, 16);
+            this.shelfLabel.TabIndex = 10;
+            this.shelfLabel.Text = "Expected Shelf Location:";
+            this.shelfLabel.Visible = false;
             // 
             // DVD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 531);
+            this.ClientSize = new System.Drawing.Size(981, 654);
+            this.Controls.Add(this.shelfLabel);
             this.Controls.Add(this.cmbNames);
             this.Controls.Add(this.lblSelectName);
             this.Controls.Add(this.gbInput);
             this.Controls.Add(this.lblCommand);
             this.Controls.Add(this.cmbCommand);
             this.Controls.Add(this.lblHeader);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dvdGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DVD";
             this.Text = "DVD";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvdGridView)).EndInit();
             this.gbInput.ResumeLayout(false);
             this.gbInput.PerformLayout();
             this.ResumeLayout(false);
@@ -250,7 +281,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dvdGridView;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.ComboBox cmbCommand;
         private System.Windows.Forms.Label lblCommand;
@@ -266,5 +297,6 @@
         private System.Windows.Forms.ComboBox cmbNames;
         private System.Windows.Forms.TextBox txtCopies;
         private System.Windows.Forms.ComboBox cmbDrop;
+        private System.Windows.Forms.Label shelfLabel;
     }
 }

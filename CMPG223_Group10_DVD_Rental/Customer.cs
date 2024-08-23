@@ -52,14 +52,6 @@ namespace CMPG223_Group10_DVD_Rental
             ShowAllData();
         }
 
-        private void rbEdit_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbEdit.Checked)
-            {
-                gbInput.Visible = true;
-            }
-        }
-
         private void rbDelete_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -85,7 +77,7 @@ namespace CMPG223_Group10_DVD_Rental
             {
                 gbInput.Visible = true;
             }
-            
+
 
         }
 
@@ -117,6 +109,34 @@ namespace CMPG223_Group10_DVD_Rental
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
+            } else if (updateRadioButton.Checked)
+            {
+                conn = new SqlConnection(connectionString);
+
+                try
+                {
+                    conn.Open();
+                    sqlQuery = "UPDATE Client SET Client_Name_Surname = @name, Date_Of_Birth = @dob, Email_Address = @email WHERE Client_ID = @id";
+                    command = new SqlCommand(sqlQuery, conn);
+                    command.Parameters.AddWithValue("@id", txtSurname.Text);
+                    command.Parameters.AddWithValue("@name", txtName.Text);
+                    command.Parameters.AddWithValue("@dob", txtDOB.Text);
+                    command.Parameters.AddWithValue("@email", txtEmail.Text);
+                    command.ExecuteNonQuery();
+                    conn.Close();
+                    EmptyInput();
+                    memberComboBox.Items.Clear();
+                    memberComboBox.Visible = false;
+                    memberLabel.Visible = false;
+                }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show("Couldn't connect to database. " + sqlEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error. " + ex.Message);
+                }
             }
             else if (rbDelete.Checked)
             {
@@ -143,29 +163,9 @@ namespace CMPG223_Group10_DVD_Rental
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
-            else if (rbEdit.Checked)
-            {
-                conn = new SqlConnection(connectionString);
-                try
-                {
-                    conn.Open();
-
-                    conn.Close();
-
-                    EmptyInput();
-                }
-                catch (SqlException sqlEx)
-                {
-                    MessageBox.Show("SQL Error: " + sqlEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
             else
             {
-                MessageBox.Show("Please select a databse command");
+                MessageBox.Show("Please select a database command");
             }
         }
 
@@ -190,9 +190,84 @@ namespace CMPG223_Group10_DVD_Rental
 
             rbAdd.Checked = false;
             rbDelete.Checked = false;
-            rbEdit.Checked = false;
+            updateRadioButton.Checked = false;
 
             ShowAllData();
+        }
+
+        private void updateRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (updateRadioButton.Checked == true)
+            {
+                memberLabel.Visible = true;
+                memberComboBox.Visible = true;
+                btnSubmit.Text = "Update";
+                gbInput.Text = "Update Member";
+                lblSurname.Text = "Member ID:";
+                txtSurname.Enabled = false;
+                gbInput.Visible = true;
+
+                conn = new SqlConnection(connectionString);
+
+                try
+                {
+                    conn.Open();
+                    sqlQuery = "SELECT Client_ID, Client_Name_Surname FROM Client";
+                    command = new SqlCommand(sqlQuery, conn);
+                    reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        memberComboBox.Items.Add(reader.GetValue(0).ToString() + ", " + reader.GetValue(1).ToString());
+                    }
+                    memberComboBox.SelectedIndex = 0;
+                    conn.Close();
+                }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show("Couldn't connect to database. " + sqlEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error. " + ex.Message);
+                }
+            }
+        }
+
+        private void memberComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string getName = memberComboBox.SelectedItem.ToString();
+            string name = getName.Substring(3);
+
+            txtName.Text = name;
+
+            conn = new SqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+
+                sqlQuery = "SELECT * FROM Client WHERE Client_Name_Surname = @name";
+                command = new SqlCommand(sqlQuery, conn);
+                command.Parameters.AddWithValue("@name", name);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    txtSurname.Text = reader.GetValue(0).ToString();
+                    txtName.Text = reader.GetValue(1).ToString();
+                    txtDOB.Text = Convert.ToDateTime(reader.GetValue(2)).ToString("yyyy-MM-dd");
+                    txtEmail.Text = reader.GetValue(3).ToString();
+                }
+                conn.Close();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Couldn't connect to database. " + sqlEx.Message);
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error. " + ex.Message);
+            }
         }
     }
 }

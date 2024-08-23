@@ -33,9 +33,8 @@
             this.btnShowAll = new System.Windows.Forms.Button();
             this.rbAdd = new System.Windows.Forms.RadioButton();
             this.rbDelete = new System.Windows.Forms.RadioButton();
-            this.rbEdit = new System.Windows.Forms.RadioButton();
             this.gbCommand = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.updateRadioButton = new System.Windows.Forms.RadioButton();
             this.gbInput = new System.Windows.Forms.GroupBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -46,6 +45,8 @@
             this.lblDOB = new System.Windows.Forms.Label();
             this.lblSurname = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.memberComboBox = new System.Windows.Forms.ComboBox();
+            this.memberLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCustomer)).BeginInit();
             this.gbCommand.SuspendLayout();
             this.gbInput.SuspendLayout();
@@ -55,7 +56,7 @@
             // 
             this.DGVCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVCustomer.Location = new System.Drawing.Point(13, 94);
-            this.DGVCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DGVCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.DGVCustomer.Name = "DGVCustomer";
             this.DGVCustomer.RowHeadersWidth = 51;
             this.DGVCustomer.Size = new System.Drawing.Size(956, 234);
@@ -78,8 +79,8 @@
             // btnShowAll
             // 
             this.btnShowAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowAll.Location = new System.Drawing.Point(63, 336);
-            this.btnShowAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShowAll.Location = new System.Drawing.Point(154, 360);
+            this.btnShowAll.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(116, 34);
             this.btnShowAll.TabIndex = 4;
@@ -90,8 +91,8 @@
             // rbAdd
             // 
             this.rbAdd.AutoSize = true;
-            this.rbAdd.Location = new System.Drawing.Point(48, 30);
-            this.rbAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbAdd.Location = new System.Drawing.Point(48, 31);
+            this.rbAdd.Margin = new System.Windows.Forms.Padding(4);
             this.rbAdd.Name = "rbAdd";
             this.rbAdd.Size = new System.Drawing.Size(170, 29);
             this.rbAdd.TabIndex = 5;
@@ -103,8 +104,8 @@
             // rbDelete
             // 
             this.rbDelete.AutoSize = true;
-            this.rbDelete.Location = new System.Drawing.Point(48, 86);
-            this.rbDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbDelete.Location = new System.Drawing.Point(48, 68);
+            this.rbDelete.Margin = new System.Windows.Forms.Padding(4);
             this.rbDelete.Name = "rbDelete";
             this.rbDelete.Size = new System.Drawing.Size(149, 29);
             this.rbDelete.TabIndex = 6;
@@ -113,33 +114,32 @@
             this.rbDelete.UseVisualStyleBackColor = true;
             this.rbDelete.CheckedChanged += new System.EventHandler(this.rbDelete_CheckedChanged);
             // 
-            // rbEdit
-            // 
-            this.rbEdit.AutoSize = true;
-            this.rbEdit.Location = new System.Drawing.Point(48, 58);
-            this.rbEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.rbEdit.Name = "rbEdit";
-            this.rbEdit.Size = new System.Drawing.Size(197, 29);
-            this.rbEdit.TabIndex = 7;
-            this.rbEdit.TabStop = true;
-            this.rbEdit.Text = "Edit existing record";
-            this.rbEdit.UseVisualStyleBackColor = true;
-            this.rbEdit.CheckedChanged += new System.EventHandler(this.rbEdit_CheckedChanged);
-            // 
             // gbCommand
             // 
+            this.gbCommand.Controls.Add(this.updateRadioButton);
             this.gbCommand.Controls.Add(this.rbAdd);
             this.gbCommand.Controls.Add(this.rbDelete);
-            this.gbCommand.Controls.Add(this.rbEdit);
             this.gbCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCommand.Location = new System.Drawing.Point(106, 429);
-            this.gbCommand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCommand.Margin = new System.Windows.Forms.Padding(4);
             this.gbCommand.Name = "gbCommand";
-            this.gbCommand.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbCommand.Size = new System.Drawing.Size(357, 123);
+            this.gbCommand.Padding = new System.Windows.Forms.Padding(4);
+            this.gbCommand.Size = new System.Drawing.Size(357, 153);
             this.gbCommand.TabIndex = 8;
             this.gbCommand.TabStop = false;
             this.gbCommand.Text = "Select Command";
+            // 
+            // updateRadioButton
+            // 
+            this.updateRadioButton.AutoSize = true;
+            this.updateRadioButton.Location = new System.Drawing.Point(48, 104);
+            this.updateRadioButton.Name = "updateRadioButton";
+            this.updateRadioButton.Size = new System.Drawing.Size(156, 29);
+            this.updateRadioButton.TabIndex = 8;
+            this.updateRadioButton.TabStop = true;
+            this.updateRadioButton.Text = "Update record";
+            this.updateRadioButton.UseVisualStyleBackColor = true;
+            this.updateRadioButton.CheckedChanged += new System.EventHandler(this.updateRadioButton_CheckedChanged);
             // 
             // gbInput
             // 
@@ -152,11 +152,11 @@
             this.gbInput.Controls.Add(this.lblDOB);
             this.gbInput.Controls.Add(this.lblSurname);
             this.gbInput.Controls.Add(this.lblName);
-            this.gbInput.Location = new System.Drawing.Point(620, 350);
-            this.gbInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInput.Location = new System.Drawing.Point(561, 413);
+            this.gbInput.Margin = new System.Windows.Forms.Padding(4);
             this.gbInput.Name = "gbInput";
-            this.gbInput.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbInput.Size = new System.Drawing.Size(281, 218);
+            this.gbInput.Padding = new System.Windows.Forms.Padding(4);
+            this.gbInput.Size = new System.Drawing.Size(340, 218);
             this.gbInput.TabIndex = 9;
             this.gbInput.TabStop = false;
             this.gbInput.Text = "Input";
@@ -165,8 +165,8 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(97, 174);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Location = new System.Drawing.Point(93, 167);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(116, 28);
             this.btnSubmit.TabIndex = 10;
@@ -176,8 +176,8 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(97, 130);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Location = new System.Drawing.Point(157, 131);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(132, 22);
             this.txtEmail.TabIndex = 7;
@@ -194,24 +194,24 @@
             // 
             // txtDOB
             // 
-            this.txtDOB.Location = new System.Drawing.Point(113, 96);
-            this.txtDOB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDOB.Location = new System.Drawing.Point(157, 97);
+            this.txtDOB.Margin = new System.Windows.Forms.Padding(4);
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.Size = new System.Drawing.Size(132, 22);
             this.txtDOB.TabIndex = 5;
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(97, 60);
-            this.txtSurname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSurname.Location = new System.Drawing.Point(157, 61);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(4);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(132, 22);
             this.txtSurname.TabIndex = 4;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(97, 25);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Location = new System.Drawing.Point(157, 25);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 3;
@@ -246,18 +246,40 @@
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name:";
             // 
+            // memberComboBox
+            // 
+            this.memberComboBox.FormattingEnabled = true;
+            this.memberComboBox.Location = new System.Drawing.Point(641, 360);
+            this.memberComboBox.Name = "memberComboBox";
+            this.memberComboBox.Size = new System.Drawing.Size(260, 24);
+            this.memberComboBox.TabIndex = 10;
+            this.memberComboBox.Visible = false;
+            this.memberComboBox.SelectedIndexChanged += new System.EventHandler(this.memberComboBox_SelectedIndexChanged);
+            // 
+            // memberLabel
+            // 
+            this.memberLabel.AutoSize = true;
+            this.memberLabel.Location = new System.Drawing.Point(404, 363);
+            this.memberLabel.Name = "memberLabel";
+            this.memberLabel.Size = new System.Drawing.Size(166, 16);
+            this.memberLabel.TabIndex = 11;
+            this.memberLabel.Text = "Please select the Member:";
+            this.memberLabel.Visible = false;
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 653);
+            this.Controls.Add(this.memberLabel);
+            this.Controls.Add(this.memberComboBox);
             this.Controls.Add(this.gbInput);
             this.Controls.Add(this.gbCommand);
             this.Controls.Add(this.btnShowAll);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.DGVCustomer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Customer";
@@ -279,10 +301,8 @@
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnShowAll;
         private System.Windows.Forms.GroupBox gbCommand;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         public System.Windows.Forms.RadioButton rbAdd;
         public System.Windows.Forms.RadioButton rbDelete;
-        public System.Windows.Forms.RadioButton rbEdit;
         private System.Windows.Forms.GroupBox gbInput;
         private System.Windows.Forms.TextBox txtDOB;
         private System.Windows.Forms.TextBox txtSurname;
@@ -293,5 +313,8 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.RadioButton updateRadioButton;
+        private System.Windows.Forms.ComboBox memberComboBox;
+        private System.Windows.Forms.Label memberLabel;
     }
 }

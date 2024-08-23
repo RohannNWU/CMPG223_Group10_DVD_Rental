@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -20,17 +21,12 @@ namespace CMPG223_Group10_DVD_Rental
         private SqlCommand command;
         private SqlDataReader reader;
         private string sqlQuery;
-
+        private string employeeRole;
 
         public Employee()
         {
             InitializeComponent();
             ShowAllData();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,12 +60,45 @@ namespace CMPG223_Group10_DVD_Rental
         private void cmbCommand_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Select index
+            gbInput.Visible = false;
             gbInput.Visible = true;
 
             int selectedIndex = cmbCommand.SelectedIndex;
 
             switch(selectedIndex)
             {
+                case 0:
+                    employeeLabel.Visible = true;
+                    employeeComboBox.Visible = true;
+                    lblName.Text = "Name & Surname:";
+                    lblSurname.Text = "Employee ID:";
+                    txtSurname.Enabled = false;
+                    btnSubmit.Text = "Update";
+
+                    conn = new SqlConnection(connectionString);
+
+                    try
+                    {
+                        conn.Open();
+                        sqlQuery = "SELECT Employee_ID, Employee_Name_Surname FROM Employee";
+                        command = new SqlCommand(sqlQuery, conn);
+                        reader = command.ExecuteReader();
+
+                        while (reader.Read()) {
+                            employeeComboBox.Items.Add(reader.GetValue(0).ToString() + ", " + reader.GetValue(1).ToString());
+                        }
+                        conn.Close();
+                    }
+                    catch (SqlException sqlEx)
+                    {
+                        MessageBox.Show("Couldn't connect to database. " + sqlEx.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error. " + ex.Message);
+                    }
+                    employeeComboBox.SelectedIndex = 0;
+                    break;
                 case 1:
                     lblName.Text = "ID to Delete: ";
 
@@ -136,9 +165,30 @@ namespace CMPG223_Group10_DVD_Rental
                     try
                     {
                         conn.Open();
+                        sqlQuery = "UPDATE Employee SET Employee_Name_Surname = @name, Date_of_Birth = @dob, Contact_Number = @contact, Username = @user, Password = @password, Role = @role WHERE Employee_ID = @id";
+                        command = new SqlCommand(sqlQuery, conn);
+                        command.Parameters.AddWithValue("@id", txtSurname.Text);
+                        command.Parameters.AddWithValue("@name", txtName.Text);
+                        command.Parameters.AddWithValue("@dob", txtDOB.Text);
+                        command.Parameters.AddWithValue("@contact", txtContactNumber.Text);
+                        command.Parameters.AddWithValue("@user", txtUsername.Text);
+                        command.Parameters.AddWithValue("@password", txtPassword.Text);
 
+                        if (cbAdmin.Checked == true)
+                        {
+                            employeeRole = "Administrator";
+                        } else
+                        {
+                            employeeRole = "Employee";
+                        }
+                        command.Parameters.AddWithValue("@role", employeeRole);
+                        command.ExecuteNonQuery();
                         conn.Close();
                         EmptyInput();
+                        employeeLabel.Visible = false;
+                        employeeComboBox.Visible = false;
+                        employeeRole = "";
+                        employeeComboBox.Items.Clear();
                     }
                     catch (SqlException sqlEx)
                     {
@@ -225,6 +275,57 @@ namespace CMPG223_Group10_DVD_Rental
 
             EmptyInput();
             gbInput.Visible = false;
+            ShowAllData();
+        }
+
+        private void employeeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            conn = new SqlConnection(connectionString);
+            string getName = employeeComboBox.Text;
+            string name = getName.Substring(3);
+            try
+            {
+                conn.Open();
+                sqlQuery = "SELECT * FROM Employee WHERE Employee_Name_Surname = @name";
+                command = new SqlCommand(sqlQuery, conn);
+                command.Parameters.AddWithValue("@name", name);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    txtSurname.Text = reader.GetValue(0).ToString();
+                    txtName.Text = reader.GetValue(1).ToString();
+                    txtDOB.Text = Convert.ToDateTime(reader.GetValue(2)).ToString("yyyy-MM-dd");
+                    txtContactNumber.Text = reader.GetValue(3).ToString();
+                    txtUsername.Text = reader.GetValue(4).ToString();
+                    txtPassword.Text = reader.GetValue(5).ToString();
+                    if (reader.GetValue(6).ToString() == "Administrator")
+                    {
+                        cbAdmin.Checked = true;
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Couldn't connect to database. " + sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error. " + ex.Message);
+            }
+        }
+
+        private void cbAdmin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAdmin.Checked == true)
+            {
+                employeeRole = "Administrator";
+            } else
+            {
+                employeeRole = "Employee";
+            }
         }
     }
 }
