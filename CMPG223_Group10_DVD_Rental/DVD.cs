@@ -114,11 +114,12 @@ namespace CMPG223_Group10_DVD_Rental
         private void cmbNames_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedDVDName = cmbNames.SelectedItem.ToString();
+            conn = new SqlConnection(connectionString);
+
             // if displays the location of the selected DVD, else allows the update of the DVD
             if (update == false)
             {
                 int selectedIndex = cmbCommand.SelectedIndex;
-                conn = new SqlConnection(connectionString);
 
                 try
                 {
@@ -144,7 +145,34 @@ namespace CMPG223_Group10_DVD_Rental
                 }
             } else
             {
-                
+                gbInput.Visible = true;
+                btnSubmit.Text = "Update";
+                try
+                {
+                    conn.Open();
+                    sqlQuery = "SELECT * FROM DVD WHERE DVD_Name = @name";
+                    command = new SqlCommand(sqlQuery, conn);
+                    command.Parameters.AddWithValue("@name", selectedDVDName);
+                    reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        shelfLabel.Text = "Shelf Location: " + reader.GetValue(1).ToString();
+                        txtName.Text = reader.GetValue(2).ToString();
+                        txtYear.Text = reader.GetValue(3).ToString();
+                        cmbDrop.SelectedText = reader.GetValue(4).ToString();
+                        txtCopies.Text = reader.GetValue(5).ToString();
+                    }
+                    conn.Close();
+                }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show("Couldn't connect to database. " + sqlEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error. " + ex.Message);
+                }
             }
         }
 
@@ -189,11 +217,11 @@ namespace CMPG223_Group10_DVD_Rental
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             int selectedIndex = cmbCommand.SelectedIndex;
+            conn = new SqlConnection(connectionString);
 
             switch (selectedIndex)
             {
                 case 0:
-                    conn = new SqlConnection(connectionString);
                     try
                     {
                         conn.Open();
@@ -219,7 +247,6 @@ namespace CMPG223_Group10_DVD_Rental
                     }
                     break;
                 case 1:
-
                     gbInput.Visible = true;
                     int DVDId = int.Parse(txtName.Text);
                     try
@@ -242,6 +269,21 @@ namespace CMPG223_Group10_DVD_Rental
                     }
                     break;
                 case 2:
+                    // update the dvd details when the update button is clicked
+                    try
+                    {
+                        conn.Open();
+                        sqlQuery = "UPDATE DVD SET ";
+                        conn.Close();
+                    }
+                    catch (SqlException sqlEx)
+                    {
+                        MessageBox.Show("Couldn't connect to the database. " + sqlEx.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error. " + ex.Message);
+                    }
                     break;
                 default:
                     break;
