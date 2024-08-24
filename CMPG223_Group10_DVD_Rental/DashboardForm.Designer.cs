@@ -112,7 +112,7 @@
             this.checkoutButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
             this.checkoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkoutButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkoutButton.Location = new System.Drawing.Point(547, 175);
+            this.checkoutButton.Location = new System.Drawing.Point(23, 188);
             this.checkoutButton.Margin = new System.Windows.Forms.Padding(2);
             this.checkoutButton.Name = "checkoutButton";
             this.checkoutButton.Size = new System.Drawing.Size(126, 46);
@@ -133,7 +133,7 @@
             this.gbOutstandingDVD.Margin = new System.Windows.Forms.Padding(2);
             this.gbOutstandingDVD.Name = "gbOutstandingDVD";
             this.gbOutstandingDVD.Padding = new System.Windows.Forms.Padding(2);
-            this.gbOutstandingDVD.Size = new System.Drawing.Size(675, 284);
+            this.gbOutstandingDVD.Size = new System.Drawing.Size(675, 259);
             this.gbOutstandingDVD.TabIndex = 6;
             this.gbOutstandingDVD.TabStop = false;
             this.gbOutstandingDVD.Text = "Outstanding DVDs";
@@ -146,7 +146,7 @@
             this.payButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.payButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.payButton.Location = new System.Drawing.Point(496, 193);
+            this.payButton.Location = new System.Drawing.Point(472, 165);
             this.payButton.Margin = new System.Windows.Forms.Padding(2);
             this.payButton.Name = "payButton";
             this.payButton.Size = new System.Drawing.Size(126, 46);
@@ -159,7 +159,7 @@
             this.lblFine.AutoSize = true;
             this.lblFine.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFine.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.lblFine.Location = new System.Drawing.Point(493, 24);
+            this.lblFine.Location = new System.Drawing.Point(477, 31);
             this.lblFine.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFine.Name = "lblFine";
             this.lblFine.Size = new System.Drawing.Size(89, 20);
@@ -168,7 +168,7 @@
             // 
             // outstandingDVDsListBox
             // 
-            this.outstandingDVDsListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.outstandingDVDsListBox.BackColor = System.Drawing.Color.Silver;
             this.outstandingDVDsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.outstandingDVDsListBox.FormattingEnabled = true;
             this.outstandingDVDsListBox.ItemHeight = 20;
