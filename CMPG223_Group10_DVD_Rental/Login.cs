@@ -56,13 +56,13 @@ namespace CMPG223_Group10_DVD_Rental
 
                         if (role == "Administrator")
                         {
-                            AdminMainMenu dashboard = new AdminMainMenu(reader["Employee_Name_Surname"].ToString(), reader["Role"].ToString());
+                            AdminMainMenu dashboard = new AdminMainMenu(reader["Employee_Name_Surname"].ToString(), reader["Role"].ToString(), (int)reader["Employee_ID"]);
                             dashboard.Show();
                             this.Hide();
                             dashboard.FormClosed += (s, args) => this.Close(); // closes the login form that is hidden when the main program is closed
                         } else
                         {
-                            EmployeeMainMenu dashboard = new EmployeeMainMenu(reader["Employee_Name_Surname"].ToString(), reader["Role"].ToString());
+                            EmployeeMainMenu dashboard = new EmployeeMainMenu(reader["Employee_Name_Surname"].ToString(), reader["Role"].ToString(), (int)reader["Employee_ID"]);
                             dashboard.Show();
                             this.Hide();
                             dashboard.FormClosed += (s, args) => this.Close(); // closes the login form that is hidden when the main program is closed

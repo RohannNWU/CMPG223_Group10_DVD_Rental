@@ -25,17 +25,19 @@ namespace CMPG223_Group10_DVD_Rental
     {
         private string name;
         private string role;
+        private int employeeID;
         public EmployeeMainMenu()
         {
             InitializeComponent();
             this.menuStrip.Renderer = new CustomRenderer();
         }
-        public EmployeeMainMenu(string name, string role)
+        public EmployeeMainMenu(string name, string role, int employeeID)
         {
             InitializeComponent();
             this.menuStrip.Renderer = new CustomRenderer();
             this.name = name;
             this.role = role;
+            this.employeeID = employeeID;
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,7 +47,7 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void EmployeeMainMenu_Load(object sender, EventArgs e)
         {
-            DashboardForm dashboard = new DashboardForm(name, role);
+            DashboardForm dashboard = new DashboardForm(name, role, employeeID);
             dashboard.MdiParent = this;
             dashboard.Show();
         }

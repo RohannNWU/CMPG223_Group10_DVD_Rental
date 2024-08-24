@@ -35,11 +35,9 @@ namespace CMPG223_Group10_DVD_Rental
             switch (selectedIndex)
             {
                 case 0:
-
                     gbInput.Visible = true;
                     break;
                 case 1:
-
                     //Hide un-used input controls
                     gbInput.Visible = true;
                     lblName.Text = "Insert ID to delete: ";
@@ -50,16 +48,16 @@ namespace CMPG223_Group10_DVD_Rental
                     txtYear.Visible = false;
                     cmbDrop.Visible = false;
                     break;
+                case 2:
 
-                case 4:
-
+                    break;
+                case 3:
                     //Code for Search command 
                     cmbNames.Items.Clear();
                     lblSelectName.Visible = true;
                     cmbNames.Visible = true;
 
                     conn = new SqlConnection(connectionString);
-
                     try
                     {                     
                         conn.Open();
@@ -67,14 +65,12 @@ namespace CMPG223_Group10_DVD_Rental
                         SqlCommand command = new SqlCommand(@"SELECT DVD_Name FROM DVD", conn);       
                         SqlDataReader reader = command.ExecuteReader();
 
-
                         while (reader.Read())
                         {
                             cmbNames.Items.Add(reader["DVD_Name"].ToString());
                         }
 
                         conn.Close();
-                        
                         reader.Close();
                     }
                     catch (Exception ex)
