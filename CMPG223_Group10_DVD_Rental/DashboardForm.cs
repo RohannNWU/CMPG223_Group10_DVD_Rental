@@ -120,21 +120,15 @@ namespace CMPG223_Group10_DVD_Rental
                
                 if (reader.Read())
                 {
-                    int[] ARRDVD = 
-                    SqlCommand command1 = new SqlCommand(@"SELECT DVD_Name FROM DVD WHERE DVD_ID = @ID ", conn);
+                    SqlCommand command1 = new SqlCommand(@"SELECT DVD_Name FROM DVD WHERE DVD_ID = @ID", conn);
                     command1.Parameters.AddWithValue("@ID", reader.GetValue(0));
                     SqlDataReader dataReader = command1.ExecuteReader();
                     while (dataReader.Read())
                     {
                         outstandingDVDsListBox.Items.Add(dataReader.GetValue(0));
                     }
-                    
                 }
-
-
-                    conn.Close();
-
-
+                conn.Close();
             }
             catch (SqlException sqlEx)
             {

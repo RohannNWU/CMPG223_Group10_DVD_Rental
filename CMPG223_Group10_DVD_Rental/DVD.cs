@@ -106,7 +106,6 @@ namespace CMPG223_Group10_DVD_Rental
                     break;
                 default:
                     break;
-
             }
         }
 
@@ -157,7 +156,8 @@ namespace CMPG223_Group10_DVD_Rental
 
                     while (reader.Read())
                     {
-                        shelfLabel.Text = "Shelf Location: " + reader.GetValue(1).ToString();
+                        expectedShelf = reader.GetValue(1).ToString();
+                        shelfLabel.Text = "Shelf Location: " + expectedShelf;
                         txtName.Text = reader.GetValue(2).ToString();
                         txtYear.Text = reader.GetValue(3).ToString();
                         cmbDrop.SelectedText = reader.GetValue(4).ToString();
@@ -273,8 +273,18 @@ namespace CMPG223_Group10_DVD_Rental
                     try
                     {
                         conn.Open();
-                        sqlQuery = "UPDATE DVD SET ";
+                        sqlQuery = "UPDATE DVD SET Shelf_ID = @shelf, DVD_Name = @name, DVD_Year = @year, DVD_Genre = @genre, DVD_Copies = @copies";
+                        command = new SqlCommand(sqlQuery, conn);
+                        command.Parameters.AddWithValue("@shelf", expectedShelf);
+                        command.Parameters.AddWithValue("@name", txtName.Text);
+                        command.Parameters.AddWithValue("@year", txtYear.Text);
+                        command.Parameters.AddWithValue("@genre", cmbDrop.Text);
+                        command.Parameters.AddWithValue("@copies", txtCopies.Text);
+                        command.ExecuteNonQuery();
                         conn.Close();
+                        ResetInput();
+                        cmbNames.Visible = false;
+                        lblSelectName.Visible = false;
                     }
                     catch (SqlException sqlEx)
                     {
