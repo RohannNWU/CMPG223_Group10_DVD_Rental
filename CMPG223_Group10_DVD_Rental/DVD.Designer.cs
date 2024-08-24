@@ -242,9 +242,9 @@
             this.shelfLabel.AutoSize = true;
             this.shelfLabel.Location = new System.Drawing.Point(505, 497);
             this.shelfLabel.Name = "shelfLabel";
-            this.shelfLabel.Size = new System.Drawing.Size(154, 16);
+            this.shelfLabel.Size = new System.Drawing.Size(94, 16);
             this.shelfLabel.TabIndex = 10;
-            this.shelfLabel.Text = "Expected Shelf Location:";
+            this.shelfLabel.Text = "Shelf Location:";
             this.shelfLabel.Visible = false;
             // 
             // DVD
