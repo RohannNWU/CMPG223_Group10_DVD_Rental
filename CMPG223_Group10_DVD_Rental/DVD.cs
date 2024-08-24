@@ -19,8 +19,10 @@ namespace CMPG223_Group10_DVD_Rental
         private SqlConnection conn;
         private SqlCommand command;
         private SqlDataReader reader;
+        private SqlDataAdapter dataAdapter;
         private string sqlQuery;
         private string expectedShelf;
+        private bool update = false;
         public DVD()
         {
             InitializeComponent();
@@ -49,7 +51,31 @@ namespace CMPG223_Group10_DVD_Rental
                     cmbDrop.Visible = false;
                     break;
                 case 2:
+                    // update the dvd details
+                    cmbNames.Visible = true;
+                    lblSelectName.Visible = true;
 
+                    conn = new SqlConnection(connectionString);
+                    try
+                    {
+                        conn.Open();
+                        sqlQuery = "SELECT DVD_Name FROM DVD";
+                        command = new SqlCommand(sqlQuery, conn);
+                        reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            cmbNames.Items.Add(reader.GetString(0));
+                        }
+                        conn.Close();
+                        update = true;
+                    } catch (SqlException sqlEx)
+                    {
+                        MessageBox.Show("Couldn't connect to the database. " + sqlEx.Message);
+                    } catch (Exception ex)
+                    {
+                        MessageBox.Show("Error. " + ex.Message);
+                    }
                     break;
                 case 3:
                     //Code for Search command 
@@ -62,8 +88,8 @@ namespace CMPG223_Group10_DVD_Rental
                     {                     
                         conn.Open();
                
-                        SqlCommand command = new SqlCommand(@"SELECT DVD_Name FROM DVD", conn);       
-                        SqlDataReader reader = command.ExecuteReader();
+                        command = new SqlCommand(@"SELECT DVD_Name FROM DVD", conn);       
+                        reader = command.ExecuteReader();
 
                         while (reader.Read())
                         {
@@ -87,40 +113,38 @@ namespace CMPG223_Group10_DVD_Rental
         //Show selected DVD's Genre + Location
         private void cmbNames_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            int selectedIndex = cmbCommand.SelectedIndex;
-
             string selectedDVDName = cmbNames.SelectedItem.ToString();
-
-            conn = new SqlConnection(connectionString);
-
-            try
+            // if displays the location of the selected DVD, else allows the update of the DVD
+            if (update == false)
             {
-                conn.Open();
+                int selectedIndex = cmbCommand.SelectedIndex;
+                conn = new SqlConnection(connectionString);
 
-                
-                SqlCommand command = new SqlCommand(@"SELECT DVD_Genre, Shelf_ID FROM DVD WHERE DVD_Name = @DVDName", conn);
-                command.Parameters.AddWithValue("@DVDName", selectedDVDName);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-
-                if (reader.Read())
+                try
                 {
-                    string genre = reader["DVD_Genre"].ToString();
-                    string shelfID = reader["Shelf_ID"].ToString();
+                    conn.Open();
+                    command = new SqlCommand(@"SELECT DVD_Genre, Shelf_ID FROM DVD WHERE DVD_Name = @DVDName", conn);
+                    command.Parameters.AddWithValue("@DVDName", selectedDVDName);
+                    reader = command.ExecuteReader();
 
-                    // Show the Genre and Shelf_ID in a MessageBox
-                    MessageBox.Show($"Genre: {genre}\nShelf ID: {shelfID}", "DVD Details");
+                    if (reader.Read())
+                    {
+                        string genre = reader["DVD_Genre"].ToString();
+                        string shelfID = reader["Shelf_ID"].ToString();
+
+                        // Show the Genre and Shelf_ID in a MessageBox
+                        MessageBox.Show($"Genre: {genre}\nShelf ID: {shelfID}", "DVD Details");
+                    }
+                    conn.Close();
+                    reader.Close();
                 }
-
-                conn.Close();
-
-                reader.Close();
-            }
-            catch (Exception ex)
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            } else
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+                
             }
         }
 
@@ -150,11 +174,10 @@ namespace CMPG223_Group10_DVD_Rental
             {
                 conn.Open();
                 sqlQuery = "SELECT * FROM DVD";
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlQuery, conn);
+                dataAdapter = new SqlDataAdapter(sqlQuery, conn);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
                 dvdGridView.DataSource = dataTable;
-
                 conn.Close();
             }
             catch (Exception ex)
@@ -198,16 +221,13 @@ namespace CMPG223_Group10_DVD_Rental
                 case 1:
 
                     gbInput.Visible = true;
-
                     int DVDId = int.Parse(txtName.Text);
                     try
                     {
                         conn.Open();
-
                         SqlCommand cmd = new SqlCommand(@"DELETE FROM DVD WHERE DVD_ID = @DVD_ID", conn);
                         cmd.Parameters.AddWithValue("@DVD_ID", DVDId);
                         cmd.ExecuteNonQuery();
-
                         conn.Close();
                         shelfLabel.Visible = false;
                         ResetInput();
@@ -220,11 +240,8 @@ namespace CMPG223_Group10_DVD_Rental
                     {
                         MessageBox.Show("Error: " + ex.Message);
                     }
-
                     break;
-
                 case 2:
-
                     break;
                 default:
                     break;

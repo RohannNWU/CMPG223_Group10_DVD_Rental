@@ -208,13 +208,10 @@ namespace CMPG223_Group10_DVD_Rental
                     try
                     {
                         conn.Open();
-
                         SqlCommand cmd = new SqlCommand(@"DELETE FROM Employee WHERE Employee_ID = @Employee_ID", conn);
                         cmd.Parameters.AddWithValue("@Employee_ID", employeeId);
                         cmd.ExecuteNonQuery();
-
                         conn.Close();
-
                         EmptyInput();
                     }
                     catch (SqlException sqlEx)
@@ -225,8 +222,6 @@ namespace CMPG223_Group10_DVD_Rental
                     {
                         MessageBox.Show("Error: " + ex.Message);
                     }
-
-
                     break;
 
                 //Add new records

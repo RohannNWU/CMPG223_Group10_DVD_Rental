@@ -53,7 +53,7 @@
             // 
             this.dvdGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvdGridView.Location = new System.Drawing.Point(25, 91);
-            this.dvdGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dvdGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dvdGridView.Name = "dvdGridView";
             this.dvdGridView.RowHeadersWidth = 51;
             this.dvdGridView.Size = new System.Drawing.Size(911, 185);
@@ -82,7 +82,7 @@
             "Update DVD",
             "Search Genre and Location"});
             this.cmbCommand.Location = new System.Drawing.Point(481, 290);
-            this.cmbCommand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCommand.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCommand.Name = "cmbCommand";
             this.cmbCommand.Size = new System.Drawing.Size(160, 24);
             this.cmbCommand.TabIndex = 5;
@@ -111,9 +111,9 @@
             this.gbInput.Controls.Add(this.lblGenre);
             this.gbInput.Controls.Add(this.lblName);
             this.gbInput.Location = new System.Drawing.Point(75, 375);
-            this.gbInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInput.Margin = new System.Windows.Forms.Padding(4);
             this.gbInput.Name = "gbInput";
-            this.gbInput.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInput.Padding = new System.Windows.Forms.Padding(4);
             this.gbInput.Size = new System.Drawing.Size(404, 266);
             this.gbInput.TabIndex = 7;
             this.gbInput.TabStop = false;
@@ -132,8 +132,8 @@
             "Horror",
             "Romance",
             "Science Fiction"});
-            this.cmbDrop.Location = new System.Drawing.Point(173, 126);
-            this.cmbDrop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbDrop.Location = new System.Drawing.Point(173, 119);
+            this.cmbDrop.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDrop.Name = "cmbDrop";
             this.cmbDrop.Size = new System.Drawing.Size(132, 24);
             this.cmbDrop.TabIndex = 9;
@@ -142,7 +142,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(133, 219);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(100, 28);
             this.btnSubmit.TabIndex = 8;
@@ -152,24 +152,24 @@
             // 
             // txtCopies
             // 
-            this.txtCopies.Location = new System.Drawing.Point(173, 169);
-            this.txtCopies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCopies.Location = new System.Drawing.Point(173, 160);
+            this.txtCopies.Margin = new System.Windows.Forms.Padding(4);
             this.txtCopies.Name = "txtCopies";
             this.txtCopies.Size = new System.Drawing.Size(132, 22);
             this.txtCopies.TabIndex = 7;
             // 
             // txtYear
             // 
-            this.txtYear.Location = new System.Drawing.Point(173, 92);
-            this.txtYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYear.Location = new System.Drawing.Point(173, 79);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(4);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(132, 22);
             this.txtYear.TabIndex = 5;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(173, 48);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Location = new System.Drawing.Point(173, 45);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 4;
@@ -177,7 +177,7 @@
             // lblCopies
             // 
             this.lblCopies.AutoSize = true;
-            this.lblCopies.Location = new System.Drawing.Point(35, 172);
+            this.lblCopies.Location = new System.Drawing.Point(35, 163);
             this.lblCopies.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCopies.Name = "lblCopies";
             this.lblCopies.Size = new System.Drawing.Size(53, 16);
@@ -187,7 +187,7 @@
             // lblYear
             // 
             this.lblYear.AutoSize = true;
-            this.lblYear.Location = new System.Drawing.Point(47, 92);
+            this.lblYear.Location = new System.Drawing.Point(35, 82);
             this.lblYear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(39, 16);
@@ -197,7 +197,7 @@
             // lblGenre
             // 
             this.lblGenre.AutoSize = true;
-            this.lblGenre.Location = new System.Drawing.Point(41, 129);
+            this.lblGenre.Location = new System.Drawing.Point(35, 122);
             this.lblGenre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGenre.Name = "lblGenre";
             this.lblGenre.Size = new System.Drawing.Size(50, 16);
@@ -229,13 +229,8 @@
             // cmbNames
             // 
             this.cmbNames.FormattingEnabled = true;
-            this.cmbNames.Items.AddRange(new object[] {
-            "Add DVD",
-            "Delete DVD",
-            "Edit DVD",
-            "Search Genre"});
             this.cmbNames.Location = new System.Drawing.Point(481, 327);
-            this.cmbNames.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbNames.Margin = new System.Windows.Forms.Padding(4);
             this.cmbNames.Name = "cmbNames";
             this.cmbNames.Size = new System.Drawing.Size(160, 24);
             this.cmbNames.TabIndex = 9;
@@ -245,7 +240,7 @@
             // shelfLabel
             // 
             this.shelfLabel.AutoSize = true;
-            this.shelfLabel.Location = new System.Drawing.Point(507, 507);
+            this.shelfLabel.Location = new System.Drawing.Point(505, 497);
             this.shelfLabel.Name = "shelfLabel";
             this.shelfLabel.Size = new System.Drawing.Size(154, 16);
             this.shelfLabel.TabIndex = 10;
@@ -256,7 +251,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 542);
+            this.ClientSize = new System.Drawing.Size(956, 664);
             this.Controls.Add(this.shelfLabel);
             this.Controls.Add(this.cmbNames);
             this.Controls.Add(this.lblSelectName);
@@ -266,7 +261,7 @@
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.dvdGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DVD";
