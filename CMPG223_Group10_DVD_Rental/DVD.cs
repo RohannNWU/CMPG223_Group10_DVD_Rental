@@ -273,7 +273,7 @@ namespace CMPG223_Group10_DVD_Rental
                     try
                     {
                         conn.Open();
-
+                        sqlQuery = "UPDATE DVD SET ";
                         conn.Close();
                     }
                     catch (SqlException sqlEx)
