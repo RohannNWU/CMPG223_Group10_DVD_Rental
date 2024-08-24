@@ -26,6 +26,7 @@ namespace CMPG223_Group10_DVD_Rental
     {
         private string name;
         private string role;
+        private int employeeID;
 
         public AdminMainMenu()
         {
@@ -33,11 +34,12 @@ namespace CMPG223_Group10_DVD_Rental
             this.menuStrip.Renderer = new CustomRenderer();
         }
 
-        public AdminMainMenu(string name, string role)
+        public AdminMainMenu(string name, string role, int employeeID)
         {
             InitializeComponent();
             this.name = name;
             this.role = role;
+            this.employeeID = employeeID;
             this.menuStrip.Renderer = new CustomRenderer();
         }
 
@@ -48,7 +50,7 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void AdminMainMenu_Load(object sender, EventArgs e)
         {
-            DashboardForm dashboard = new DashboardForm(name, role);
+            DashboardForm dashboard = new DashboardForm(name, role, employeeID);
             dashboard.MdiParent = this;
             dashboard.Show();
         }
