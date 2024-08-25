@@ -125,17 +125,18 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void cmbMember_SelectedIndexChanged(object sender, EventArgs e)
         {
+            rentingGroupBox.Visible = true;
+            returnGroupBox.Visible = false;
             cmbDVD.Items.Clear();
             //Save Client ID in Variable
             string selectedItem = cmbMember.Text;    
             string[] parts = selectedItem.Split('-');
             if (int.TryParse(parts[0], out clientID)) {
-                //Two connections for two SqlDataReaders
                 conn = new SqlConnection(connectionString);
                 try
                 {
-                    conn.Open();
                     //Populate DVD comboBox with DVD IDs
+                    conn.Open();
                     command = new SqlCommand(@"SELECT DVD_ID, DVD_Name, DVD_Copies FROM DVD", conn);
                     reader = command.ExecuteReader();
 
@@ -147,49 +148,57 @@ namespace CMPG223_Group10_DVD_Rental
                         }
                         else
                         {
-                            cmbDVD.Items.Add(reader.GetValue(0).ToString() + "-" + reader.GetValue(1).ToString() + "-" + reader.GetValue(2).ToString());
+                            cmbDVD.Items.Add(reader.GetValue(0).ToString() + "-" + reader.GetValue(1).ToString());
                         }
                     }
                     reader.Close();
                     originalDVD = cmbDVD.Items.Cast<string>().ToList();
-                    //Check for Outstanding Returns               
-                    command = new SqlCommand(@"SELECT DVD_ID,Start_Date,Return_Date FROM Rental WHERE Client_ID = @ID ", conn);
+                    conn.Close();
+
+                    // check for outstanding or late Returns
+                    conn.Open();
+                    command = new SqlCommand(@"SELECT DVD_ID,Start_Date,Return_Date FROM Rental WHERE Client_ID = @ID", conn);
                     command.Parameters.AddWithValue("@ID", clientID);
                     reader = command.ExecuteReader();
-
+                    SqlConnection local = new SqlConnection(connectionString);
                     while (reader.Read())
                     {
-
-                        SqlCommand command1 = new SqlCommand(@"SELECT DVD_Name FROM DVD WHERE DVD_ID = @ID", conn);
-                        command1.Parameters.AddWithValue("@ID", reader.GetValue(0));
-                        SqlDataReader dataReader = command1.ExecuteReader();
+                        local.Open();
+                        command = new SqlCommand(@"SELECT DVD_Name FROM DVD WHERE DVD_ID = @ID", local);
+                        command.Parameters.AddWithValue("@ID", reader.GetValue(0));
+                        SqlDataReader dataReader = command.ExecuteReader();
                         int counter = 1;
 
                         while (dataReader.Read())
                         {
-                            outstandingDVDsListBox.Items.Add(counter.ToString() + "." + dataReader.GetValue(0));
-                            outstandingDVDsListBox.Items.Add("Start Date: " + (reader.GetDateTime(1)).ToString("yyyy/MM/dd"));
-                            outstandingDVDsListBox.Items.Add("Due Date: " + (reader.GetDateTime(2)).ToString("yyyy/MM/dd"));
-
                             //Calculate and display fine
                             TimeSpan difference = DateTime.Today - reader.GetDateTime(2);
                             int daysPastDue = (int)difference.TotalDays;
-                            decimal penalty = daysPastDue > 0 ? daysPastDue * 30 : 0;
-                            totalFine += penalty;
-
-                            outstandingDVDsListBox.Items.Add("Fine: R" + penalty.ToString());
-                            outstandingDVDsListBox.Items.Add("==================================================");
+                            if (daysPastDue > 0)
+                            {
+                                rentingGroupBox.Visible = false;
+                                decimal penalty = daysPastDue > 0 ? daysPastDue * 30 : 0;
+                                totalFine += penalty;
+                                outstandingDVDsListBox.Items.Add(counter.ToString() + "." + dataReader.GetValue(0));
+                                outstandingDVDsListBox.Items.Add("Start Date: " + (reader.GetDateTime(1)).ToString("yyyy/MM/dd"));
+                                outstandingDVDsListBox.Items.Add("Due Date: " + (reader.GetDateTime(2)).ToString("yyyy/MM/dd"));
+                                outstandingDVDsListBox.Items.Add("Fine: " + penalty.ToString("C"));
+                                outstandingDVDsListBox.Items.Add("==================================================");
+                                lblFine.Text = "Fine Due: " + totalFine.ToString();
+                                gbOutstandingDVD.Visible = true;
+                            } else
+                            {
+                                RefreshDVD();
+                                returnGroupBox.Visible = true;
+                            }
                             counter++;
                         }
                         dataReader.Close();
+                        local.Close();
                     }
                     reader.Close();
                     conn.Close();
-
-                    //Make other input Controls visible
-                    lblDVD.Visible = true;
-                    cmbDVD.Visible = true;
-                    lblFine.Text = "Fine Due: " + totalFine.ToString();
+                    cmbDVD.SelectedIndex = 0;
                 }
                 catch (SqlException sqlEx)
                 {
@@ -198,12 +207,6 @@ namespace CMPG223_Group10_DVD_Rental
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
-                }
-
-                if (totalFine == 0)
-                {
-                    checkoutButton.Visible = true;
-                    gbOutstandingDVD.Visible = false;
                 }
             }
         }
@@ -219,34 +222,24 @@ namespace CMPG223_Group10_DVD_Rental
             {
                 DateTime today = DateTime.Now;
                 lblToday.Text = "Today's Date: " + today.ToString("yyyy/MM/dd");
-                lblToday.Visible = true;
                 DateTime returnDate = today.AddDays(14);
                 lblReturnDate.Text = "Return Date: " + returnDate.ToString("yyyy/MM/dd");
-                lblReturnDate.Visible = true;
             }
         }
         private void ResetPage()
         {
-            MessageBox.Show("Here");
-            lblDVD.Visible = false;
             cmbDVD.Items.Clear();
-            cmbDVD.Visible = false;
-            lblToday.Visible = false;
-            lblReturnDate.Visible = false;
-            gbOutstandingDVD.Visible = false;
             lblToday.Text = "Today's Date: ";
             lblReturnDate.Text = "Return Date: ";
             lblFine.Text = "Fine Due: ";
             outstandingDVDsListBox.Items.Clear();
-            checkoutButton.Visible = false;
+            returnComboBox.Items.Clear();
             cmbMember.SelectedIndex = -1;
             totalFine = 0;
+            rentingGroupBox.Visible = false;
+            returnGroupBox.Visible = false;
         }
 
-        private void payButton_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void cmbDVD_TextUpdate(object sender, EventArgs e)
         {
@@ -299,6 +292,88 @@ namespace CMPG223_Group10_DVD_Rental
             {
                 cmb.DroppedDown = true;
                 Cursor.Current = Cursors.Default;
+            }
+        }
+
+        private void payButton_Click(object sender, EventArgs e)
+        {
+            if (totalFine == 0)
+            {
+                checkoutButton.Visible = true;
+                gbOutstandingDVD.Visible = false;
+            }
+        }
+
+        private void returnButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                string[] dvd = returnComboBox.Text.Split('-');
+                sqlQuery = "DELETE FROM Rental WHERE Client_ID = @client AND DVD_ID = @dvd";
+                command = new SqlCommand(sqlQuery, conn);
+                command.Parameters.AddWithValue("@client", clientID);
+                command.Parameters.AddWithValue("@dvd", dvd[0]);
+                command.ExecuteNonQuery();
+                conn.Close();
+                RefreshDVD();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Sql Error. " + sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error. " + ex.Message);
+            }
+
+        }
+
+        private void RefreshDVD()
+        {
+            SqlConnection refreshConn = new SqlConnection(connectionString);
+            SqlDataReader refreshReader;
+            try
+            {
+                returnComboBox.Items.Clear();
+                refreshConn.Open();
+                sqlQuery = "SELECT DVD_ID FROM Rental WHERE Client_ID = @client";
+                command = new SqlCommand(sqlQuery, refreshConn);
+                command.Parameters.AddWithValue("@client", clientID);
+                refreshReader = command.ExecuteReader();
+
+                if (!refreshReader.HasRows)
+                {
+                    returnGroupBox.Visible = false;
+                }
+                else
+                {
+                    while (refreshReader.Read())
+                    {
+                        SqlConnection local = new SqlConnection(connectionString);
+                        local.Open();
+                        sqlQuery = "SELECT DVD_Name FROM DVD WHERE DVD_ID = @id";
+                        SqlCommand localCommand = new SqlCommand(sqlQuery, local);
+                        localCommand.Parameters.AddWithValue("@id", refreshReader.GetValue(0));
+                        SqlDataReader dataReader = localCommand.ExecuteReader();
+
+                        while (dataReader.Read())
+                        {
+                            returnComboBox.Items.Add(refreshReader.GetValue(0) + "-" + dataReader.GetValue(0));
+                        }
+                        local.Close();
+                    }
+                    returnComboBox.SelectedIndex = 0;
+                }
+                refreshConn.Close();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Sql Error. " + sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error. " + ex.Message);
             }
         }
     }
