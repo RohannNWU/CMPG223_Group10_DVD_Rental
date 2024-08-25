@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CMPG223_Group10_DVD_Rental
@@ -54,118 +48,146 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void rbDelete_CheckedChanged(object sender, EventArgs e)
         {
+            inputError.Clear();
 
             if (rbDelete.Checked)
             {
-                gbInput.Visible = true;
-                gbInput.Visible = true;
-                lblName.Text = "ID to delete: ";
-
-                //Hide unused input controls
+                gbInput.Text = "Delete Member";
+                lblName.Visible = true;
+                lblName.Text = "ID to Delete:";
+                txtName.Visible = true;
+                txtName.Clear();
+                lblSurname.Visible = false;
+                txtSurname.Visible = false;
                 lblDOB.Visible = false;
                 txtDOB.Visible = false;
                 lblEmail.Visible = false;
                 txtEmail.Visible = false;
-                lblSurname.Visible = false;
-                txtSurname.Visible = false;
+                memberLabel.Visible = false;
+                memberComboBox.Visible = false;
+                btnSubmit.Text = "Delete";
+                gbInput.Visible = true;
             }
         }
 
         private void rbAdd_CheckedChanged(object sender, EventArgs e)
         {
+            inputError.Clear();
+
             if (rbAdd.Checked)
             {
                 gbInput.Visible = true;
+                gbInput.Text = "Add New Member";
+                lblName.Visible = true;
+                lblName.Text = "Name:";
+                txtName.Clear();
+                txtName.Visible = true;
+                lblSurname.Visible = true;
+                lblSurname.Text = "Surname:";
+                txtSurname.Clear();
+                txtSurname.Enabled = true;
+                txtSurname.Visible = true;
+                lblDOB.Visible = true;
+                txtDOB.Clear();
+                txtDOB.Visible = true;
+                lblEmail.Visible = true;
+                txtEmail.Clear();
+                txtEmail.Visible = true;
+                btnSubmit.Text = "Add New Client";
+                memberLabel.Visible = false;
+                memberComboBox.Visible = false;
             }
-
-
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (rbAdd.Checked)
+            if (ValidateUserInput())
             {
-                conn = new SqlConnection(connectionString);
-                try
+                if (rbAdd.Checked)
                 {
-                    conn.Open();
+                    conn = new SqlConnection(connectionString);
+                    try
+                    {
+                        conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Client (Client_Name_Surname, Date_of_Birth,Email_Address) VALUES (@NameSurname, @DOB, @Email_Address)", conn);
+                        SqlCommand cmd = new SqlCommand("INSERT INTO Client (Client_Name_Surname, Date_of_Birth,Email_Address) VALUES (@NameSurname, @DOB, @Email_Address)", conn);
 
-                    cmd.Parameters.AddWithValue("@NameSurname", txtName.Text + txtSurname.Text);
-                    cmd.Parameters.AddWithValue("@DOB", txtDOB.Text);
-                    cmd.Parameters.AddWithValue("@Email_Address", txtEmail.Text);
-                    cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@NameSurname", txtName.Text + " " + txtSurname.Text);
+                        cmd.Parameters.AddWithValue("@DOB", txtDOB.Text);
+                        cmd.Parameters.AddWithValue("@Email_Address", txtEmail.Text);
+                        cmd.ExecuteNonQuery();
 
-                    conn.Close();
+                        conn.Close();
 
-                    EmptyInput();
+                        EmptyInput();
+                    }
+                    catch (SqlException sqlEx)
+                    {
+                        MessageBox.Show("SQL Error: " + sqlEx.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
                 }
-                catch (SqlException sqlEx)
+                else if (updateRadioButton.Checked)
                 {
-                    MessageBox.Show("SQL Error: " + sqlEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            } else if (updateRadioButton.Checked)
-            {
-                conn = new SqlConnection(connectionString);
+                    conn = new SqlConnection(connectionString);
 
-                try
-                {
-                    conn.Open();
-                    sqlQuery = "UPDATE Client SET Client_Name_Surname = @name, Date_Of_Birth = @dob, Email_Address = @email WHERE Client_ID = @id";
-                    command = new SqlCommand(sqlQuery, conn);
-                    command.Parameters.AddWithValue("@id", txtSurname.Text);
-                    command.Parameters.AddWithValue("@name", txtName.Text);
-                    command.Parameters.AddWithValue("@dob", txtDOB.Text);
-                    command.Parameters.AddWithValue("@email", txtEmail.Text);
-                    command.ExecuteNonQuery();
-                    conn.Close();
-                    EmptyInput();
-                    memberComboBox.Items.Clear();
-                    memberComboBox.Visible = false;
-                    memberLabel.Visible = false;
+                    try
+                    {
+                        conn.Open();
+                        sqlQuery = "UPDATE Client SET Client_Name_Surname = @name, Date_Of_Birth = @dob, Email_Address = @email WHERE Client_ID = @id";
+                        command = new SqlCommand(sqlQuery, conn);
+                        command.Parameters.AddWithValue("@id", txtSurname.Text);
+                        command.Parameters.AddWithValue("@name", txtName.Text);
+                        command.Parameters.AddWithValue("@dob", txtDOB.Text);
+                        command.Parameters.AddWithValue("@email", txtEmail.Text);
+                        command.ExecuteNonQuery();
+                        conn.Close();
+                        EmptyInput();
+                        memberComboBox.Items.Clear();
+                        memberComboBox.Visible = false;
+                        memberLabel.Visible = false;
+                    }
+                    catch (SqlException sqlEx)
+                    {
+                        MessageBox.Show("Couldn't connect to database. " + sqlEx.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error. " + ex.Message);
+                    }
                 }
-                catch (SqlException sqlEx)
+                else if (rbDelete.Checked)
                 {
-                    MessageBox.Show("Couldn't connect to database. " + sqlEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error. " + ex.Message);
-                }
-            }
-            else if (rbDelete.Checked)
-            {
-                conn = new SqlConnection(connectionString);
-                try
-                {
-                    int ClientId = int.Parse(txtName.Text);
-                    conn.Open();
+                    conn = new SqlConnection(connectionString);
+                    try
+                    {
+                        int ClientId = int.Parse(txtName.Text);
+                        conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"DELETE FROM Client WHERE Client_ID = @Client_ID", conn);
-                    cmd.Parameters.AddWithValue("@Client_ID", ClientId);
-                    cmd.ExecuteNonQuery();
+                        SqlCommand cmd = new SqlCommand(@"DELETE FROM Client WHERE Client_ID = @Client_ID", conn);
+                        cmd.Parameters.AddWithValue("@Client_ID", ClientId);
+                        cmd.ExecuteNonQuery();
 
-                    conn.Close();
+                        conn.Close();
 
-                    EmptyInput();
+                        EmptyInput();
+                    }
+                    catch (SqlException sqlEx)
+                    {
+                        MessageBox.Show("SQL Error: " + sqlEx.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
                 }
-                catch (SqlException sqlEx)
+                else
                 {
-                    MessageBox.Show("SQL Error: " + sqlEx.Message);
+                    MessageBox.Show("Please select a database command");
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a database command");
             }
         }
 
@@ -197,16 +219,27 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void updateRadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            inputError.Clear();
+
             if (updateRadioButton.Checked == true)
             {
+                memberComboBox.Items.Clear();
+                gbInput.Text = "Update Member";
+                lblName.Visible = true;
+                lblName.Text = "Name:";
+                txtName.Visible = true;
+                lblSurname.Text = "Member ID:";
+                lblSurname.Visible = true;
+                txtSurname.Enabled = false;
+                txtSurname.Visible = true;
+                lblDOB.Visible = true;
+                txtDOB.Visible = true;
+                lblEmail.Visible = true;
+                txtEmail.Visible = true;
                 memberLabel.Visible = true;
                 memberComboBox.Visible = true;
                 btnSubmit.Text = "Update";
-                gbInput.Text = "Update Member";
-                lblSurname.Text = "Member ID:";
-                txtSurname.Enabled = false;
                 gbInput.Visible = true;
-
                 conn = new SqlConnection(connectionString);
 
                 try
@@ -238,15 +271,12 @@ namespace CMPG223_Group10_DVD_Rental
         {
             string getName = memberComboBox.SelectedItem.ToString();
             string name = getName.Substring(3);
-
             txtName.Text = name;
-
             conn = new SqlConnection(connectionString);
 
             try
             {
                 conn.Open();
-
                 sqlQuery = "SELECT * FROM Client WHERE Client_Name_Surname = @name";
                 command = new SqlCommand(sqlQuery, conn);
                 command.Parameters.AddWithValue("@name", name);
@@ -268,6 +298,44 @@ namespace CMPG223_Group10_DVD_Rental
             catch (Exception ex) {
                 MessageBox.Show("Error. " + ex.Message);
             }
+        }
+
+        private bool ValidateUserInput()
+        {
+            bool allInputValid = true;
+
+            foreach (TextBox textBox in new[] { txtName, txtSurname, txtDOB, txtEmail })
+            {
+                if (String.IsNullOrEmpty(textBox.Text))
+                {
+                    inputError.SetError(textBox, "Input is required. Cannot be blank");
+                    allInputValid = false;
+                } else
+                {
+                    inputError.SetError(textBox, "");
+                }
+            }
+            return allInputValid;
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+        }
+
+        private void txtSurname_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+        }
+
+        private void txtDOB_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
         }
     }
 }

@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CMPG223_Group10_DVD_Rental
 {
@@ -59,22 +50,33 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void cmbCommand_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Select index
-            gbInput.Visible = false;
-            gbInput.Visible = true;
-
+            inputError.Clear();
             int selectedIndex = cmbCommand.SelectedIndex;
 
             switch(selectedIndex)
             {
                 case 0:
+                    employeeComboBox.Items.Clear();
                     employeeLabel.Visible = true;
                     employeeComboBox.Visible = true;
                     lblName.Text = "Name & Surname:";
+                    txtName.Visible = true;
                     lblSurname.Text = "Employee ID:";
+                    lblSurname.Visible = true;
                     txtSurname.Enabled = false;
+                    txtSurname.Visible = true;
+                    lblDOB.Visible = true;
+                    txtDOB.Visible = true;
+                    lblContactNumber.Visible = true;
+                    txtContactNumber.Visible = true;
+                    lblUserName.Visible = true;
+                    txtUsername.Visible = true;
+                    lblPassword.Visible = true;
+                    txtPassword.Visible = true;
+                    cbAdmin.Visible = true;
                     btnSubmit.Text = "Update";
-
+                    gbInput.Text = "Update Employee";
+                    gbInput.Visible = true;
                     conn = new SqlConnection(connectionString);
 
                     try
@@ -100,8 +102,11 @@ namespace CMPG223_Group10_DVD_Rental
                     employeeComboBox.SelectedIndex = 0;
                     break;
                 case 1:
+                    employeeLabel.Visible = false;
+                    employeeComboBox.Visible = false;
                     lblName.Text = "ID to Delete: ";
-
+                    txtName.Clear();
+                    txtName.Visible = true;
                     //Make redundant controls invisible 
                     txtSurname.Visible = false;
                     lblSurname.Visible = false;
@@ -114,11 +119,41 @@ namespace CMPG223_Group10_DVD_Rental
                     txtPassword.Visible = false;
                     lblPassword.Visible = false;
                     cbAdmin.Visible = false;
-
+                    btnSubmit.Text = "Delete";
+                    gbInput.Text = "Delete Employee";
+                    gbInput.Visible = true;
+                    break;
+                case 2:
+                    employeeLabel.Visible = false;
+                    employeeComboBox.Visible = false;
+                    lblName.Text = "Name:";
+                    txtName.Clear();
+                    txtName.Visible = true;
+                    lblSurname.Text = "Surname:";
+                    lblSurname.Visible = true;
+                    txtSurname.Enabled = true;
+                    txtSurname.Clear();
+                    txtSurname.Visible = true;
+                    lblDOB.Visible = true;
+                    txtDOB.Clear();
+                    txtDOB.Visible = true;
+                    lblContactNumber.Visible = true;
+                    txtContactNumber.Clear();
+                    txtContactNumber.Visible = true;
+                    lblUserName.Visible = true;
+                    txtUsername.Clear();
+                    txtUsername.Visible = true;
+                    lblPassword.Visible = true;
+                    txtPassword.Clear();
+                    txtPassword.Visible = true;
+                    cbAdmin.Checked = false;
+                    cbAdmin.Visible = true;
+                    btnSubmit.Text = "Add New";
+                    gbInput.Text = "Add New Employee";
+                    gbInput.Visible = true;
                     break;
                 default:
                     break;
-
             }
         }
 
@@ -152,125 +187,125 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
-            conn = new SqlConnection(connectionString);
-
-            int selectedIndex = cmbCommand.SelectedIndex;
-
-            switch (selectedIndex)
+            if (ValidateUserInput())
             {
-                //Update Data according to input
-                case 0:
-                    gbInput.Visible = true;
-                    try
-                    {
-                        conn.Open();
-                        sqlQuery = "UPDATE Employee SET Employee_Name_Surname = @name, Date_of_Birth = @dob, Contact_Number = @contact, Username = @user, Password = @password, Role = @role WHERE Employee_ID = @id";
-                        command = new SqlCommand(sqlQuery, conn);
-                        command.Parameters.AddWithValue("@id", txtSurname.Text);
-                        command.Parameters.AddWithValue("@name", txtName.Text);
-                        command.Parameters.AddWithValue("@dob", txtDOB.Text);
-                        command.Parameters.AddWithValue("@contact", txtContactNumber.Text);
-                        command.Parameters.AddWithValue("@user", txtUsername.Text);
-                        command.Parameters.AddWithValue("@password", txtPassword.Text);
+                conn = new SqlConnection(connectionString);
+                int selectedIndex = cmbCommand.SelectedIndex;
 
-                        if (cbAdmin.Checked == true)
+                switch (selectedIndex)
+                {
+                    //Update Data according to input
+                    case 0:
+                        try
                         {
-                            employeeRole = "Administrator";
-                        } else
-                        {
-                            employeeRole = "Employee";
+                            conn.Open();
+                            sqlQuery = "UPDATE Employee SET Employee_Name_Surname = @name, Date_of_Birth = @dob, Contact_Number = @contact, Username = @user, Password = @password, Role = @role WHERE Employee_ID = @id";
+                            command = new SqlCommand(sqlQuery, conn);
+                            command.Parameters.AddWithValue("@id", txtSurname.Text);
+                            command.Parameters.AddWithValue("@name", txtName.Text);
+                            command.Parameters.AddWithValue("@dob", txtDOB.Text);
+                            command.Parameters.AddWithValue("@contact", txtContactNumber.Text);
+                            command.Parameters.AddWithValue("@user", txtUsername.Text);
+                            command.Parameters.AddWithValue("@password", txtPassword.Text);
+
+                            if (cbAdmin.Checked == true)
+                            {
+                                employeeRole = "Administrator";
+                            }
+                            else
+                            {
+                                employeeRole = "Employee";
+                            }
+                            command.Parameters.AddWithValue("@role", employeeRole);
+                            command.ExecuteNonQuery();
+                            conn.Close();
+                            EmptyInput();
+                            employeeLabel.Visible = false;
+                            employeeComboBox.Visible = false;
+                            employeeRole = "";
+                            employeeComboBox.Items.Clear();
                         }
-                        command.Parameters.AddWithValue("@role", employeeRole);
-                        command.ExecuteNonQuery();
-                        conn.Close();
-                        EmptyInput();
-                        employeeLabel.Visible = false;
-                        employeeComboBox.Visible = false;
-                        employeeRole = "";
-                        employeeComboBox.Items.Clear();
-                    }
-                    catch (SqlException sqlEx)
-                    {
-                        MessageBox.Show("SQL Error: " + sqlEx.Message);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                    break;
-
-                // Delete Data
-                case 1:
-                    gbInput.Visible = true;
-
-                    int employeeId = int.Parse(txtName.Text);
-                    try
-                    {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand(@"DELETE FROM Employee WHERE Employee_ID = @Employee_ID", conn);
-                        cmd.Parameters.AddWithValue("@Employee_ID", employeeId);
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-                        EmptyInput();
-                    }
-                    catch (SqlException sqlEx)
-                    {
-                        MessageBox.Show("SQL Error: " + sqlEx.Message);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                    break;
-
-                //Add new records
-                case 2:
-
-                    gbInput.Visible = true;
-                    try
-                    {
-                        conn.Open();
-
-                        SqlCommand cmd = new SqlCommand("INSERT INTO Employee (Employee_Name_Surname, Date_of_Birth, Contact_Number, Username, Password, Role) VALUES (@NameSurname, @DOB, @Number, @Username, @Password, @Role)", conn);
-
-                        cmd.Parameters.AddWithValue("@NameSurname", txtName.Text + txtSurname.Text);
-                        cmd.Parameters.AddWithValue("@DOB", txtDOB.Text);
-                        cmd.Parameters.AddWithValue("@Number", txtContactNumber.Text);
-                        cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
-                        cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-
-                        if (cbAdmin.Checked)
+                        catch (SqlException sqlEx)
                         {
-                            cmd.Parameters.AddWithValue("@Role", "Administrator");
+                            MessageBox.Show("SQL Error: " + sqlEx.Message);
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            cmd.Parameters.AddWithValue("@Role", "Employee");
+                            MessageBox.Show("Error: " + ex.Message);
                         }
-                        cmd.ExecuteNonQuery();
+                        break;
 
-                        conn.Close();
+                    // Delete Data
+                    case 1:
+                        gbInput.Visible = true;
 
-                        EmptyInput();
-                    }
-                    catch (SqlException sqlEx)
-                    {
-                        MessageBox.Show("SQL Error: " + sqlEx.Message);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                    break;
+                        int employeeId = int.Parse(txtName.Text);
+                        try
+                        {
+                            conn.Open();
+                            SqlCommand cmd = new SqlCommand(@"DELETE FROM Employee WHERE Employee_ID = @Employee_ID", conn);
+                            cmd.Parameters.AddWithValue("@Employee_ID", employeeId);
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+                            EmptyInput();
+                        }
+                        catch (SqlException sqlEx)
+                        {
+                            MessageBox.Show("SQL Error: " + sqlEx.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                        break;
 
-                default:
-                    break;
+                    //Add new records
+                    case 2:
+
+                        gbInput.Visible = true;
+                        try
+                        {
+                            conn.Open();
+
+                            SqlCommand cmd = new SqlCommand("INSERT INTO Employee (Employee_Name_Surname, Date_of_Birth, Contact_Number, Username, Password, Role) VALUES (@NameSurname, @DOB, @Number, @Username, @Password, @Role)", conn);
+
+                            cmd.Parameters.AddWithValue("@NameSurname", txtName.Text + " " + txtSurname.Text);
+                            cmd.Parameters.AddWithValue("@DOB", txtDOB.Text);
+                            cmd.Parameters.AddWithValue("@Number", txtContactNumber.Text);
+                            cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
+                            cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
+
+                            if (cbAdmin.Checked)
+                            {
+                                cmd.Parameters.AddWithValue("@Role", "Administrator");
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("@Role", "Employee");
+                            }
+                            cmd.ExecuteNonQuery();
+
+                            conn.Close();
+
+                            EmptyInput();
+                        }
+                        catch (SqlException sqlEx)
+                        {
+                            MessageBox.Show("SQL Error: " + sqlEx.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+                EmptyInput();
+                gbInput.Visible = false;
+                ShowAllData();
             }
-
-            EmptyInput();
-            gbInput.Visible = false;
-            ShowAllData();
         }
 
         private void employeeComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -321,6 +356,53 @@ namespace CMPG223_Group10_DVD_Rental
             {
                 employeeRole = "Employee";
             }
+        }
+
+        private bool ValidateUserInput()
+        {
+            bool allValid = true;
+
+            foreach (TextBox textBox in new[] {txtName, txtSurname, txtDOB, txtContactNumber, txtUsername, txtPassword})
+            {
+                if (String.IsNullOrEmpty(textBox.Text)) {
+                    allValid = false;
+                    inputError.SetError(textBox, "Input is required. Cannot be blank");
+                } else
+                {
+                    inputError.SetError(textBox, "");
+                }
+            }
+            return allValid;
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+        }
+
+        private void txtSurname_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+        }
+
+        private void txtDOB_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+        }
+
+        private void txtContactNumber_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label lblCommand;
             this.lblHeader = new System.Windows.Forms.Label();
             this.DGVEmployee = new System.Windows.Forms.DataGridView();
@@ -50,9 +51,11 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.employeeLabel = new System.Windows.Forms.Label();
             this.employeeComboBox = new System.Windows.Forms.ComboBox();
+            this.inputError = new System.Windows.Forms.ErrorProvider(this.components);
             lblCommand = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmployee)).BeginInit();
             this.gbInput.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inputError)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCommand
@@ -213,6 +216,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(132, 22);
             this.txtPassword.TabIndex = 17;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtUsername
             // 
@@ -221,6 +225,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(132, 22);
             this.txtUsername.TabIndex = 16;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtContactNumber
             // 
@@ -229,6 +234,7 @@
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(132, 22);
             this.txtContactNumber.TabIndex = 15;
+            this.txtContactNumber.TextChanged += new System.EventHandler(this.txtContactNumber_TextChanged);
             // 
             // txtDOB
             // 
@@ -237,6 +243,7 @@
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.Size = new System.Drawing.Size(132, 22);
             this.txtDOB.TabIndex = 14;
+            this.txtDOB.TextChanged += new System.EventHandler(this.txtDOB_TextChanged);
             // 
             // txtSurname
             // 
@@ -245,6 +252,7 @@
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(132, 22);
             this.txtSurname.TabIndex = 13;
+            this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
             // 
             // txtName
             // 
@@ -253,6 +261,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 12;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // lblPassword
             // 
@@ -296,6 +305,10 @@
             this.employeeComboBox.Visible = false;
             this.employeeComboBox.SelectedIndexChanged += new System.EventHandler(this.employeeComboBox_SelectedIndexChanged);
             // 
+            // inputError
+            // 
+            this.inputError.ContainerControl = this;
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -319,6 +332,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmployee)).EndInit();
             this.gbInput.ResumeLayout(false);
             this.gbInput.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inputError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,5 +361,6 @@
         private System.Windows.Forms.CheckBox cbAdmin;
         private System.Windows.Forms.Label employeeLabel;
         private System.Windows.Forms.ComboBox employeeComboBox;
+        private System.Windows.Forms.ErrorProvider inputError;
     }
 }

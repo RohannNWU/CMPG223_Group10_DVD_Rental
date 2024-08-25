@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.DGVCustomer = new System.Windows.Forms.DataGridView();
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnShowAll = new System.Windows.Forms.Button();
@@ -47,9 +48,11 @@
             this.lblName = new System.Windows.Forms.Label();
             this.memberComboBox = new System.Windows.Forms.ComboBox();
             this.memberLabel = new System.Windows.Forms.Label();
+            this.inputError = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DGVCustomer)).BeginInit();
             this.gbCommand.SuspendLayout();
             this.gbInput.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inputError)).BeginInit();
             this.SuspendLayout();
             // 
             // DGVCustomer
@@ -181,6 +184,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(132, 22);
             this.txtEmail.TabIndex = 7;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // lblEmail
             // 
@@ -199,6 +203,7 @@
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.Size = new System.Drawing.Size(132, 22);
             this.txtDOB.TabIndex = 5;
+            this.txtDOB.TextChanged += new System.EventHandler(this.txtDOB_TextChanged);
             // 
             // txtSurname
             // 
@@ -207,6 +212,7 @@
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(132, 22);
             this.txtSurname.TabIndex = 4;
+            this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
             // 
             // txtName
             // 
@@ -215,6 +221,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 3;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // lblDOB
             // 
@@ -266,6 +273,10 @@
             this.memberLabel.Text = "Please select the Member:";
             this.memberLabel.Visible = false;
             // 
+            // inputError
+            // 
+            this.inputError.ContainerControl = this;
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -290,6 +301,7 @@
             this.gbCommand.PerformLayout();
             this.gbInput.ResumeLayout(false);
             this.gbInput.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inputError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,5 +328,6 @@
         private System.Windows.Forms.RadioButton updateRadioButton;
         private System.Windows.Forms.ComboBox memberComboBox;
         private System.Windows.Forms.Label memberLabel;
+        private System.Windows.Forms.ErrorProvider inputError;
     }
 }

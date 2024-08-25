@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dvdGridView = new System.Windows.Forms.DataGridView();
             this.lblHeader = new System.Windows.Forms.Label();
             this.cmbCommand = new System.Windows.Forms.ComboBox();
@@ -45,8 +46,10 @@
             this.lblSelectName = new System.Windows.Forms.Label();
             this.cmbNames = new System.Windows.Forms.ComboBox();
             this.shelfLabel = new System.Windows.Forms.Label();
+            this.inputError = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dvdGridView)).BeginInit();
             this.gbInput.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inputError)).BeginInit();
             this.SuspendLayout();
             // 
             // dvdGridView
@@ -157,6 +160,7 @@
             this.txtCopies.Name = "txtCopies";
             this.txtCopies.Size = new System.Drawing.Size(132, 22);
             this.txtCopies.TabIndex = 7;
+            this.txtCopies.TextChanged += new System.EventHandler(this.txtCopies_TextChanged);
             // 
             // txtYear
             // 
@@ -165,6 +169,7 @@
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(132, 22);
             this.txtYear.TabIndex = 5;
+            this.txtYear.TextChanged += new System.EventHandler(this.txtYear_TextChanged);
             // 
             // txtName
             // 
@@ -173,6 +178,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 4;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // lblCopies
             // 
@@ -247,6 +253,10 @@
             this.shelfLabel.Text = "Shelf Location:";
             this.shelfLabel.Visible = false;
             // 
+            // inputError
+            // 
+            this.inputError.ContainerControl = this;
+            // 
             // DVD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -269,6 +279,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dvdGridView)).EndInit();
             this.gbInput.ResumeLayout(false);
             this.gbInput.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inputError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +304,6 @@
         private System.Windows.Forms.TextBox txtCopies;
         private System.Windows.Forms.ComboBox cmbDrop;
         private System.Windows.Forms.Label shelfLabel;
+        private System.Windows.Forms.ErrorProvider inputError;
     }
 }

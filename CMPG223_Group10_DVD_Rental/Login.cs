@@ -11,14 +11,7 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CMPG223_Group10_DVD_Rental
@@ -38,15 +31,15 @@ namespace CMPG223_Group10_DVD_Rental
         // login button validates the user and gets their role in the organization
         private void loginButton_Click(object sender, EventArgs e)
         {
-            conn = new SqlConnection(connectionString);
-
-            try
+            if (ValidateUserInput())
             {
-                conn.Open();
-                sqlQuery = @"SELECT * From dbo.Employee WHERE Username = @username AND Password = @password"; // preventing SQL injection by using parameters
-                command = new SqlCommand(sqlQuery, conn);
-                if (!String.IsNullOrEmpty(usernameTextBox.Text) || !String.IsNullOrEmpty(passwordTextBox.Text))
+                conn = new SqlConnection(connectionString);
+
+                try
                 {
+                    conn.Open();
+                    sqlQuery = @"SELECT * From dbo.Employee WHERE Username = @username AND Password = @password"; // preventing SQL injection by using parameters
+                    command = new SqlCommand(sqlQuery, conn);
                     command.Parameters.AddWithValue("@username", usernameTextBox.Text);
                     command.Parameters.AddWithValue("@password", passwordTextBox.Text);
                     reader = command.ExecuteReader();
@@ -60,7 +53,8 @@ namespace CMPG223_Group10_DVD_Rental
                             dashboard.Show();
                             this.Hide();
                             dashboard.FormClosed += (s, args) => this.Close(); // closes the login form that is hidden when the main program is closed
-                        } else
+                        }
+                        else
                         {
                             EmployeeMainMenu dashboard = new EmployeeMainMenu(reader["Employee_Name_Surname"].ToString(), reader["Role"].ToString(), (int)reader["Employee_ID"]);
                             dashboard.Show();
@@ -72,20 +66,44 @@ namespace CMPG223_Group10_DVD_Rental
                     {
                         MessageBox.Show("Login Error: Username and Password don't match.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    conn.Close();
+                }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show("SQL Error: " + sqlEx.Message); // displays the SQL error
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message); // displays any normal error encountered
+                }
+            }
+        }
+
+        private bool ValidateUserInput()
+        {
+            bool allValid = true;
+            foreach (MaskedTextBox textBox in new[] {usernameTextBox, passwordTextBox})
+            {
+                if (String.IsNullOrEmpty(textBox.Text))
+                {
+                    allValid = false;
+                    inputError.SetError(textBox, "Input is required. Cannot be blank.");
                 } else
                 {
-                    MessageBox.Show("Population Error: Fields cannot be empty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    inputError.SetError(textBox, "");
                 }
-                conn.Close();
-            } 
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show("SQL Error: " + sqlEx.Message); // displays the SQL error
-            } 
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message); // displays any normal error encountered
             }
+            return allValid;
+        }
+
+        private void usernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
         }
     }
 }

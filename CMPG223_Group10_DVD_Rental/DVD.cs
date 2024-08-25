@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace CMPG223_Group10_DVD_Rental
 {
@@ -216,90 +208,105 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            int selectedIndex = cmbCommand.SelectedIndex;
-            conn = new SqlConnection(connectionString);
-
-            switch (selectedIndex)
+            if (ValidateUserInput())
             {
-                case 0:
-                    try
-                    {
-                        conn.Open();
-                        sqlQuery = "INSERT INTO DVD (Shelf_ID, DVD_Name, DVD_Year, DVD_Genre, DVD_Copies) VALUES (@shelf, @name, @year, @genre, @copies)";
-                        command = new SqlCommand(sqlQuery, conn);
-                        command.Parameters.AddWithValue("@shelf", expectedShelf);
-                        command.Parameters.AddWithValue("@name", txtName.Text);
-                        command.Parameters.AddWithValue("@year", txtYear.Text);
-                        command.Parameters.AddWithValue("@genre", cmbDrop.Text);
-                        command.Parameters.AddWithValue("@copies", txtCopies.Text);
-                        command.ExecuteNonQuery();
-                        conn.Close();
-                        ResetInput();
-                        shelfLabel.Visible = false;
-                    }
-                    catch (SqlException sqlEx)
-                    {
-                        MessageBox.Show("SQL Error: " + sqlEx.Message);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                    break;
-                case 1:
-                    gbInput.Visible = true;
-                    int DVDId = int.Parse(txtName.Text);
-                    try
-                    {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand(@"DELETE FROM DVD WHERE DVD_ID = @DVD_ID", conn);
-                        cmd.Parameters.AddWithValue("@DVD_ID", DVDId);
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-                        shelfLabel.Visible = false;
-                        ResetInput();
-                    }
-                    catch (SqlException sqlEx)
-                    {
-                        MessageBox.Show("SQL Error: " + sqlEx.Message);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                    break;
-                case 2:
-                    // update the dvd details when the update button is clicked
-                    try
-                    {
-                        conn.Open();
-                        sqlQuery = "UPDATE DVD SET Shelf_ID = @shelf, DVD_Name = @name, DVD_Year = @year, DVD_Genre = @genre, DVD_Copies = @copies";
-                        command = new SqlCommand(sqlQuery, conn);
-                        command.Parameters.AddWithValue("@shelf", expectedShelf);
-                        command.Parameters.AddWithValue("@name", txtName.Text);
-                        command.Parameters.AddWithValue("@year", txtYear.Text);
-                        command.Parameters.AddWithValue("@genre", cmbDrop.Text);
-                        command.Parameters.AddWithValue("@copies", txtCopies.Text);
-                        command.ExecuteNonQuery();
-                        conn.Close();
-                        ResetInput();
-                        cmbNames.Visible = false;
-                        lblSelectName.Visible = false;
-                    }
-                    catch (SqlException sqlEx)
-                    {
-                        MessageBox.Show("Couldn't connect to the database. " + sqlEx.Message);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error. " + ex.Message);
-                    }
-                    break;
-                default:
-                    break;
+                int selectedIndex = cmbCommand.SelectedIndex;
+                conn = new SqlConnection(connectionString);
 
+                switch (selectedIndex)
+                {
+                    case 0:
+                        if (DateTime.TryParseExact(txtYear.Text, "yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime parsedDate))
+                        {
+                            if (int.TryParse(txtCopies.Text, out int copies))
+                            {
+                                try
+                                {
+                                    conn.Open();
+                                    sqlQuery = "INSERT INTO DVD (Shelf_ID, DVD_Name, DVD_Year, DVD_Genre, DVD_Copies) VALUES (@shelf, @name, @year, @genre, @copies)";
+                                    command = new SqlCommand(sqlQuery, conn);
+                                    command.Parameters.AddWithValue("@shelf", expectedShelf);
+                                    command.Parameters.AddWithValue("@name", txtName.Text);
+                                    command.Parameters.AddWithValue("@year", txtYear.Text);
+                                    command.Parameters.AddWithValue("@genre", cmbDrop.Text);
+                                    command.Parameters.AddWithValue("@copies", copies.ToString());
+                                    command.ExecuteNonQuery();
+                                    conn.Close();
+                                    ResetInput();
+                                    shelfLabel.Visible = false;
+                                }
+                                catch (SqlException sqlEx)
+                                {
+                                    MessageBox.Show("SQL Error: " + sqlEx.Message);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Error: " + ex.Message);
+                                }
+                            } else
+                            {
+                                inputError.SetError(txtCopies, "Please enter a value.");
+                            }
+                        } else
+                        {
+                            inputError.SetError(txtYear, "Year has to be in the format yyyy.");
+                        }
+                        break;
+                    case 1:
+                        gbInput.Visible = true;
+                        int DVDId = int.Parse(txtName.Text);
+                        try
+                        {
+                            conn.Open();
+                            SqlCommand cmd = new SqlCommand(@"DELETE FROM DVD WHERE DVD_ID = @DVD_ID", conn);
+                            cmd.Parameters.AddWithValue("@DVD_ID", DVDId);
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+                            shelfLabel.Visible = false;
+                            ResetInput();
+                        }
+                        catch (SqlException sqlEx)
+                        {
+                            MessageBox.Show("SQL Error: " + sqlEx.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                        break;
+                    case 2:
+                        // update the dvd details when the update button is clicked
+                        try
+                        {
+                            conn.Open();
+                            sqlQuery = "UPDATE DVD SET Shelf_ID = @shelf, DVD_Name = @name, DVD_Year = @year, DVD_Genre = @genre, DVD_Copies = @copies";
+                            command = new SqlCommand(sqlQuery, conn);
+                            command.Parameters.AddWithValue("@shelf", expectedShelf);
+                            command.Parameters.AddWithValue("@name", txtName.Text);
+                            command.Parameters.AddWithValue("@year", txtYear.Text);
+                            command.Parameters.AddWithValue("@genre", cmbDrop.Text);
+                            command.Parameters.AddWithValue("@copies", txtCopies.Text);
+                            command.ExecuteNonQuery();
+                            conn.Close();
+                            ResetInput();
+                            cmbNames.Visible = false;
+                            lblSelectName.Visible = false;
+                        }
+                        catch (SqlException sqlEx)
+                        {
+                            MessageBox.Show("Couldn't connect to the database. " + sqlEx.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error. " + ex.Message);
+                        }
+                        break;
+                    default:
+                        break;
+
+                }
+                ShowAll();
             }
-            ShowAll();
         }
 
         private void cmbDrop_SelectedIndexChanged(object sender, EventArgs e)
@@ -339,6 +346,44 @@ namespace CMPG223_Group10_DVD_Rental
             {
                 MessageBox.Show("Error. " + ex.Message);
             }
+        }
+
+        private bool ValidateUserInput()
+        {
+            bool allValid = true;
+            foreach (TextBox textBox in new[] {txtName, txtYear, txtCopies})
+            {
+                if (String.IsNullOrEmpty(textBox.Text))
+                {
+                    allValid = false;
+                    inputError.SetError(textBox, "Input is needed. Cannot be blank.");
+                }
+                
+                if (String.IsNullOrEmpty(cmbDrop.Text)) 
+                {
+                    allValid = false;
+                    inputError.SetError(cmbDrop, "Please choose an option. Cannot be blank.");
+                } else
+                {
+                    inputError.SetError(textBox, "");
+                }
+            }
+            return allValid;
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+        }
+
+        private void txtYear_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+        }
+
+        private void txtCopies_TextChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
         }
     }
 }
