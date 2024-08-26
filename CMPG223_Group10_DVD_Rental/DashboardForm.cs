@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*
+ *
+ * CMPG223 Project - G10 DVD Rentals
+ * Date Created: 03/08/2024
+ * Rohann Venter, 25130757
+ * Jacques van Heerden, 35317906 
+ * Francois Verster, 40723380
+ * Stefan Venter, 39066894
+ * Christo Prinsloo, 21052239
+ *
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -68,58 +80,64 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void checkoutButton_Click(object sender, EventArgs e)
         {
-            //Add new Rental
-            try
+            if (cmbDVD.Text.Contains("-Out of Stock"))
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO Rental (Employee_ID, Client_ID, DVD_ID, Start_Date, Return_Date) VALUES (@Employee_ID, @Client_ID, @DVD_ID, @Start_Date, @Return_Date)", conn);
-                cmd.Parameters.AddWithValue("@Employee_ID", employeeID);
-                cmd.Parameters.AddWithValue("@Client_ID", clientID);
-                string selectedItem = cmbDVD.Text;
-                int DVD_ID;
-
-                if (selectedItem.Contains("-"))
-                {
-                    string[] parts = selectedItem.Split('-');
-                    DVD_ID = int.Parse(parts[0]);
-                }
-                else
-                {
-                    DVD_ID = int.Parse(selectedItem);
-                }
-                cmd.Parameters.AddWithValue("@DVD_ID", DVD_ID);
-                cmd.Parameters.AddWithValue("@Start_Date", DateTime.Today);
-                cmd.Parameters.AddWithValue("@Return_Date", DateTime.Today.AddDays(14));
-                cmd.ExecuteNonQuery();
-
-                sqlQuery = "SELECT DVD_Copies FROM DVD WHERE DVD_ID = @id";
-                SqlCommand comm = new SqlCommand(sqlQuery, conn);
-                comm.Parameters.AddWithValue("@id", DVD_ID);
-                SqlDataReader dataReader = comm.ExecuteReader();
-                int copies = 0;
-                while (dataReader.Read())
-                {
-                    copies = (int)dataReader["DVD_Copies"];
-                    copies--;
-                }
-                dataReader.Close();
-
-                sqlQuery = "UPDATE DVD SET DVD_Copies = @copies WHERE DVD_ID = @id";
-                SqlCommand com = new SqlCommand(sqlQuery, conn);
-                com.Parameters.AddWithValue("@copies", copies);
-                com.Parameters.AddWithValue("@id", DVD_ID);
-                com.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Rental successfully added to the database.");
-                ResetPage();
-            }
-            catch (SqlException sqlEx)
+                MessageBox.Show("Please choose another DVD. The current one is out of stock");
+            } else
             {
-                MessageBox.Show("SQL Error: " + sqlEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                //Add new Rental
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Rental (Employee_ID, Client_ID, DVD_ID, Start_Date, Return_Date) VALUES (@Employee_ID, @Client_ID, @DVD_ID, @Start_Date, @Return_Date)", conn);
+                    cmd.Parameters.AddWithValue("@Employee_ID", employeeID);
+                    cmd.Parameters.AddWithValue("@Client_ID", clientID);
+                    string selectedItem = cmbDVD.Text;
+                    int DVD_ID;
+
+                    if (selectedItem.Contains("-"))
+                    {
+                        string[] parts = selectedItem.Split('-');
+                        DVD_ID = int.Parse(parts[0]);
+                    }
+                    else
+                    {
+                        DVD_ID = int.Parse(selectedItem);
+                    }
+                    cmd.Parameters.AddWithValue("@DVD_ID", DVD_ID);
+                    cmd.Parameters.AddWithValue("@Start_Date", DateTime.Today);
+                    cmd.Parameters.AddWithValue("@Return_Date", DateTime.Today.AddDays(14));
+                    cmd.ExecuteNonQuery();
+
+                    sqlQuery = "SELECT DVD_Copies FROM DVD WHERE DVD_ID = @id";
+                    SqlCommand comm = new SqlCommand(sqlQuery, conn);
+                    comm.Parameters.AddWithValue("@id", DVD_ID);
+                    SqlDataReader dataReader = comm.ExecuteReader();
+                    int copies = 0;
+                    while (dataReader.Read())
+                    {
+                        copies = (int)dataReader["DVD_Copies"];
+                        copies--;
+                    }
+                    dataReader.Close();
+
+                    sqlQuery = "UPDATE DVD SET DVD_Copies = @copies WHERE DVD_ID = @id";
+                    SqlCommand com = new SqlCommand(sqlQuery, conn);
+                    com.Parameters.AddWithValue("@copies", copies);
+                    com.Parameters.AddWithValue("@id", DVD_ID);
+                    com.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Rental successfully added to the database.");
+                    ResetPage();
+                }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show("SQL Error: " + sqlEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
             }
         }
 
@@ -142,13 +160,13 @@ namespace CMPG223_Group10_DVD_Rental
 
                     while (reader.Read())
                     {
-                        if (reader.GetValue(1).ToString() == "0")
+                        if (reader.GetValue(2).ToString() == "0")
                         {
-                            cmbDVD.Items.Add(reader.GetValue(0).ToString() + "-" + reader.GetValue(1).ToString() + "-Out of Stock");
+                            cmbDVD.Items.Add(reader.GetValue(0).ToString() + "-Out of Stock");
                         }
                         else
                         {
-                            cmbDVD.Items.Add(reader.GetValue(0).ToString() + "-" + reader.GetValue(1).ToString());
+                            cmbDVD.Items.Add(reader.GetValue(0).ToString() + "-" + reader.GetValue(1).ToString() + "-" + reader.GetValue(2));
                         }
                     }
                     reader.Close();
@@ -213,18 +231,10 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void cmbDVD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Prevent user from selecting out of stock DVD
-            if (cmbDVD.Text.Contains("Out of Stock"))
-            {
-                MessageBox.Show("This DVD is out of stock and cannot be selected.");
-                cmbDVD.SelectedIndex = -1;
-            } else
-            {
-                DateTime today = DateTime.Now;
-                lblToday.Text = "Today's Date: " + today.ToString("yyyy/MM/dd");
-                DateTime returnDate = today.AddDays(14);
-                lblReturnDate.Text = "Return Date: " + returnDate.ToString("yyyy/MM/dd");
-            }
+            DateTime today = DateTime.Now;
+            lblToday.Text = "Today's Date: " + today.ToString("yyyy/MM/dd");
+            DateTime returnDate = today.AddDays(14);
+            lblReturnDate.Text = "Return Date: " + returnDate.ToString("yyyy/MM/dd");
         }
         private void ResetPage()
         {

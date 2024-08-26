@@ -38,25 +38,24 @@ namespace CMPG223_Group10_DVD_Rental
                 try
                 {
                     conn.Open();
-                    sqlQuery = @"SELECT * From dbo.Employee WHERE Username = @username AND Password = @password"; // preventing SQL injection by using parameters
+                    sqlQuery = @"SELECT Employee_ID, Employee_Name_Surname, Role From Employee WHERE Username = @username AND Password = @password"; // preventing SQL injection by using parameters
                     command = new SqlCommand(sqlQuery, conn);
                     command.Parameters.AddWithValue("@username", usernameTextBox.Text);
                     command.Parameters.AddWithValue("@password", passwordTextBox.Text);
                     reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        string role = reader["Role"].ToString();
-
+                        string role = reader.GetValue(2).ToString();
                         if (role == "Administrator")
                         {
-                            AdminMainMenu dashboard = new AdminMainMenu(reader["Employee_Name_Surname"].ToString(), reader["Role"].ToString(), (int)reader["Employee_ID"]);
+                            AdminMainMenu dashboard = new AdminMainMenu(reader.GetValue(1).ToString(), role, (int)reader.GetValue(0));
                             dashboard.Show();
                             this.Hide();
                             dashboard.FormClosed += (s, args) => this.Close(); // closes the login form that is hidden when the main program is closed
                         }
                         else
                         {
-                            EmployeeMainMenu dashboard = new EmployeeMainMenu(reader["Employee_Name_Surname"].ToString(), reader["Role"].ToString(), (int)reader["Employee_ID"]);
+                            EmployeeMainMenu dashboard = new EmployeeMainMenu(reader.GetValue(1).ToString(), role, (int)reader.GetValue(0));
                             dashboard.Show();
                             this.Hide();
                             dashboard.FormClosed += (s, args) => this.Close(); // closes the login form that is hidden when the main program is closed
