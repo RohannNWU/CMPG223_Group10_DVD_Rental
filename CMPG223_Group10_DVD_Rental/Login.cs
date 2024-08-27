@@ -104,5 +104,10 @@ namespace CMPG223_Group10_DVD_Rental
         {
             inputError.Clear();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            usernameTextBox.Focus();
+        }
     }
 }

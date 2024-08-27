@@ -160,7 +160,7 @@
             this.lblFine.AutoSize = true;
             this.lblFine.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFine.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.lblFine.Location = new System.Drawing.Point(636, 38);
+            this.lblFine.Location = new System.Drawing.Point(625, 71);
             this.lblFine.Name = "lblFine";
             this.lblFine.Size = new System.Drawing.Size(111, 22);
             this.lblFine.TabIndex = 7;
@@ -175,7 +175,7 @@
             this.outstandingDVDsListBox.Location = new System.Drawing.Point(19, 38);
             this.outstandingDVDsListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.outstandingDVDsListBox.Name = "outstandingDVDsListBox";
-            this.outstandingDVDsListBox.Size = new System.Drawing.Size(560, 210);
+            this.outstandingDVDsListBox.Size = new System.Drawing.Size(560, 252);
             this.outstandingDVDsListBox.TabIndex = 0;
             // 
             // cmbMember
@@ -195,7 +195,7 @@
             this.cmbDVD.Location = new System.Drawing.Point(159, 52);
             this.cmbDVD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbDVD.Name = "cmbDVD";
-            this.cmbDVD.Size = new System.Drawing.Size(233, 29);
+            this.cmbDVD.Size = new System.Drawing.Size(405, 29);
             this.cmbDVD.TabIndex = 8;
             this.cmbDVD.SelectedIndexChanged += new System.EventHandler(this.cmbDVD_SelectedIndexChanged);
             this.cmbDVD.TextUpdate += new System.EventHandler(this.cmbDVD_TextUpdate);

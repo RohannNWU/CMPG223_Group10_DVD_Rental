@@ -117,15 +117,16 @@
             this.reportsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.reportsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.reportsToolStripMenuItem.Text = "&Reports";
+            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 
             // helpGuideToolStripMenuItem
             // 
             this.helpGuideToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.helpGuideToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.helpGuideToolStripMenuItem.Name = "helpGuideToolStripMenuItem";
-            this.helpGuideToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.helpGuideToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.helpGuideToolStripMenuItem.Text = "&Help Guide";
             this.helpGuideToolStripMenuItem.Click += new System.EventHandler(this.helpGuideToolStripMenuItem_Click);
             // 

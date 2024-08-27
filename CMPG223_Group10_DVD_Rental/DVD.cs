@@ -1,6 +1,19 @@
-﻿using System;
+﻿/*
+ *
+ * CMPG223 Project - G10 DVD Rentals
+ * Date Created: 03/08/2024
+ * Rohann Venter, 25130757
+ * Jacques van Heerden, 35317906 
+ * Francois Verster, 40723380
+ * Stefan Venter, 39066894
+ * Christo Prinsloo, 21052239
+ *
+ */
+
+using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CMPG223_Group10_DVD_Rental
@@ -15,6 +28,7 @@ namespace CMPG223_Group10_DVD_Rental
         private string sqlQuery;
         private string expectedShelf;
         private bool update = false;
+        private int dvdID = 0;
         public DVD()
         {
             InitializeComponent();
@@ -24,16 +38,33 @@ namespace CMPG223_Group10_DVD_Rental
         //Change input according to command selection
         private void cmbCommand_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblSelectName.Visible = false;
+            cmbNames.Visible = false;
             int selectedIndex = cmbCommand.SelectedIndex;
+            gbInput.Visible = false;
 
             switch (selectedIndex)
             {
                 case 0:
+                    lblName.Text = "Name: ";
+                    txtName.Clear();
+                    lblGenre.Visible = true;
+                    lblYear.Visible = true;
+                    lblCopies.Visible = true;
+                    txtCopies.Visible = true;
+                    txtCopies.Clear();
+                    txtYear.Visible = true;
+                    txtYear.Clear();
+                    cmbDrop.Visible = true;
+                    cmbDrop.SelectedIndex = -1;
+                    shelfLabel.Visible = false;
                     gbInput.Visible = true;
+                    cmbNames.Visible = false;
+                    lblSelectName.Visible = false;
+                    btnSubmit.Text = "Add DVD";
                     break;
                 case 1:
                     //Hide un-used input controls
-                    gbInput.Visible = true;
                     lblName.Text = "Insert ID to delete: ";
                     lblGenre.Visible = false;
                     lblYear.Visible = false;
@@ -41,23 +72,33 @@ namespace CMPG223_Group10_DVD_Rental
                     txtCopies.Visible = false; 
                     txtYear.Visible = false;
                     cmbDrop.Visible = false;
+                    gbInput.Visible = true;
+                    btnSubmit.Text = "Delete";
                     break;
                 case 2:
                     // update the dvd details
                     cmbNames.Visible = true;
                     lblSelectName.Visible = true;
+                    lblName.Text = "Name: ";
+                    lblGenre.Visible = true;
+                    lblYear.Visible = true;
+                    lblCopies.Visible = true;
+                    txtCopies.Visible = true;
+                    txtYear.Visible = true;
+                    cmbDrop.Visible = true;
+                    btnSubmit.Text = "Update";
 
                     conn = new SqlConnection(connectionString);
                     try
                     {
                         conn.Open();
-                        sqlQuery = "SELECT DVD_Name FROM DVD";
+                        sqlQuery = "SELECT DVD_ID, DVD_Name FROM DVD";
                         command = new SqlCommand(sqlQuery, conn);
                         reader = command.ExecuteReader();
 
                         while (reader.Read())
                         {
-                            cmbNames.Items.Add(reader.GetString(0));
+                            cmbNames.Items.Add(reader.GetValue(0).ToString() + "-" + reader.GetValue(1).ToString());
                         }
                         conn.Close();
                         update = true;
@@ -79,15 +120,13 @@ namespace CMPG223_Group10_DVD_Rental
                     try
                     {                     
                         conn.Open();
-               
-                        command = new SqlCommand(@"SELECT DVD_Name FROM DVD", conn);       
+                        command = new SqlCommand(@"SELECT DVD_ID, DVD_Name FROM DVD", conn);       
                         reader = command.ExecuteReader();
 
                         while (reader.Read())
                         {
-                            cmbNames.Items.Add(reader["DVD_Name"].ToString());
+                            cmbNames.Items.Add(reader.GetValue(0).ToString() + "-" + reader.GetValue(1));
                         }
-
                         conn.Close();
                         reader.Close();
                     }
@@ -104,7 +143,8 @@ namespace CMPG223_Group10_DVD_Rental
         //Show selected DVD's Genre + Location
         private void cmbNames_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedDVDName = cmbNames.SelectedItem.ToString();
+            string[] getSelectedDVDName = cmbNames.Text.Split('-');
+            string selectedDVDName = getSelectedDVDName[1];
             conn = new SqlConnection(connectionString);
 
             // if displays the location of the selected DVD, else allows the update of the DVD
@@ -121,8 +161,8 @@ namespace CMPG223_Group10_DVD_Rental
 
                     if (reader.Read())
                     {
-                        string genre = reader["DVD_Genre"].ToString();
-                        string shelfID = reader["Shelf_ID"].ToString();
+                        string genre = reader.GetValue(0).ToString();
+                        string shelfID = reader.GetValue(1).ToString();
 
                         // Show the Genre and Shelf_ID in a MessageBox
                         MessageBox.Show($"Genre: {genre}\nShelf ID: {shelfID}", "DVD Details");
@@ -146,14 +186,21 @@ namespace CMPG223_Group10_DVD_Rental
                     command.Parameters.AddWithValue("@name", selectedDVDName);
                     reader = command.ExecuteReader();
 
-                    while (reader.Read())
+                    if (reader.Read())
                     {
                         expectedShelf = reader.GetValue(1).ToString();
                         shelfLabel.Text = "Shelf Location: " + expectedShelf;
                         txtName.Text = reader.GetValue(2).ToString();
                         txtYear.Text = reader.GetValue(3).ToString();
-                        cmbDrop.SelectedText = reader.GetValue(4).ToString();
                         txtCopies.Text = reader.GetValue(5).ToString();
+                        string genre = reader.GetValue(4).ToString();
+                        string[] items = cmbDrop.Items.Cast<String>().ToArray();
+                        for (int i = 0; i < items.Length; i++) {
+                            if (items[i].Equals(genre))
+                            {
+                                cmbDrop.SelectedIndex = i;
+                            }
+                        }
                     }
                     conn.Close();
                 }
@@ -193,11 +240,14 @@ namespace CMPG223_Group10_DVD_Rental
             try
             {
                 conn.Open();
+                dataAdapter = new SqlDataAdapter();
+                DataSet dataSet = new DataSet();
                 sqlQuery = "SELECT * FROM DVD";
-                dataAdapter = new SqlDataAdapter(sqlQuery, conn);
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                dvdGridView.DataSource = dataTable;
+                command = new SqlCommand(sqlQuery, conn);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataSet, "DVD");
+                dvdGridView.DataSource = dataSet;
+                dvdGridView.DataMember = "DVD";
                 conn.Close();
             }
             catch (Exception ex)
@@ -208,14 +258,15 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (ValidateUserInput())
+            if (ValidateUserInput() == true)
             {
-                int selectedIndex = cmbCommand.SelectedIndex;
+                string selectedIndex = cmbCommand.Text;
+                MessageBox.Show("Index: " + selectedIndex);
                 conn = new SqlConnection(connectionString);
 
                 switch (selectedIndex)
                 {
-                    case 0:
+                    case "Add DVD":
                         if (DateTime.TryParseExact(txtYear.Text, "yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime parsedDate))
                         {
                             if (int.TryParse(txtCopies.Text, out int copies))
@@ -252,45 +303,28 @@ namespace CMPG223_Group10_DVD_Rental
                             inputError.SetError(txtYear, "Year has to be in the format yyyy.");
                         }
                         break;
-                    case 1:
-                        gbInput.Visible = true;
-                        int DVDId = int.Parse(txtName.Text);
-                        try
-                        {
-                            conn.Open();
-                            SqlCommand cmd = new SqlCommand(@"DELETE FROM DVD WHERE DVD_ID = @DVD_ID", conn);
-                            cmd.Parameters.AddWithValue("@DVD_ID", DVDId);
-                            cmd.ExecuteNonQuery();
-                            conn.Close();
-                            shelfLabel.Visible = false;
-                            ResetInput();
-                        }
-                        catch (SqlException sqlEx)
-                        {
-                            MessageBox.Show("SQL Error: " + sqlEx.Message);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error: " + ex.Message);
-                        }
-                        break;
-                    case 2:
+                    case "Update DVD":
+                        string[] id = cmbNames.Text.Split('-');
+                        dvdID = int.Parse(id[0]);
                         // update the dvd details when the update button is clicked
                         try
                         {
                             conn.Open();
-                            sqlQuery = "UPDATE DVD SET Shelf_ID = @shelf, DVD_Name = @name, DVD_Year = @year, DVD_Genre = @genre, DVD_Copies = @copies";
+                            sqlQuery = "UPDATE DVD SET Shelf_ID = @shelf, DVD_Name = @name, DVD_Year = @year, DVD_Genre = @genre, DVD_Copies = @copies WHERE DVD_ID = @id";
                             command = new SqlCommand(sqlQuery, conn);
                             command.Parameters.AddWithValue("@shelf", expectedShelf);
                             command.Parameters.AddWithValue("@name", txtName.Text);
                             command.Parameters.AddWithValue("@year", txtYear.Text);
                             command.Parameters.AddWithValue("@genre", cmbDrop.Text);
                             command.Parameters.AddWithValue("@copies", txtCopies.Text);
+                            command.Parameters.AddWithValue("@id", dvdID);
                             command.ExecuteNonQuery();
                             conn.Close();
                             ResetInput();
                             cmbNames.Visible = false;
                             lblSelectName.Visible = false;
+                            shelfLabel.Visible = false;
+                            cmbNames.Items.Clear();
                         }
                         catch (SqlException sqlEx)
                         {
@@ -303,16 +337,58 @@ namespace CMPG223_Group10_DVD_Rental
                         break;
                     default:
                         break;
-
+                        
                 }
+                cmbCommand.SelectedIndex = -1;
                 ShowAll();
             }
+            else if (ValidateDeleteInput())
+            {
+                switch (cmbCommand.Text)
+                {
+                    case "Delete DVD":
+                        shelfLabel.Visible = false;
+                        dvdID = int.Parse(txtName.Text);
+                        try
+                        {
+                            conn.Open();
+                            sqlQuery = "DELETE FROM DVD WHERE DVD_ID = @DVD_ID";
+                            command = new SqlCommand(sqlQuery, conn);
+                            command.Parameters.AddWithValue("@DVD_ID", dvdID);
+                            command.ExecuteNonQuery();
+                            conn.Close();
+                            ResetInput();
+                        }
+                        catch (SqlException sqlEx)
+                        {
+                            MessageBox.Show("SQL Error: " + sqlEx.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                cmbCommand.SelectedIndex = -1;
+                ShowAll();
+            }
+        }
+
+        private bool ValidateDeleteInput()
+        {
+            bool allValid = true;
+            if (String.IsNullOrEmpty(txtName.Text))
+            {
+                allValid = false;
+            }
+            return allValid;
         }
 
         private void cmbDrop_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedGenre = cmbDrop.Text;
-
             conn = new SqlConnection(connectionString);
 
             try
@@ -353,19 +429,23 @@ namespace CMPG223_Group10_DVD_Rental
             bool allValid = true;
             foreach (TextBox textBox in new[] {txtName, txtYear, txtCopies})
             {
-                if (String.IsNullOrEmpty(textBox.Text))
+                if (textBox.Visible)
                 {
-                    allValid = false;
-                    inputError.SetError(textBox, "Input is needed. Cannot be blank.");
-                }
-                
-                if (String.IsNullOrEmpty(cmbDrop.Text)) 
-                {
-                    allValid = false;
-                    inputError.SetError(cmbDrop, "Please choose an option. Cannot be blank.");
-                } else
-                {
-                    inputError.SetError(textBox, "");
+                    if (String.IsNullOrEmpty(textBox.Text))
+                    {
+                        allValid = false;
+                        inputError.SetError(textBox, "Input is needed. Cannot be blank.");
+                    }
+
+                    if (String.IsNullOrEmpty(cmbDrop.Text))
+                    {
+                        allValid = false;
+                        inputError.SetError(cmbDrop, "Please choose an option. Cannot be blank.");
+                    }
+                    else
+                    {
+                        inputError.SetError(textBox, "");
+                    }
                 }
             }
             return allValid;

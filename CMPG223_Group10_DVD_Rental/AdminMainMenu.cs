@@ -88,5 +88,12 @@ namespace CMPG223_Group10_DVD_Rental
             DVDForm.MdiParent = this;
             DVDForm.Show();
         }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportForm report = new ReportForm();
+            report.MdiParent = this;
+            report.Show();
+        }
     }
 }
