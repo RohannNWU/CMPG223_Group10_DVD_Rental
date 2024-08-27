@@ -151,7 +151,7 @@
             this.payButton.Name = "payButton";
             this.payButton.Size = new System.Drawing.Size(168, 57);
             this.payButton.TabIndex = 7;
-            this.payButton.Text = "Pay Now";
+            this.payButton.Text = "Make Payment";
             this.payButton.UseVisualStyleBackColor = false;
             this.payButton.Click += new System.EventHandler(this.payButton_Click);
             // 
