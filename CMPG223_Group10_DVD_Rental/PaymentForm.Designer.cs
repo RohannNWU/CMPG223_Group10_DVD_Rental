@@ -44,66 +44,85 @@
             // 
             // cashButton
             // 
+            this.cashButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.cashButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.cashButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cashButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.cashButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
             this.cashButton.Location = new System.Drawing.Point(54, 38);
             this.cashButton.Name = "cashButton";
             this.cashButton.Size = new System.Drawing.Size(138, 50);
             this.cashButton.TabIndex = 0;
             this.cashButton.Text = "Cash";
-            this.cashButton.UseVisualStyleBackColor = true;
+            this.cashButton.UseVisualStyleBackColor = false;
             this.cashButton.Click += new System.EventHandler(this.cashButton_Click);
             // 
             // headerLabel
             // 
             this.headerLabel.AutoSize = true;
-            this.headerLabel.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headerLabel.Location = new System.Drawing.Point(12, 9);
+            this.headerLabel.Font = new System.Drawing.Font("Century Gothic", 20F);
+            this.headerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
+            this.headerLabel.Location = new System.Drawing.Point(46, 9);
             this.headerLabel.Name = "headerLabel";
-            this.headerLabel.Size = new System.Drawing.Size(232, 39);
+            this.headerLabel.Size = new System.Drawing.Size(239, 40);
             this.headerLabel.TabIndex = 1;
             this.headerLabel.Text = "Fine Payment";
             // 
             // clientLabel
             // 
             this.clientLabel.AutoSize = true;
+            this.clientLabel.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.clientLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.clientLabel.Location = new System.Drawing.Point(12, 79);
             this.clientLabel.Name = "clientLabel";
-            this.clientLabel.Size = new System.Drawing.Size(83, 16);
+            this.clientLabel.Size = new System.Drawing.Size(128, 22);
             this.clientLabel.TabIndex = 2;
             this.clientLabel.Text = "Client Name:";
             // 
             // dueLabel
             // 
             this.dueLabel.AutoSize = true;
+            this.dueLabel.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.dueLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.dueLabel.Location = new System.Drawing.Point(12, 132);
             this.dueLabel.Name = "dueLabel";
-            this.dueLabel.Size = new System.Drawing.Size(83, 16);
+            this.dueLabel.Size = new System.Drawing.Size(133, 22);
             this.dueLabel.TabIndex = 3;
             this.dueLabel.Text = "Amount Due:";
             // 
             // paidLabel
             // 
             this.paidLabel.AutoSize = true;
+            this.paidLabel.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.paidLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.paidLabel.Location = new System.Drawing.Point(12, 184);
             this.paidLabel.Name = "paidLabel";
-            this.paidLabel.Size = new System.Drawing.Size(86, 16);
+            this.paidLabel.Size = new System.Drawing.Size(135, 22);
             this.paidLabel.TabIndex = 4;
             this.paidLabel.Text = "Amount Paid:";
             // 
             // cardButton
             // 
+            this.cardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.cardButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.cardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cardButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.cardButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
             this.cardButton.Location = new System.Drawing.Point(54, 105);
             this.cardButton.Name = "cardButton";
             this.cardButton.Size = new System.Drawing.Size(138, 50);
             this.cardButton.TabIndex = 6;
             this.cardButton.Text = "Card";
-            this.cardButton.UseVisualStyleBackColor = true;
+            this.cardButton.UseVisualStyleBackColor = false;
             this.cardButton.Click += new System.EventHandler(this.cardButton_Click);
             // 
             // paymentGroupBox
             // 
             this.paymentGroupBox.Controls.Add(this.cardButton);
             this.paymentGroupBox.Controls.Add(this.cashButton);
-            this.paymentGroupBox.Location = new System.Drawing.Point(12, 231);
+            this.paymentGroupBox.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.paymentGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
+            this.paymentGroupBox.Location = new System.Drawing.Point(44, 235);
             this.paymentGroupBox.Name = "paymentGroupBox";
             this.paymentGroupBox.Size = new System.Drawing.Size(241, 171);
             this.paymentGroupBox.TabIndex = 7;
@@ -112,9 +131,10 @@
             // 
             // amountTextBox
             // 
-            this.amountTextBox.Location = new System.Drawing.Point(104, 181);
+            this.amountTextBox.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.amountTextBox.Location = new System.Drawing.Point(183, 181);
             this.amountTextBox.Name = "amountTextBox";
-            this.amountTextBox.Size = new System.Drawing.Size(115, 22);
+            this.amountTextBox.Size = new System.Drawing.Size(115, 30);
             this.amountTextBox.TabIndex = 8;
             this.amountTextBox.TextChanged += new System.EventHandler(this.amountTextBox_TextChanged);
             // 
@@ -127,7 +147,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 418);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
+            this.ClientSize = new System.Drawing.Size(344, 418);
             this.Controls.Add(this.amountTextBox);
             this.Controls.Add(this.paymentGroupBox);
             this.Controls.Add(this.paidLabel);

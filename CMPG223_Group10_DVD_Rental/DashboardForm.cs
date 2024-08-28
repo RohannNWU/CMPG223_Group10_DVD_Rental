@@ -1,5 +1,4 @@
 ﻿/*
- *
  * CMPG223 Project - G10 DVD Rentals
  * Date Created: 03/08/2024
  * Rohann Venter, 25130757
@@ -7,7 +6,6 @@
  * Francois Verster, 40723380
  * Stefan Venter, 39066894
  * Christo Prinsloo, 21052239
- *
  */
 
 using System;

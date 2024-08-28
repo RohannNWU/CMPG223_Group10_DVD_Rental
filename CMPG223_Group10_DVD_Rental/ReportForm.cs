@@ -1,5 +1,4 @@
 ﻿/*
- *
  * CMPG223 Project - G10 DVD Rentals
  * Date Created: 03/08/2024
  * Rohann Venter, 25130757
@@ -7,16 +6,12 @@
  * Francois Verster, 40723380
  * Stefan Venter, 39066894
  * Christo Prinsloo, 21052239
- *
  */
 
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace CMPG223_Group10_DVD_Rental
 {
@@ -34,28 +29,40 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            string selectedReport = reportComboBox.Text;
-            switch (selectedReport)
+            if (!String.IsNullOrEmpty(reportComboBox.Text))
             {
-                case "Late DVD Report":
-                    GetLateReport();
-                    break;
-                case "DVD Inventory":
-                    GetInventoryList();
-                    break;
-                default:
-                    break;
+                string selectedReport = reportComboBox.Text;
+                switch (selectedReport)
+                {
+                    case "Late DVD Report":
+                        GetLateReport();
+                        break;
+                    case "DVD Inventory":
+                        GetInventoryList();
+                        break;
+                    default:
+                        break;
+                }
+            } else
+            {
+                inputError.SetError(reportComboBox, "Please select an item. Cannot be blank.");
             }
         }
 
         private void GetLateReport()
         {
-            reportListBox.Items.Clear();
-            conn = new SqlConnection(connectionString);
+            reportListView.Items.Clear();
+            reportListView.Columns.Clear();
+            reportListView.View = View.Details;
+            reportListView.Columns.Add("Client ID", 100, HorizontalAlignment.Left);
+            reportListView.Columns.Add("Client Name", 300, HorizontalAlignment.Left);
+            reportListView.Columns.Add("DVD ID", 100, HorizontalAlignment.Left);
+            reportListView.Columns.Add("Return Date", 100, HorizontalAlignment.Left);
             List<int> clientID = new List<int>();
             List<string> clientNames = new List<string>();
             List<int> dvdID = new List<int>();
             List<string> returnDates = new List<string>();
+            conn = new SqlConnection(connectionString);
 
             try
             {
@@ -85,11 +92,13 @@ namespace CMPG223_Group10_DVD_Rental
                     }
                 }
                 conn.Close();
-                reportListBox.Items.Add($"{"Client ID",-12}{"Client Name",-15}\t{"DVD ID",-5}\t{"Return Date"}");
                 for (int i = 0; i < clientID.Count; i++)
                 {
-                    string entry = $"{clientID[i],-14}\t{clientNames[i],-15}\t{dvdID[i],-5}\t{returnDates[i]:yyyy/MM/dd}";
-                    reportListBox.Items.Add(entry);
+                    ListViewItem item = new ListViewItem(clientID[i].ToString());
+                    item.SubItems.Add(clientNames[i]);
+                    item.SubItems.Add(dvdID[i].ToString());
+                    item.SubItems.Add(returnDates[i].ToString());
+                    reportListView.Items.Add(item);
                 }
             } catch (SqlException sqlEx)
             {
@@ -102,7 +111,51 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void GetInventoryList()
         {
+            reportListView.Items.Clear();
+            reportListView.Columns.Clear();
+            reportListView.View = View.Details;
+            reportListView.Columns.Add("DVD ID", 100, HorizontalAlignment.Left);
+            reportListView.Columns.Add("DVD Name", 300, HorizontalAlignment.Left);
+            reportListView.Columns.Add("Copies", 100, HorizontalAlignment.Left);
+            List<int> dvdID = new List<int>();
+            List<string> dvdName = new List<string>();
+            List<int> dvdCopies = new List<int>();
 
+            conn = new SqlConnection(connectionString);
+            try
+            {
+                conn.Open();
+                sqlQuery = "SELECT DVD_ID, DVD_Name, DVD_Copies FROM DVD";
+                command = new SqlCommand(sqlQuery, conn);
+                reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    dvdID.Add((int)reader.GetValue(0));
+                    dvdName.Add(reader.GetValue(1).ToString());
+                    dvdCopies.Add((int)(reader.GetValue(2)));
+                }
+                conn.Close();
+
+                for (int i = 0; i < dvdID.Count; i++)
+                {
+                    ListViewItem item = new ListViewItem(dvdID[i].ToString());
+                    item.SubItems.Add(dvdName[i]);
+                    item.SubItems.Add(dvdCopies[i].ToString());
+                    reportListView.Items.Add(item);
+                }
+            } catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Sql Error. " + sqlEx.Message);
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Error. " + ex.Message);
+            }
+        }
+
+        private void reportComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            inputError.Clear();
+            reportListView.Items.Clear();
+            reportListView.Columns.Clear();
         }
     }
 }

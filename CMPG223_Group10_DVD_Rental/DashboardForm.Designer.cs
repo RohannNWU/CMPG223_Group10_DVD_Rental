@@ -170,6 +170,7 @@
             // 
             this.outstandingDVDsListBox.BackColor = System.Drawing.Color.Silver;
             this.outstandingDVDsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.outstandingDVDsListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
             this.outstandingDVDsListBox.FormattingEnabled = true;
             this.outstandingDVDsListBox.ItemHeight = 21;
             this.outstandingDVDsListBox.Location = new System.Drawing.Point(19, 38);
@@ -184,7 +185,7 @@
             this.cmbMember.Location = new System.Drawing.Point(845, 69);
             this.cmbMember.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbMember.Name = "cmbMember";
-            this.cmbMember.Size = new System.Drawing.Size(212, 24);
+            this.cmbMember.Size = new System.Drawing.Size(257, 24);
             this.cmbMember.TabIndex = 7;
             this.cmbMember.SelectedIndexChanged += new System.EventHandler(this.cmbMember_SelectedIndexChanged);
             this.cmbMember.TextUpdate += new System.EventHandler(this.cmbMember_TextUpdate);
@@ -253,7 +254,7 @@
             this.returnComboBox.Location = new System.Drawing.Point(159, 52);
             this.returnComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.returnComboBox.Name = "returnComboBox";
-            this.returnComboBox.Size = new System.Drawing.Size(233, 29);
+            this.returnComboBox.Size = new System.Drawing.Size(288, 29);
             this.returnComboBox.TabIndex = 8;
             // 
             // returnDVDLabel

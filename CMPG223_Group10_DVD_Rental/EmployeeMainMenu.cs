@@ -6,17 +6,9 @@
  * Francois Verster, 40723380
  * Stefan Venter, 39066894
  * Christo Prinsloo, 21052239
- *
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CMPG223_Group10_DVD_Rental
