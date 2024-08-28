@@ -48,6 +48,10 @@
             this.memberComboBox = new System.Windows.Forms.ComboBox();
             this.memberLabel = new System.Windows.Forms.Label();
             this.inputError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ascendButton = new System.Windows.Forms.Button();
+            this.descendButton = new System.Windows.Forms.Button();
+            this.filterLabel = new System.Windows.Forms.Label();
+            this.filterTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCustomer)).BeginInit();
             this.gbCommand.SuspendLayout();
             this.gbInput.SuspendLayout();
@@ -112,7 +116,7 @@
             this.gbCommand.Controls.Add(this.rbDelete);
             this.gbCommand.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.gbCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.gbCommand.Location = new System.Drawing.Point(106, 429);
+            this.gbCommand.Location = new System.Drawing.Point(13, 461);
             this.gbCommand.Margin = new System.Windows.Forms.Padding(4);
             this.gbCommand.Name = "gbCommand";
             this.gbCommand.Padding = new System.Windows.Forms.Padding(4);
@@ -256,7 +260,7 @@
             // 
             this.memberComboBox.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.memberComboBox.FormattingEnabled = true;
-            this.memberComboBox.Location = new System.Drawing.Point(486, 359);
+            this.memberComboBox.Location = new System.Drawing.Point(709, 350);
             this.memberComboBox.Name = "memberComboBox";
             this.memberComboBox.Size = new System.Drawing.Size(260, 29);
             this.memberComboBox.TabIndex = 10;
@@ -268,7 +272,7 @@
             this.memberLabel.AutoSize = true;
             this.memberLabel.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.memberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.memberLabel.Location = new System.Drawing.Point(206, 358);
+            this.memberLabel.Location = new System.Drawing.Point(429, 349);
             this.memberLabel.Name = "memberLabel";
             this.memberLabel.Size = new System.Drawing.Size(249, 22);
             this.memberLabel.TabIndex = 11;
@@ -279,12 +283,69 @@
             // 
             this.inputError.ContainerControl = this;
             // 
+            // ascendButton
+            // 
+            this.ascendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.ascendButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.ascendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ascendButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.ascendButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
+            this.ascendButton.Location = new System.Drawing.Point(24, 342);
+            this.ascendButton.Margin = new System.Windows.Forms.Padding(4);
+            this.ascendButton.Name = "ascendButton";
+            this.ascendButton.Size = new System.Drawing.Size(133, 37);
+            this.ascendButton.TabIndex = 12;
+            this.ascendButton.Text = "Sort Name";
+            this.ascendButton.UseVisualStyleBackColor = false;
+            this.ascendButton.Click += new System.EventHandler(this.ascendButton_Click);
+            // 
+            // descendButton
+            // 
+            this.descendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.descendButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.descendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.descendButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.descendButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
+            this.descendButton.Location = new System.Drawing.Point(179, 342);
+            this.descendButton.Margin = new System.Windows.Forms.Padding(4);
+            this.descendButton.Name = "descendButton";
+            this.descendButton.Size = new System.Drawing.Size(133, 37);
+            this.descendButton.TabIndex = 13;
+            this.descendButton.Text = "Sort ID";
+            this.descendButton.UseVisualStyleBackColor = false;
+            this.descendButton.Click += new System.EventHandler(this.descendButton_Click);
+            // 
+            // filterLabel
+            // 
+            this.filterLabel.AutoSize = true;
+            this.filterLabel.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.filterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
+            this.filterLabel.Location = new System.Drawing.Point(12, 397);
+            this.filterLabel.Name = "filterLabel";
+            this.filterLabel.Size = new System.Drawing.Size(123, 22);
+            this.filterLabel.TabIndex = 14;
+            this.filterLabel.Text = "Filter Names:";
+            // 
+            // filterTextBox
+            // 
+            this.filterTextBox.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.filterTextBox.Location = new System.Drawing.Point(159, 394);
+            this.filterTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.filterTextBox.Name = "filterTextBox";
+            this.filterTextBox.Size = new System.Drawing.Size(222, 30);
+            this.filterTextBox.TabIndex = 11;
+            this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
             this.ClientSize = new System.Drawing.Size(984, 642);
+            this.Controls.Add(this.filterTextBox);
+            this.Controls.Add(this.filterLabel);
+            this.Controls.Add(this.descendButton);
+            this.Controls.Add(this.ascendButton);
             this.Controls.Add(this.memberLabel);
             this.Controls.Add(this.memberComboBox);
             this.Controls.Add(this.gbInput);
@@ -330,5 +391,9 @@
         private System.Windows.Forms.ComboBox memberComboBox;
         private System.Windows.Forms.Label memberLabel;
         private System.Windows.Forms.ErrorProvider inputError;
+        private System.Windows.Forms.Button descendButton;
+        private System.Windows.Forms.Button ascendButton;
+        private System.Windows.Forms.TextBox filterTextBox;
+        private System.Windows.Forms.Label filterLabel;
     }
 }

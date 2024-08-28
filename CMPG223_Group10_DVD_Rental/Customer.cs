@@ -36,19 +36,16 @@ namespace CMPG223_Group10_DVD_Rental
             try
             {
                 conn.Open();
-
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(@"SELECT * FROM Client", conn);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
                 DGVCustomer.DataSource = dataTable;
-
                 conn.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
-
         }
 
         private void rbDelete_CheckedChanged(object sender, EventArgs e)
@@ -114,17 +111,14 @@ namespace CMPG223_Group10_DVD_Rental
                     try
                     {
                         conn.Open();
-
                         SqlCommand cmd = new SqlCommand("INSERT INTO Client (Client_Name_Surname, Date_of_Birth,Email_Address) VALUES (@NameSurname, @DOB, @Email_Address)", conn);
-
                         cmd.Parameters.AddWithValue("@NameSurname", txtName.Text + " " + txtSurname.Text);
                         cmd.Parameters.AddWithValue("@DOB", txtDOB.Text);
                         cmd.Parameters.AddWithValue("@Email_Address", txtEmail.Text);
                         cmd.ExecuteNonQuery();
-
                         conn.Close();
-
                         EmptyInput();
+                        memberComboBox.SelectedIndex = -1;
                     }
                     catch (SqlException sqlEx)
                     {
@@ -138,7 +132,6 @@ namespace CMPG223_Group10_DVD_Rental
                 else if (updateRadioButton.Checked)
                 {
                     conn = new SqlConnection(connectionString);
-
                     try
                     {
                         conn.Open();
@@ -154,6 +147,7 @@ namespace CMPG223_Group10_DVD_Rental
                         memberComboBox.Items.Clear();
                         memberComboBox.Visible = false;
                         memberLabel.Visible = false;
+                        memberComboBox.SelectedIndex = -1;
                     }
                     catch (SqlException sqlEx)
                     {
@@ -164,20 +158,25 @@ namespace CMPG223_Group10_DVD_Rental
                         MessageBox.Show("Error. " + ex.Message);
                     }
                 }
-                else if (rbDelete.Checked)
+                else
+                {
+                    MessageBox.Show("Please select a database command");
+                }
+            }
+            
+            if (ValidateDeleteInput())
+            {
+                if (rbDelete.Checked)
                 {
                     conn = new SqlConnection(connectionString);
                     try
                     {
-                        int ClientId = int.Parse(txtName.Text);
+                        int clientID = int.Parse(txtName.Text);
                         conn.Open();
-
                         SqlCommand cmd = new SqlCommand(@"DELETE FROM Client WHERE Client_ID = @Client_ID", conn);
-                        cmd.Parameters.AddWithValue("@Client_ID", ClientId);
+                        cmd.Parameters.AddWithValue("@Client_ID", clientID);
                         cmd.ExecuteNonQuery();
-
                         conn.Close();
-
                         EmptyInput();
                     }
                     catch (SqlException sqlEx)
@@ -188,12 +187,10 @@ namespace CMPG223_Group10_DVD_Rental
                     {
                         MessageBox.Show("Error: " + ex.Message);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Please select a database command");
+                    memberComboBox.SelectedIndex = -1;
                 }
             }
+            ShowAllData();
         }
 
         //Method reset input controls
@@ -212,13 +209,10 @@ namespace CMPG223_Group10_DVD_Rental
             txtEmail.Text = "";
             txtEmail.Visible = true;
             lblEmail.Visible = true;
-
             gbInput.Visible = false;
-
             rbAdd.Checked = false;
             rbDelete.Checked = false;
             updateRadioButton.Checked = false;
-
             ShowAllData();
         }
 
@@ -258,7 +252,7 @@ namespace CMPG223_Group10_DVD_Rental
                     {
                         memberComboBox.Items.Add(reader.GetValue(0).ToString() + ", " + reader.GetValue(1).ToString());
                     }
-                    memberComboBox.SelectedIndex = 0;
+                    memberComboBox.SelectedIndex = -1;
                     conn.Close();
                 }
                 catch (SqlException sqlEx)
@@ -323,6 +317,16 @@ namespace CMPG223_Group10_DVD_Rental
             return allInputValid;
         }
 
+        private bool ValidateDeleteInput()
+        {
+            bool allValid = true;
+            if (String.IsNullOrEmpty(txtName.Text))
+            {
+                allValid = false;
+            }
+            return allValid;
+        }
+
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             inputError.Clear();
@@ -341,6 +345,65 @@ namespace CMPG223_Group10_DVD_Rental
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
             inputError.Clear();
+        }
+
+        private void ascendButton_Click(object sender, EventArgs e)
+        {
+            DGVCustomer.DataSource = null;
+            conn = new SqlConnection(connectionString);
+            try
+            {
+                conn.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(@"SELECT * FROM Client ORDER BY Client_Name_Surname ASC", conn);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                DGVCustomer.DataSource = dataTable;
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void descendButton_Click(object sender, EventArgs e)
+        {
+            DGVCustomer.DataSource = null;
+            conn = new SqlConnection(connectionString);
+            try
+            {
+                conn.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(@"SELECT * FROM Client ORDER BY Client_ID ASC", conn);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                DGVCustomer.DataSource = dataTable;
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void filterTextBox_TextChanged(object sender, EventArgs e)
+        {
+            DGVCustomer.DataSource = null;
+            conn = new SqlConnection(connectionString);
+            try
+            {
+                conn.Open();
+                sqlQuery = @"SELECT * FROM Client WHERE Client_Name_Surname LIKE @filterText";
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlQuery, conn);
+                dataAdapter.SelectCommand.Parameters.AddWithValue("@filterText", "%" + filterTextBox.Text + "%");
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                DGVCustomer.DataSource = dataTable;
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
         }
     }
 }

@@ -43,12 +43,10 @@ namespace CMPG223_Group10_DVD_Rental
             try
             {
                 conn.Open();
-
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(@"SELECT * FROM Employee", conn);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
                 DGVEmployee.DataSource = dataTable;
-
                 conn.Close();
             }
             catch (Exception ex)
@@ -109,7 +107,7 @@ namespace CMPG223_Group10_DVD_Rental
                     {
                         MessageBox.Show("Error. " + ex.Message);
                     }
-                    employeeComboBox.SelectedIndex = 0;
+                    employeeComboBox.SelectedIndex = -1;
                     break;
                 case 1:
                     employeeLabel.Visible = false;
@@ -132,6 +130,7 @@ namespace CMPG223_Group10_DVD_Rental
                     btnSubmit.Text = "Delete";
                     gbInput.Text = "Delete Employee";
                     gbInput.Visible = true;
+                    employeeComboBox.SelectedIndex = -1;
                     break;
                 case 2:
                     employeeLabel.Visible = false;
@@ -161,6 +160,7 @@ namespace CMPG223_Group10_DVD_Rental
                     btnSubmit.Text = "Add New";
                     gbInput.Text = "Add New Employee";
                     gbInput.Visible = true;
+                    employeeComboBox.SelectedIndex = -1;
                     break;
                 default:
                     break;
@@ -191,7 +191,6 @@ namespace CMPG223_Group10_DVD_Rental
             lblPassword.Visible = true;
             cbAdmin.Checked = false;
             cbAdmin.Visible = true;
-
             gbInput.Visible = false;
         }
 
@@ -276,9 +275,7 @@ namespace CMPG223_Group10_DVD_Rental
                         try
                         {
                             conn.Open();
-
                             SqlCommand cmd = new SqlCommand("INSERT INTO Employee (Employee_Name_Surname, Date_of_Birth, Contact_Number, Username, Password, Role) VALUES (@NameSurname, @DOB, @Number, @Username, @Password, @Role)", conn);
-
                             cmd.Parameters.AddWithValue("@NameSurname", txtName.Text + " " + txtSurname.Text);
                             cmd.Parameters.AddWithValue("@DOB", txtDOB.Text);
                             cmd.Parameters.AddWithValue("@Number", txtContactNumber.Text);
@@ -294,9 +291,7 @@ namespace CMPG223_Group10_DVD_Rental
                                 cmd.Parameters.AddWithValue("@Role", "Employee");
                             }
                             cmd.ExecuteNonQuery();
-
                             conn.Close();
-
                             EmptyInput();
                         }
                         catch (SqlException sqlEx)
@@ -344,7 +339,6 @@ namespace CMPG223_Group10_DVD_Rental
                         cbAdmin.Checked = true;
                     }
                 }
-
                 conn.Close();
             }
             catch (SqlException sqlEx)
