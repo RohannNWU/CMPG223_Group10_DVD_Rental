@@ -259,7 +259,6 @@ namespace CMPG223_Group10_DVD_Rental
             if (ValidateUserInput() == true)
             {
                 string selectedIndex = cmbCommand.Text;
-                MessageBox.Show("Index: " + selectedIndex);
                 conn = new SqlConnection(connectionString);
 
                 switch (selectedIndex)
@@ -298,7 +297,7 @@ namespace CMPG223_Group10_DVD_Rental
                             }
                         } else
                         {
-                            inputError.SetError(txtYear, "Year has to be in the format yyyy.");
+                            inputError.SetError(txtYear, "Year has to be in the format yyyy.");                           
                         }
                         break;
                     case "Update DVD":
@@ -337,7 +336,6 @@ namespace CMPG223_Group10_DVD_Rental
                         break;
                         
                 }
-                cmbCommand.SelectedIndex = -1;
                 ShowAll();
             }
             else if (ValidateDeleteInput())
@@ -369,7 +367,6 @@ namespace CMPG223_Group10_DVD_Rental
                     default:
                         break;
                 }
-                cmbCommand.SelectedIndex = -1;
                 ShowAll();
             }
         }

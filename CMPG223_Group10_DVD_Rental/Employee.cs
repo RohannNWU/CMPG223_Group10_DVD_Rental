@@ -10,6 +10,7 @@
 
 using System;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -60,8 +61,10 @@ namespace CMPG223_Group10_DVD_Rental
         {
             inputError.Clear();
             int selectedIndex = cmbCommand.SelectedIndex;
+            employeeComboBox.Items.Clear();
 
-            switch(selectedIndex)
+
+            switch (selectedIndex)
             {
                 case 0:
                     employeeComboBox.Items.Clear();
@@ -85,8 +88,9 @@ namespace CMPG223_Group10_DVD_Rental
                     btnSubmit.Text = "Update";
                     gbInput.Text = "Update Employee";
                     gbInput.Visible = true;
-                    conn = new SqlConnection(connectionString);
+                    
 
+                    conn = new SqlConnection(connectionString);
                     try
                     {
                         conn.Open();
@@ -98,6 +102,7 @@ namespace CMPG223_Group10_DVD_Rental
                             employeeComboBox.Items.Add(reader.GetValue(0).ToString() + ", " + reader.GetValue(1).ToString());
                         }
                         conn.Close();
+                        employeeComboBox.SelectedIndex = 0;
                     }
                     catch (SqlException sqlEx)
                     {
@@ -107,7 +112,7 @@ namespace CMPG223_Group10_DVD_Rental
                     {
                         MessageBox.Show("Error. " + ex.Message);
                     }
-                    employeeComboBox.SelectedIndex = -1;
+
                     break;
                 case 1:
                     employeeLabel.Visible = false;
@@ -244,29 +249,7 @@ namespace CMPG223_Group10_DVD_Rental
                         }
                         break;
 
-                    // Delete Data
-                    case 1:
-                        gbInput.Visible = true;
 
-                        int employeeId = int.Parse(txtName.Text);
-                        try
-                        {
-                            conn.Open();
-                            SqlCommand cmd = new SqlCommand(@"DELETE FROM Employee WHERE Employee_ID = @Employee_ID", conn);
-                            cmd.Parameters.AddWithValue("@Employee_ID", employeeId);
-                            cmd.ExecuteNonQuery();
-                            conn.Close();
-                            EmptyInput();
-                        }
-                        catch (SqlException sqlEx)
-                        {
-                            MessageBox.Show("SQL Error: " + sqlEx.Message);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error: " + ex.Message);
-                        }
-                        break;
 
                     //Add new records
                     case 2:
@@ -310,6 +293,37 @@ namespace CMPG223_Group10_DVD_Rental
                 EmptyInput();
                 gbInput.Visible = false;
                 ShowAllData();
+            }
+            else if (ValidateDeleteInput())
+            {
+                // Delete Data
+                switch (cmbCommand.SelectedIndex)
+                {
+                    case 1:
+                        gbInput.Visible = true;
+
+                        int employeeId = int.Parse(txtName.Text);
+                        try
+                        {
+                            conn.Open();
+                            SqlCommand cmd = new SqlCommand(@"DELETE FROM Employee WHERE Employee_ID = @Employee_ID", conn);
+                            cmd.Parameters.AddWithValue("@Employee_ID", employeeId);
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+                            EmptyInput();
+                        }
+                        catch (SqlException sqlEx)
+                        {
+                            MessageBox.Show("SQL Error: " + sqlEx.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                        ShowAllData();
+                       // cmbCommand.SelectedIndex = -1;
+                        break;
+                }
             }
         }
 
@@ -361,8 +375,16 @@ namespace CMPG223_Group10_DVD_Rental
                 employeeRole = "Employee";
             }
         }
-
-        private bool ValidateUserInput()
+        private bool ValidateDeleteInput()
+        {
+            bool allValid = true;
+            if (String.IsNullOrEmpty(txtName.Text))
+            {
+                allValid = false;
+            }
+            return allValid;
+        }
+            private bool ValidateUserInput()
         {
             bool allValid = true;
 
@@ -408,5 +430,6 @@ namespace CMPG223_Group10_DVD_Rental
         {
             inputError.Clear();
         }
+
     }
 }
