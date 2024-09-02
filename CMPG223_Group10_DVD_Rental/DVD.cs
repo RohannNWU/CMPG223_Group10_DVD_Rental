@@ -38,12 +38,12 @@ namespace CMPG223_Group10_DVD_Rental
         {
             lblSelectName.Visible = false;
             cmbNames.Visible = false;
-            int selectedIndex = cmbCommand.SelectedIndex;
+            string selectedIndex = cmbCommand.Text;
             gbInput.Visible = false;
 
             switch (selectedIndex)
             {
-                case 0:
+                case "Add DVD":
                     lblName.Text = "Name: ";
                     txtName.Clear();
                     lblGenre.Visible = true;
@@ -61,7 +61,7 @@ namespace CMPG223_Group10_DVD_Rental
                     lblSelectName.Visible = false;
                     btnSubmit.Text = "Add DVD";
                     break;
-                case 1:
+                case "Delete DVD":
                     //Hide un-used input controls
                     lblName.Text = "Insert ID to delete: ";
                     lblGenre.Visible = false;
@@ -73,7 +73,7 @@ namespace CMPG223_Group10_DVD_Rental
                     gbInput.Visible = true;
                     btnSubmit.Text = "Delete";
                     break;
-                case 2:
+                case "Update DVD":
                     // update the dvd details
                     cmbNames.Visible = true;
                     lblSelectName.Visible = true;
@@ -108,11 +108,14 @@ namespace CMPG223_Group10_DVD_Rental
                         MessageBox.Show("Error. " + ex.Message);
                     }
                     break;
-                case 3:
-                    //Code for Search command 
+                case "Search Genre and Location":
+                    //Code for Search command
+                    gbInput.Visible = false;
+                    shelfLabel.Visible = false;
                     cmbNames.Items.Clear();
                     lblSelectName.Visible = true;
                     cmbNames.Visible = true;
+                    update = false;
 
                     conn = new SqlConnection(connectionString);
                     try
