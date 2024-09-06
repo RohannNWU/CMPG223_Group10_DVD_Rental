@@ -63,7 +63,8 @@ namespace CMPG223_Group10_DVD_Rental
                     break;
                 case "Delete DVD":
                     //Hide un-used input controls
-                    lblName.Text = "Insert ID to delete: ";
+                    lblName.Text = "Select ID to delete: ";
+                    txtName.Visible = false;
                     lblGenre.Visible = false;
                     lblYear.Visible = false;
                     lblCopies.Visible = false;
@@ -72,6 +73,25 @@ namespace CMPG223_Group10_DVD_Rental
                     cmbDrop.Visible = false;
                     gbInput.Visible = true;
                     btnSubmit.Text = "Delete";
+                    cmbDelete.Visible = true;
+                    try
+                    {
+                        conn.Open();
+                        command = new SqlCommand(@"SELECT DVD_ID FROM DVD", conn);
+                        reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            cmbDelete.Items.Add(reader.GetValue(0).ToString());
+                        }
+                        conn.Close();
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+
                     break;
                 case "Update DVD":
                     // update the dvd details
@@ -232,6 +252,8 @@ namespace CMPG223_Group10_DVD_Rental
             lblCopies.Visible = true;
             cmbDrop.Visible = true;
             gbInput.Visible = false;
+            cmbDelete.Visible = false;
+            cmbDelete.Items.Clear();
         }
 
         private void ShowAll()
@@ -347,16 +369,31 @@ namespace CMPG223_Group10_DVD_Rental
                 {
                     case "Delete DVD":
                         shelfLabel.Visible = false;
-                        dvdID = int.Parse(txtName.Text);
+                        dvdID = int.Parse(cmbDelete.Text);
                         try
                         {
                             conn.Open();
-                            sqlQuery = "DELETE FROM DVD WHERE DVD_ID = @DVD_ID";
+                            sqlQuery = "SELECT DVD_Name FROM DVD WHERE DVD_ID = @DVD_ID";
                             command = new SqlCommand(sqlQuery, conn);
                             command.Parameters.AddWithValue("@DVD_ID", dvdID);
-                            command.ExecuteNonQuery();
+                            reader = command.ExecuteReader();
+                            DialogResult getResult = DialogResult.None;
+                            if (reader.Read())
+                            {
+                                getResult = MessageBox.Show("Are you sure you want to delete: " + reader.GetValue(0).ToString(), "Delete Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);                            
+                            }
                             conn.Close();
-                            ResetInput();
+
+                            if (getResult == DialogResult.Yes)
+                            {
+                                conn.Open();
+                                sqlQuery = "DELETE FROM DVD WHERE DVD_ID = @DVD_ID";
+                                command = new SqlCommand(sqlQuery, conn);
+                                command.Parameters.AddWithValue("@DVD_ID", dvdID);
+                                command.ExecuteNonQuery();
+                                conn.Close();
+                                ResetInput();
+                            }   
                         }
                         catch (SqlException sqlEx)
                         {
@@ -377,7 +414,7 @@ namespace CMPG223_Group10_DVD_Rental
         private bool ValidateDeleteInput()
         {
             bool allValid = true;
-            if (String.IsNullOrEmpty(txtName.Text))
+            if (String.IsNullOrEmpty(cmbDelete.Text))
             {
                 allValid = false;
             }

@@ -37,7 +37,6 @@
             this.gbOutstandingDVD = new System.Windows.Forms.GroupBox();
             this.payButton = new System.Windows.Forms.Button();
             this.lblFine = new System.Windows.Forms.Label();
-            this.outstandingDVDsListBox = new System.Windows.Forms.ListBox();
             this.cmbMember = new System.Windows.Forms.ComboBox();
             this.cmbDVD = new System.Windows.Forms.ComboBox();
             this.headerLabel = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.returnComboBox = new System.Windows.Forms.ComboBox();
             this.returnDVDLabel = new System.Windows.Forms.Label();
             this.returnButton = new System.Windows.Forms.Button();
+            this.outstandingDVDsListView = new System.Windows.Forms.ListView();
             this.gbOutstandingDVD.SuspendLayout();
             this.rentingGroupBox.SuspendLayout();
             this.returnGroupBox.SuspendLayout();
@@ -124,9 +124,9 @@
             // 
             // gbOutstandingDVD
             // 
+            this.gbOutstandingDVD.Controls.Add(this.outstandingDVDsListView);
             this.gbOutstandingDVD.Controls.Add(this.payButton);
             this.gbOutstandingDVD.Controls.Add(this.lblFine);
-            this.gbOutstandingDVD.Controls.Add(this.outstandingDVDsListBox);
             this.gbOutstandingDVD.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOutstandingDVD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.gbOutstandingDVD.Location = new System.Drawing.Point(260, 365);
@@ -165,19 +165,6 @@
             this.lblFine.Size = new System.Drawing.Size(111, 22);
             this.lblFine.TabIndex = 7;
             this.lblFine.Text = "Fine Due: R";
-            // 
-            // outstandingDVDsListBox
-            // 
-            this.outstandingDVDsListBox.BackColor = System.Drawing.Color.Silver;
-            this.outstandingDVDsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.outstandingDVDsListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.outstandingDVDsListBox.FormattingEnabled = true;
-            this.outstandingDVDsListBox.ItemHeight = 21;
-            this.outstandingDVDsListBox.Location = new System.Drawing.Point(19, 38);
-            this.outstandingDVDsListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.outstandingDVDsListBox.Name = "outstandingDVDsListBox";
-            this.outstandingDVDsListBox.Size = new System.Drawing.Size(560, 252);
-            this.outstandingDVDsListBox.TabIndex = 0;
             // 
             // cmbMember
             // 
@@ -284,6 +271,17 @@
             this.returnButton.UseVisualStyleBackColor = false;
             this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
             // 
+            // outstandingDVDsListView
+            // 
+            this.outstandingDVDsListView.BackColor = System.Drawing.Color.Silver;
+            this.outstandingDVDsListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
+            this.outstandingDVDsListView.HideSelection = false;
+            this.outstandingDVDsListView.Location = new System.Drawing.Point(6, 28);
+            this.outstandingDVDsListView.Name = "outstandingDVDsListView";
+            this.outstandingDVDsListView.Size = new System.Drawing.Size(613, 286);
+            this.outstandingDVDsListView.TabIndex = 8;
+            this.outstandingDVDsListView.UseCompatibleStateImageBehavior = false;
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -330,12 +328,12 @@
         private System.Windows.Forms.Label lblFine;
         private System.Windows.Forms.ComboBox cmbMember;
         private System.Windows.Forms.ComboBox cmbDVD;
-        private System.Windows.Forms.ListBox outstandingDVDsListBox;
         private System.Windows.Forms.Label headerLabel;
         private System.Windows.Forms.GroupBox rentingGroupBox;
         private System.Windows.Forms.GroupBox returnGroupBox;
         private System.Windows.Forms.ComboBox returnComboBox;
         private System.Windows.Forms.Label returnDVDLabel;
         private System.Windows.Forms.Button returnButton;
+        private System.Windows.Forms.ListView outstandingDVDsListView;
     }
 }

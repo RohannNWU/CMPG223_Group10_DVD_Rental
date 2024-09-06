@@ -38,8 +38,22 @@ namespace CMPG223_Group10_DVD_Rental
                 if (String.IsNullOrEmpty(textBox.Text))
                 {
                     inputError.SetError(textBox, "Input is required. Cannot be blank.");
+                } else
+                {
+                    decimal getAmount;
+                    if (Decimal.TryParse(amountTextBox.Text, out getAmount)) {
+                        fine -= getAmount;
+                    } else
+                    {
+                        MessageBox.Show("Please enter a valid number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
+        }
+
+        public decimal getFine()
+        {
+            return this.fine;
         }
 
         public bool isPaid()

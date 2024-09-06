@@ -173,7 +173,7 @@ namespace CMPG223_Group10_DVD_Rental
         private void PopulateDVDs(int clientID)
         {
             cmbDVD.Items.Clear();
-            outstandingDVDsListBox.Items.Clear();
+            outstandingDVDsListView.Items.Clear();
             conn = new SqlConnection(connectionString);
             try
             {
@@ -222,11 +222,18 @@ namespace CMPG223_Group10_DVD_Rental
                             rentingGroupBox.Visible = false;
                             decimal penalty = daysPastDue > 0 ? daysPastDue * LATE_FEE : 0;
                             totalFine += penalty;
-                            outstandingDVDsListBox.Items.Add(counter.ToString() + "." + dataReader.GetValue(0));
-                            outstandingDVDsListBox.Items.Add("Start Date: " + (reader.GetDateTime(1)).ToString("yyyy/MM/dd"));
-                            outstandingDVDsListBox.Items.Add("Due Date: " + (reader.GetDateTime(2)).ToString("yyyy/MM/dd"));
-                            outstandingDVDsListBox.Items.Add("Fine: " + penalty.ToString("C"));
-                            outstandingDVDsListBox.Items.Add("==================================================");
+                            outstandingDVDsListView.Items.Clear();
+                            outstandingDVDsListView.Columns.Clear();
+                            outstandingDVDsListView.View = View.Details;
+                            outstandingDVDsListView.Columns.Add("DVD Name", 100, HorizontalAlignment.Left);
+                            outstandingDVDsListView.Columns.Add("Start Date", 100, HorizontalAlignment.Left);
+                            outstandingDVDsListView.Columns.Add("Due Date", 100, HorizontalAlignment.Left);
+                            outstandingDVDsListView.Columns.Add("Fine Due", 100, HorizontalAlignment.Left);
+                            ListViewItem item = new ListViewItem(counter.ToString() + "." + dataReader.GetValue(0).ToString());
+                            item.SubItems.Add(reader.GetDateTime(1).ToString("yyyy/MM/dd"));
+                            item.SubItems.Add(reader.GetDateTime(2).ToString("yyyy/MM/dd"));
+                            item.SubItems.Add(penalty.ToString("C"));
+                            outstandingDVDsListView.Items.Add(item);
                             lblFine.Text = "Fine Due: " + totalFine.ToString("C");
                             fineDVD = (int)reader.GetValue(0);
                             fineID = clientID;
@@ -269,7 +276,7 @@ namespace CMPG223_Group10_DVD_Rental
             lblToday.Text = "Today's Date: ";
             lblReturnDate.Text = "Return Date: ";
             lblFine.Text = "Fine Due: ";
-            outstandingDVDsListBox.Items.Clear();
+            outstandingDVDsListView.Items.Clear();
             returnComboBox.Items.Clear();
             cmbMember.SelectedIndex = -1;
             totalFine = 0.0M;
@@ -389,6 +396,9 @@ namespace CMPG223_Group10_DVD_Rental
                 {
                     MessageBox.Show("Error. " + ex.Message);
                 }
+            } else
+            {
+                totalFine = paymentForm.getFine();
             }
         }
 

@@ -34,6 +34,7 @@
             this.cmbCommand = new System.Windows.Forms.ComboBox();
             this.lblCommand = new System.Windows.Forms.Label();
             this.gbInput = new System.Windows.Forms.GroupBox();
+            this.cmbDelete = new System.Windows.Forms.ComboBox();
             this.cmbDrop = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txtCopies = new System.Windows.Forms.TextBox();
@@ -108,6 +109,7 @@
             // 
             // gbInput
             // 
+            this.gbInput.Controls.Add(this.cmbDelete);
             this.gbInput.Controls.Add(this.cmbDrop);
             this.gbInput.Controls.Add(this.btnSubmit);
             this.gbInput.Controls.Add(this.txtCopies);
@@ -123,11 +125,19 @@
             this.gbInput.Margin = new System.Windows.Forms.Padding(4);
             this.gbInput.Name = "gbInput";
             this.gbInput.Padding = new System.Windows.Forms.Padding(4);
-            this.gbInput.Size = new System.Drawing.Size(404, 276);
+            this.gbInput.Size = new System.Drawing.Size(528, 276);
             this.gbInput.TabIndex = 7;
             this.gbInput.TabStop = false;
             this.gbInput.Text = "Input";
             this.gbInput.Visible = false;
+            // 
+            // cmbDelete
+            // 
+            this.cmbDelete.FormattingEnabled = true;
+            this.cmbDelete.Location = new System.Drawing.Point(279, 45);
+            this.cmbDelete.Name = "cmbDelete";
+            this.cmbDelete.Size = new System.Drawing.Size(78, 29);
+            this.cmbDelete.TabIndex = 10;
             // 
             // cmbDrop
             // 
@@ -142,7 +152,7 @@
             "Horror",
             "Romance",
             "Science Fiction"});
-            this.cmbDrop.Location = new System.Drawing.Point(173, 124);
+            this.cmbDrop.Location = new System.Drawing.Point(279, 124);
             this.cmbDrop.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDrop.Name = "cmbDrop";
             this.cmbDrop.Size = new System.Drawing.Size(201, 29);
@@ -156,7 +166,7 @@
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.btnSubmit.Location = new System.Drawing.Point(122, 219);
+            this.btnSubmit.Location = new System.Drawing.Point(209, 219);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(107, 49);
@@ -168,7 +178,7 @@
             // txtCopies
             // 
             this.txtCopies.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtCopies.Location = new System.Drawing.Point(173, 165);
+            this.txtCopies.Location = new System.Drawing.Point(279, 165);
             this.txtCopies.Margin = new System.Windows.Forms.Padding(4);
             this.txtCopies.Name = "txtCopies";
             this.txtCopies.Size = new System.Drawing.Size(201, 30);
@@ -178,7 +188,7 @@
             // txtYear
             // 
             this.txtYear.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtYear.Location = new System.Drawing.Point(173, 84);
+            this.txtYear.Location = new System.Drawing.Point(279, 84);
             this.txtYear.Margin = new System.Windows.Forms.Padding(4);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(201, 30);
@@ -188,7 +198,7 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtName.Location = new System.Drawing.Point(173, 45);
+            this.txtName.Location = new System.Drawing.Point(279, 45);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(201, 30);
@@ -265,7 +275,7 @@
             this.shelfLabel.AutoSize = true;
             this.shelfLabel.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.shelfLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.shelfLabel.Location = new System.Drawing.Point(467, 502);
+            this.shelfLabel.Location = new System.Drawing.Point(618, 502);
             this.shelfLabel.Name = "shelfLabel";
             this.shelfLabel.Size = new System.Drawing.Size(142, 22);
             this.shelfLabel.TabIndex = 10;
@@ -325,5 +335,6 @@
         private System.Windows.Forms.ComboBox cmbDrop;
         private System.Windows.Forms.Label shelfLabel;
         private System.Windows.Forms.ErrorProvider inputError;
+        private System.Windows.Forms.ComboBox cmbDelete;
     }
 }
