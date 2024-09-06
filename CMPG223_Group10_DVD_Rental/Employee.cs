@@ -62,34 +62,16 @@ namespace CMPG223_Group10_DVD_Rental
             inputError.Clear();
             int selectedIndex = cmbCommand.SelectedIndex;
             employeeComboBox.Items.Clear();
-
+            employeeComboBox.Visible = false;
+            EmptyInput();
 
             switch (selectedIndex)
             {
                 case 0:
-                    employeeComboBox.Items.Clear();
                     employeeLabel.Visible = true;
                     employeeComboBox.Visible = true;
-                    lblName.Text = "Name & Surname:";
-                    txtName.Visible = true;
-                    lblSurname.Text = "Employee ID:";
-                    lblSurname.Visible = true;
-                    txtSurname.Enabled = false;
-                    txtSurname.Visible = true;
-                    lblDOB.Visible = true;
-                    txtDOB.Visible = true;
-                    lblContactNumber.Visible = true;
-                    txtContactNumber.Visible = true;
-                    lblUserName.Visible = true;
-                    txtUsername.Visible = true;
-                    lblPassword.Visible = true;
-                    txtPassword.Visible = true;
-                    cbAdmin.Visible = true;
-                    btnSubmit.Text = "Update";
                     gbInput.Text = "Update Employee";
-                    gbInput.Visible = true;
                     
-
                     conn = new SqlConnection(connectionString);
                     try
                     {
@@ -102,7 +84,7 @@ namespace CMPG223_Group10_DVD_Rental
                             employeeComboBox.Items.Add(reader.GetValue(0).ToString() + ", " + reader.GetValue(1).ToString());
                         }
                         conn.Close();
-                        employeeComboBox.SelectedIndex = 0;
+                        employeeComboBox.SelectedIndex = -1;
                     }
                     catch (SqlException sqlEx)
                     {
@@ -187,6 +169,7 @@ namespace CMPG223_Group10_DVD_Rental
                     gbInput.Text = "Add New Employee";
                     gbInput.Visible = true;
                     employeeComboBox.SelectedIndex = -1;
+                    cmbDelete.Visible = false;
                     break;
                 default:
                     break;
@@ -219,6 +202,7 @@ namespace CMPG223_Group10_DVD_Rental
             cbAdmin.Visible = true;
             gbInput.Visible = false;
             cmbDelete.Visible = false;
+            cmbDelete.SelectedIndex = -1;
             cmbDelete.Items.Clear();
         }
 
@@ -257,10 +241,12 @@ namespace CMPG223_Group10_DVD_Rental
                             command.ExecuteNonQuery();
                             conn.Close();
                             EmptyInput();
-                            employeeLabel.Visible = false;
-                            employeeComboBox.Visible = false;
-                            employeeRole = "";
-                            employeeComboBox.Items.Clear();
+                            employeeLabel.Visible = true;
+                            employeeComboBox.Visible = true;
+
+                            
+
+
                         }
                         catch (SqlException sqlEx)
                         {
@@ -352,14 +338,14 @@ namespace CMPG223_Group10_DVD_Rental
                         }
                         catch (SqlException sqlEx)
                         {
-                            MessageBox.Show("SQL Error: " + sqlEx.Message);
+                            MessageBox.Show("Can't Delete user that is part of Rent(s)+\n\nSQL Error: (" + sqlEx.Message+")");
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("Error: " + ex.Message);
                         }
                         ShowAllData();
-                       // cmbCommand.SelectedIndex = -1;
+
                         break;
                 }
             }
@@ -370,6 +356,31 @@ namespace CMPG223_Group10_DVD_Rental
             conn = new SqlConnection(connectionString);
             string getName = employeeComboBox.Text;
             string name = getName.Substring(3);
+
+            //Make relevant input controls relevant
+            
+            employeeLabel.Visible = true;
+            employeeComboBox.Visible = true;
+            lblName.Text = "Name & Surname:";
+            txtName.Visible = true;
+            lblSurname.Text = "Employee ID:";
+            lblSurname.Visible = true;
+            txtSurname.Enabled = false;
+            txtSurname.Visible = true;
+            lblDOB.Visible = true;
+            txtDOB.Visible = true;
+            lblContactNumber.Visible = true;
+            txtContactNumber.Visible = true;
+            lblUserName.Visible = true;
+            txtUsername.Visible = true;
+            lblPassword.Visible = true;
+            txtPassword.Visible = true;
+            cbAdmin.Visible = true;
+            btnSubmit.Text = "Update";
+            gbInput.Text = "Update Employee";
+            gbInput.Visible = true;
+            cmbDelete.Visible = false;
+
             try
             {
                 conn.Open();
@@ -392,6 +403,7 @@ namespace CMPG223_Group10_DVD_Rental
                     }
                 }
                 conn.Close();
+
             }
             catch (SqlException sqlEx)
             {

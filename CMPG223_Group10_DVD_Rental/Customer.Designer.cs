@@ -336,7 +336,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.ClientSize = new System.Drawing.Size(738, 522);
+            this.ClientSize = new System.Drawing.Size(738, 529);
             this.Controls.Add(this.filterTextBox);
             this.Controls.Add(this.filterLabel);
             this.Controls.Add(this.descendButton);
