@@ -52,6 +52,7 @@
             this.employeeLabel = new System.Windows.Forms.Label();
             this.employeeComboBox = new System.Windows.Forms.ComboBox();
             this.inputError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbDelete = new System.Windows.Forms.ComboBox();
             lblCommand = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmployee)).BeginInit();
             this.gbInput.SuspendLayout();
@@ -168,6 +169,7 @@
             // gbInput
             // 
             this.gbInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
+            this.gbInput.Controls.Add(this.cmbDelete);
             this.gbInput.Controls.Add(this.cbAdmin);
             this.gbInput.Controls.Add(this.txtPassword);
             this.gbInput.Controls.Add(this.txtUsername);
@@ -301,7 +303,7 @@
             this.employeeComboBox.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.employeeComboBox.FormattingEnabled = true;
             this.employeeComboBox.Location = new System.Drawing.Point(183, 364);
-            this.employeeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.employeeComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.employeeComboBox.Name = "employeeComboBox";
             this.employeeComboBox.Size = new System.Drawing.Size(152, 28);
             this.employeeComboBox.TabIndex = 12;
@@ -311,6 +313,14 @@
             // inputError
             // 
             this.inputError.ContainerControl = this;
+            // 
+            // cmbDelete
+            // 
+            this.cmbDelete.FormattingEnabled = true;
+            this.cmbDelete.Location = new System.Drawing.Point(185, 42);
+            this.cmbDelete.Name = "cmbDelete";
+            this.cmbDelete.Size = new System.Drawing.Size(58, 28);
+            this.cmbDelete.TabIndex = 19;
             // 
             // Employee
             // 
@@ -365,5 +375,6 @@
         private System.Windows.Forms.ComboBox employeeComboBox;
         private System.Windows.Forms.ErrorProvider inputError;
         private System.Windows.Forms.ComboBox cmbCommand;
+        private System.Windows.Forms.ComboBox cmbDelete;
     }
 }

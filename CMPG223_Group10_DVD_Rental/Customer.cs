@@ -69,6 +69,27 @@ namespace CMPG223_Group10_DVD_Rental
                 memberComboBox.Visible = false;
                 btnSubmit.Text = "Delete";
                 gbInput.Visible = true;
+                cmbDelete.Visible = true;
+                txtName.Visible = false;
+
+                try
+                {
+                    conn.Open();
+                    command = new SqlCommand(@"SELECT Client_ID FROM Client", conn);
+                    reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        cmbDelete.Items.Add(reader.GetValue(0).ToString());
+                    }
+                    conn.Close();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+
             }
         }
 
@@ -78,6 +99,7 @@ namespace CMPG223_Group10_DVD_Rental
 
             if (rbAdd.Checked)
             {
+                cmbDelete.Visible=false;
                 gbInput.Visible = true;
                 gbInput.Text = "Add New Member";
                 lblName.Visible = true;
@@ -171,17 +193,41 @@ namespace CMPG223_Group10_DVD_Rental
                     conn = new SqlConnection(connectionString);
                     try
                     {
-                        int clientID = int.Parse(txtName.Text);
+
+                        int clientID = int.Parse(cmbDelete.Text);
+
                         conn.Open();
-                        SqlCommand cmd = new SqlCommand(@"DELETE FROM Client WHERE Client_ID = @Client_ID", conn);
-                        cmd.Parameters.AddWithValue("@Client_ID", clientID);
-                        cmd.ExecuteNonQuery();
+                        command = new SqlCommand(@"SELECT Client_Name_Surname FROM Client WHERE Client_ID = @Client_ID", conn);
+                        command.Parameters.AddWithValue("@Client_ID", clientID);
+                        reader = command.ExecuteReader();
+
+                        DialogResult getResult = DialogResult.No;
+
+                        if (reader.Read())
+                        {
+                             getResult = MessageBox.Show("Are you sure you want to delete: " + reader.GetValue(0).ToString(), "Delete Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        }
                         conn.Close();
-                        EmptyInput();
+                       
+                        
+                        if (getResult == DialogResult.Yes)
+                        {
+                            conn.Open();
+
+                            command = new SqlCommand(@"DELETE FROM Client WHERE Client_ID = @Client_ID", conn);
+                            command.Parameters.AddWithValue("@Client_ID", clientID);
+                            command.ExecuteNonQuery();
+                            
+                            conn.Close();
+
+                            EmptyInput();
+                        }
+                        
+
                     }
                     catch (SqlException sqlEx)
                     {
-                        MessageBox.Show("SQL Error: " + sqlEx.Message);
+                        MessageBox.Show("Cannot Delete customer due to outstanding DVD.\n\n(SQL error message: " + sqlEx.Message+")");
                     }
                     catch (Exception ex)
                     {
@@ -191,6 +237,7 @@ namespace CMPG223_Group10_DVD_Rental
                 }
             }
             ShowAllData();
+            EmptyInput();
         }
 
         //Method reset input controls
@@ -213,15 +260,19 @@ namespace CMPG223_Group10_DVD_Rental
             rbAdd.Checked = false;
             rbDelete.Checked = false;
             updateRadioButton.Checked = false;
+            cmbDelete.Visible = false;
+            cmbDelete.Items.Clear();
             ShowAllData();
         }
 
         private void updateRadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            
             inputError.Clear();
 
             if (updateRadioButton.Checked == true)
             {
+                cmbDelete.Visible = false;
                 memberComboBox.Items.Clear();
                 gbInput.Text = "Update Member";
                 lblName.Visible = true;
@@ -320,7 +371,7 @@ namespace CMPG223_Group10_DVD_Rental
         private bool ValidateDeleteInput()
         {
             bool allValid = true;
-            if (String.IsNullOrEmpty(txtName.Text))
+            if (String.IsNullOrEmpty(cmbDelete.Text))
             {
                 allValid = false;
             }

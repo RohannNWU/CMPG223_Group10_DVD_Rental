@@ -119,8 +119,7 @@ namespace CMPG223_Group10_DVD_Rental
                     employeeComboBox.Visible = false;
                     lblName.Text = "ID to Delete: ";
                     txtName.Clear();
-                    txtName.Visible = true;
-                    //Make redundant controls invisible 
+                    txtName.Visible = true;                    
                     txtSurname.Visible = false;
                     lblSurname.Visible = false;
                     txtDOB.Visible = false;
@@ -136,6 +135,28 @@ namespace CMPG223_Group10_DVD_Rental
                     gbInput.Text = "Delete Employee";
                     gbInput.Visible = true;
                     employeeComboBox.SelectedIndex = -1;
+                    txtName.Visible=false;
+
+                    cmbDelete.Visible = true;
+
+                    try
+                    {
+                        conn.Open();
+                        command = new SqlCommand(@"SELECT Employee_ID FROM Employee", conn);
+                        reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            cmbDelete.Items.Add(reader.GetValue(0).ToString());
+                        }
+                        conn.Close();
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+
                     break;
                 case 2:
                     employeeLabel.Visible = false;
@@ -197,6 +218,8 @@ namespace CMPG223_Group10_DVD_Rental
             cbAdmin.Checked = false;
             cbAdmin.Visible = true;
             gbInput.Visible = false;
+            cmbDelete.Visible = false;
+            cmbDelete.Items.Clear();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -301,16 +324,31 @@ namespace CMPG223_Group10_DVD_Rental
                 {
                     case 1:
                         gbInput.Visible = true;
+                        int employeeId = int.Parse(cmbDelete.Text);
 
-                        int employeeId = int.Parse(txtName.Text);
                         try
                         {
                             conn.Open();
-                            SqlCommand cmd = new SqlCommand(@"DELETE FROM Employee WHERE Employee_ID = @Employee_ID", conn);
-                            cmd.Parameters.AddWithValue("@Employee_ID", employeeId);
-                            cmd.ExecuteNonQuery();
+                            sqlQuery = "SELECT Employee_Name_Surname FROM Employee WHERE Employee_ID = @Employee_ID";
+                            command = new SqlCommand(sqlQuery, conn);
+                            command.Parameters.AddWithValue("@Employee_ID", employeeId);
+                            reader = command.ExecuteReader();
+                            DialogResult getResult = DialogResult.None;
+                            if (reader.Read())
+                            {
+                                getResult = MessageBox.Show("Are you sure you want to delete: " + reader.GetValue(0).ToString(), "Delete Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            }
                             conn.Close();
-                            EmptyInput();
+
+                            if (getResult == DialogResult.Yes)
+                            {
+                                conn.Open();
+                                SqlCommand cmd = new SqlCommand(@"DELETE FROM Employee WHERE Employee_ID = @Employee_ID", conn);
+                                cmd.Parameters.AddWithValue("@Employee_ID", employeeId);
+                                cmd.ExecuteNonQuery();
+                                conn.Close();
+                                EmptyInput(); 
+                            }
                         }
                         catch (SqlException sqlEx)
                         {
@@ -378,7 +416,7 @@ namespace CMPG223_Group10_DVD_Rental
         private bool ValidateDeleteInput()
         {
             bool allValid = true;
-            if (String.IsNullOrEmpty(txtName.Text))
+            if (String.IsNullOrEmpty(cmbDelete.Text))
             {
                 allValid = false;
             }

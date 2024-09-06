@@ -52,6 +52,7 @@
             this.descendButton = new System.Windows.Forms.Button();
             this.filterLabel = new System.Windows.Forms.Label();
             this.filterTextBox = new System.Windows.Forms.TextBox();
+            this.cmbDelete = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCustomer)).BeginInit();
             this.gbCommand.SuspendLayout();
             this.gbInput.SuspendLayout();
@@ -61,11 +62,10 @@
             // DGVCustomer
             // 
             this.DGVCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVCustomer.Location = new System.Drawing.Point(13, 94);
-            this.DGVCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.DGVCustomer.Location = new System.Drawing.Point(10, 76);
             this.DGVCustomer.Name = "DGVCustomer";
             this.DGVCustomer.RowHeadersWidth = 51;
-            this.DGVCustomer.Size = new System.Drawing.Size(956, 234);
+            this.DGVCustomer.Size = new System.Drawing.Size(717, 190);
             this.DGVCustomer.TabIndex = 2;
             // 
             // lblHeader
@@ -75,10 +75,9 @@
             this.lblHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblHeader.Font = new System.Drawing.Font("Century Gothic", 20F);
             this.lblHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.lblHeader.Location = new System.Drawing.Point(294, 26);
-            this.lblHeader.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHeader.Location = new System.Drawing.Point(220, 21);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(412, 40);
+            this.lblHeader.Size = new System.Drawing.Size(333, 33);
             this.lblHeader.TabIndex = 3;
             this.lblHeader.Text = "Customer Management";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -86,10 +85,9 @@
             // rbAdd
             // 
             this.rbAdd.AutoSize = true;
-            this.rbAdd.Location = new System.Drawing.Point(48, 31);
-            this.rbAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.rbAdd.Location = new System.Drawing.Point(36, 25);
             this.rbAdd.Name = "rbAdd";
-            this.rbAdd.Size = new System.Drawing.Size(183, 26);
+            this.rbAdd.Size = new System.Drawing.Size(149, 24);
             this.rbAdd.TabIndex = 5;
             this.rbAdd.TabStop = true;
             this.rbAdd.Text = "Add new record";
@@ -99,10 +97,9 @@
             // rbDelete
             // 
             this.rbDelete.AutoSize = true;
-            this.rbDelete.Location = new System.Drawing.Point(48, 68);
-            this.rbDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.rbDelete.Location = new System.Drawing.Point(36, 55);
             this.rbDelete.Name = "rbDelete";
-            this.rbDelete.Size = new System.Drawing.Size(157, 26);
+            this.rbDelete.Size = new System.Drawing.Size(130, 24);
             this.rbDelete.TabIndex = 6;
             this.rbDelete.TabStop = true;
             this.rbDelete.Text = "Delete record";
@@ -116,11 +113,9 @@
             this.gbCommand.Controls.Add(this.rbDelete);
             this.gbCommand.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.gbCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.gbCommand.Location = new System.Drawing.Point(13, 461);
-            this.gbCommand.Margin = new System.Windows.Forms.Padding(4);
+            this.gbCommand.Location = new System.Drawing.Point(10, 375);
             this.gbCommand.Name = "gbCommand";
-            this.gbCommand.Padding = new System.Windows.Forms.Padding(4);
-            this.gbCommand.Size = new System.Drawing.Size(357, 153);
+            this.gbCommand.Size = new System.Drawing.Size(268, 124);
             this.gbCommand.TabIndex = 8;
             this.gbCommand.TabStop = false;
             this.gbCommand.Text = "Select Command";
@@ -128,9 +123,10 @@
             // updateRadioButton
             // 
             this.updateRadioButton.AutoSize = true;
-            this.updateRadioButton.Location = new System.Drawing.Point(48, 104);
+            this.updateRadioButton.Location = new System.Drawing.Point(36, 84);
+            this.updateRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.updateRadioButton.Name = "updateRadioButton";
-            this.updateRadioButton.Size = new System.Drawing.Size(167, 26);
+            this.updateRadioButton.Size = new System.Drawing.Size(137, 24);
             this.updateRadioButton.TabIndex = 8;
             this.updateRadioButton.TabStop = true;
             this.updateRadioButton.Text = "Update record";
@@ -139,6 +135,7 @@
             // 
             // gbInput
             // 
+            this.gbInput.Controls.Add(this.cmbDelete);
             this.gbInput.Controls.Add(this.btnSubmit);
             this.gbInput.Controls.Add(this.txtEmail);
             this.gbInput.Controls.Add(this.lblEmail);
@@ -150,11 +147,9 @@
             this.gbInput.Controls.Add(this.lblName);
             this.gbInput.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.gbInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.gbInput.Location = new System.Drawing.Point(561, 413);
-            this.gbInput.Margin = new System.Windows.Forms.Padding(4);
+            this.gbInput.Location = new System.Drawing.Point(421, 336);
             this.gbInput.Name = "gbInput";
-            this.gbInput.Padding = new System.Windows.Forms.Padding(4);
-            this.gbInput.Size = new System.Drawing.Size(391, 218);
+            this.gbInput.Size = new System.Drawing.Size(293, 177);
             this.gbInput.TabIndex = 9;
             this.gbInput.TabStop = false;
             this.gbInput.Text = "Input";
@@ -167,10 +162,9 @@
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.btnSubmit.Location = new System.Drawing.Point(93, 167);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSubmit.Location = new System.Drawing.Point(90, 137);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(116, 43);
+            this.btnSubmit.Size = new System.Drawing.Size(87, 35);
             this.btnSubmit.TabIndex = 10;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -179,80 +173,72 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtEmail.Location = new System.Drawing.Point(171, 131);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.Location = new System.Drawing.Point(128, 106);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(194, 30);
+            this.txtEmail.Size = new System.Drawing.Size(146, 25);
             this.txtEmail.TabIndex = 7;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(19, 134);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Location = new System.Drawing.Point(14, 109);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(61, 22);
+            this.lblEmail.Size = new System.Drawing.Size(50, 20);
             this.lblEmail.TabIndex = 6;
             this.lblEmail.Text = "Email:";
             // 
             // txtDOB
             // 
             this.txtDOB.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtDOB.Location = new System.Drawing.Point(171, 97);
-            this.txtDOB.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDOB.Location = new System.Drawing.Point(128, 79);
             this.txtDOB.Name = "txtDOB";
-            this.txtDOB.Size = new System.Drawing.Size(194, 30);
+            this.txtDOB.Size = new System.Drawing.Size(146, 25);
             this.txtDOB.TabIndex = 5;
             this.txtDOB.TextChanged += new System.EventHandler(this.txtDOB_TextChanged);
             // 
             // txtSurname
             // 
             this.txtSurname.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtSurname.Location = new System.Drawing.Point(171, 61);
-            this.txtSurname.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSurname.Location = new System.Drawing.Point(128, 50);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(194, 30);
+            this.txtSurname.Size = new System.Drawing.Size(146, 25);
             this.txtSurname.TabIndex = 4;
             this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtName.Location = new System.Drawing.Point(171, 25);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtName.Location = new System.Drawing.Point(128, 20);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(194, 30);
+            this.txtName.Size = new System.Drawing.Size(146, 25);
             this.txtName.TabIndex = 3;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // lblDOB
             // 
             this.lblDOB.AutoSize = true;
-            this.lblDOB.Location = new System.Drawing.Point(19, 100);
-            this.lblDOB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDOB.Location = new System.Drawing.Point(14, 81);
             this.lblDOB.Name = "lblDOB";
-            this.lblDOB.Size = new System.Drawing.Size(130, 22);
+            this.lblDOB.Size = new System.Drawing.Size(104, 20);
             this.lblDOB.TabIndex = 2;
             this.lblDOB.Text = "Date of birth:";
             // 
             // lblSurname
             // 
             this.lblSurname.AutoSize = true;
-            this.lblSurname.Location = new System.Drawing.Point(19, 64);
-            this.lblSurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSurname.Location = new System.Drawing.Point(14, 52);
             this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(96, 22);
+            this.lblSurname.Size = new System.Drawing.Size(76, 20);
             this.lblSurname.TabIndex = 1;
             this.lblSurname.Text = "Surname:";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(19, 28);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(14, 23);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(71, 22);
+            this.lblName.Size = new System.Drawing.Size(57, 20);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name:";
             // 
@@ -260,9 +246,10 @@
             // 
             this.memberComboBox.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.memberComboBox.FormattingEnabled = true;
-            this.memberComboBox.Location = new System.Drawing.Point(709, 350);
+            this.memberComboBox.Location = new System.Drawing.Point(532, 284);
+            this.memberComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.memberComboBox.Name = "memberComboBox";
-            this.memberComboBox.Size = new System.Drawing.Size(260, 29);
+            this.memberComboBox.Size = new System.Drawing.Size(196, 28);
             this.memberComboBox.TabIndex = 10;
             this.memberComboBox.Visible = false;
             this.memberComboBox.SelectedIndexChanged += new System.EventHandler(this.memberComboBox_SelectedIndexChanged);
@@ -272,9 +259,10 @@
             this.memberLabel.AutoSize = true;
             this.memberLabel.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.memberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.memberLabel.Location = new System.Drawing.Point(429, 349);
+            this.memberLabel.Location = new System.Drawing.Point(322, 284);
+            this.memberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.memberLabel.Name = "memberLabel";
-            this.memberLabel.Size = new System.Drawing.Size(249, 22);
+            this.memberLabel.Size = new System.Drawing.Size(204, 20);
             this.memberLabel.TabIndex = 11;
             this.memberLabel.Text = "Please select the Member:";
             this.memberLabel.Visible = false;
@@ -290,10 +278,9 @@
             this.ascendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ascendButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.ascendButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.ascendButton.Location = new System.Drawing.Point(24, 342);
-            this.ascendButton.Margin = new System.Windows.Forms.Padding(4);
+            this.ascendButton.Location = new System.Drawing.Point(18, 278);
             this.ascendButton.Name = "ascendButton";
-            this.ascendButton.Size = new System.Drawing.Size(133, 37);
+            this.ascendButton.Size = new System.Drawing.Size(100, 30);
             this.ascendButton.TabIndex = 12;
             this.ascendButton.Text = "Sort Name";
             this.ascendButton.UseVisualStyleBackColor = false;
@@ -306,10 +293,9 @@
             this.descendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descendButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.descendButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.descendButton.Location = new System.Drawing.Point(179, 342);
-            this.descendButton.Margin = new System.Windows.Forms.Padding(4);
+            this.descendButton.Location = new System.Drawing.Point(134, 278);
             this.descendButton.Name = "descendButton";
-            this.descendButton.Size = new System.Drawing.Size(133, 37);
+            this.descendButton.Size = new System.Drawing.Size(100, 30);
             this.descendButton.TabIndex = 13;
             this.descendButton.Text = "Sort ID";
             this.descendButton.UseVisualStyleBackColor = false;
@@ -320,28 +306,37 @@
             this.filterLabel.AutoSize = true;
             this.filterLabel.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.filterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.filterLabel.Location = new System.Drawing.Point(12, 397);
+            this.filterLabel.Location = new System.Drawing.Point(9, 323);
+            this.filterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.filterLabel.Name = "filterLabel";
-            this.filterLabel.Size = new System.Drawing.Size(123, 22);
+            this.filterLabel.Size = new System.Drawing.Size(100, 20);
             this.filterLabel.TabIndex = 14;
             this.filterLabel.Text = "Filter Names:";
             // 
             // filterTextBox
             // 
             this.filterTextBox.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.filterTextBox.Location = new System.Drawing.Point(159, 394);
-            this.filterTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.filterTextBox.Location = new System.Drawing.Point(119, 320);
             this.filterTextBox.Name = "filterTextBox";
-            this.filterTextBox.Size = new System.Drawing.Size(222, 30);
+            this.filterTextBox.Size = new System.Drawing.Size(168, 25);
             this.filterTextBox.TabIndex = 11;
             this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
+            // cmbDelete
+            // 
+            this.cmbDelete.FormattingEnabled = true;
+            this.cmbDelete.Location = new System.Drawing.Point(139, 17);
+            this.cmbDelete.Name = "cmbDelete";
+            this.cmbDelete.Size = new System.Drawing.Size(88, 28);
+            this.cmbDelete.TabIndex = 11;
+            this.cmbDelete.Visible = false;
+            // 
             // Customer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.ClientSize = new System.Drawing.Size(984, 642);
+            this.ClientSize = new System.Drawing.Size(738, 522);
             this.Controls.Add(this.filterTextBox);
             this.Controls.Add(this.filterLabel);
             this.Controls.Add(this.descendButton);
@@ -353,7 +348,6 @@
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.DGVCustomer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Customer";
@@ -395,5 +389,6 @@
         private System.Windows.Forms.Button ascendButton;
         private System.Windows.Forms.TextBox filterTextBox;
         private System.Windows.Forms.Label filterLabel;
+        private System.Windows.Forms.ComboBox cmbDelete;
     }
 }
