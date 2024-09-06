@@ -50,7 +50,7 @@ namespace CMPG223_Group10_DVD_Rental
         {
             try
             {
-                System.Diagnostics.Process.Start("https://wonderful-flower-0f477a010.5.azurestaticapps.net/");
+                System.Diagnostics.Process.Start("https://sacmpg223g10.z1.web.core.windows.net/");
             }
             catch (Exception ex)
             {
@@ -85,6 +85,18 @@ namespace CMPG223_Group10_DVD_Rental
             ReportForm report = new ReportForm();
             report.MdiParent = this;
             report.Show();
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://sacmpg223g10.z1.web.core.windows.net/");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link that was clicked." + ex.Message);
+            }
         }
     }
 }
