@@ -48,7 +48,7 @@ namespace CMPG223_Group10_DVD_Rental
         {
             try
             {
-                System.Diagnostics.Process.Start("https://wonderful-flower-0f477a010.5.azurestaticapps.net/");
+                System.Diagnostics.Process.Start("https://sacmpg223g10.z1.web.core.windows.net/");
             }
             catch (Exception ex)
             {
@@ -69,6 +69,11 @@ namespace CMPG223_Group10_DVD_Rental
             DVD DVDForm = new DVD();
             DVDForm.MdiParent = this;
             DVDForm.Show();
+        }
+
+        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

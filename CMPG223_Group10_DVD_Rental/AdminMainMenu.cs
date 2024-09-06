@@ -89,14 +89,7 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("https://sacmpg223g10.z1.web.core.windows.net/");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Unable to open link that was clicked." + ex.Message);
-            }
+            
         }
     }
 }
