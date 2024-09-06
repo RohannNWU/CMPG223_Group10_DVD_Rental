@@ -46,6 +46,7 @@ namespace CMPG223_Group10_DVD_Rental
                 case "Add DVD":
                     lblName.Text = "Name: ";
                     txtName.Clear();
+                    txtName.Visible = true;
                     lblGenre.Visible = true;
                     lblYear.Visible = true;
                     lblCopies.Visible = true;
@@ -59,6 +60,7 @@ namespace CMPG223_Group10_DVD_Rental
                     gbInput.Visible = true;
                     cmbNames.Visible = false;
                     lblSelectName.Visible = false;
+                    cmbDelete.Visible = false;
                     btnSubmit.Text = "Add DVD";
                     break;
                 case "Delete DVD":
@@ -73,6 +75,7 @@ namespace CMPG223_Group10_DVD_Rental
                     cmbDrop.Visible = false;
                     gbInput.Visible = true;
                     btnSubmit.Text = "Delete";
+                    cmbDelete.Items.Clear();
                     cmbDelete.Visible = true;
                     try
                     {
@@ -96,6 +99,7 @@ namespace CMPG223_Group10_DVD_Rental
                 case "Update DVD":
                     // update the dvd details
                     cmbNames.Visible = true;
+                    txtName.Visible = true;
                     lblSelectName.Visible = true;
                     lblName.Text = "Name: ";
                     lblGenre.Visible = true;
@@ -104,6 +108,7 @@ namespace CMPG223_Group10_DVD_Rental
                     txtCopies.Visible = true;
                     txtYear.Visible = true;
                     cmbDrop.Visible = true;
+                    cmbDelete.Visible = false;
                     btnSubmit.Text = "Update";
 
                     conn = new SqlConnection(connectionString);

@@ -52,7 +52,7 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void DashboardForm_Load(object sender, EventArgs e)
         {
-            empLabel.Text = "Employee ID: " + employeeID +  ", Employee Logged in: " + name + ", (" + role + ")";
+            empLabel.Text = "Employee Logged in: " + name + ", (" + role + ")";
 
             //Populate Member comboBox
             conn = new SqlConnection(connectionString);

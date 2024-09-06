@@ -138,6 +138,7 @@
             this.cmbDelete.Name = "cmbDelete";
             this.cmbDelete.Size = new System.Drawing.Size(78, 29);
             this.cmbDelete.TabIndex = 10;
+            this.cmbDelete.Visible = false;
             // 
             // cmbDrop
             // 
