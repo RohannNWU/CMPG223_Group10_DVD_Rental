@@ -36,6 +36,7 @@
             this.gbCommand = new System.Windows.Forms.GroupBox();
             this.updateRadioButton = new System.Windows.Forms.RadioButton();
             this.gbInput = new System.Windows.Forms.GroupBox();
+            this.cmbDelete = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.descendButton = new System.Windows.Forms.Button();
             this.filterLabel = new System.Windows.Forms.Label();
             this.filterTextBox = new System.Windows.Forms.TextBox();
-            this.cmbDelete = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCustomer)).BeginInit();
             this.gbCommand.SuspendLayout();
             this.gbInput.SuspendLayout();
@@ -62,10 +62,10 @@
             // DGVCustomer
             // 
             this.DGVCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVCustomer.Location = new System.Drawing.Point(10, 76);
+            this.DGVCustomer.Location = new System.Drawing.Point(72, 98);
             this.DGVCustomer.Name = "DGVCustomer";
             this.DGVCustomer.RowHeadersWidth = 51;
-            this.DGVCustomer.Size = new System.Drawing.Size(717, 190);
+            this.DGVCustomer.Size = new System.Drawing.Size(623, 143);
             this.DGVCustomer.TabIndex = 2;
             // 
             // lblHeader
@@ -124,7 +124,7 @@
             // 
             this.updateRadioButton.AutoSize = true;
             this.updateRadioButton.Location = new System.Drawing.Point(36, 84);
-            this.updateRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.updateRadioButton.Margin = new System.Windows.Forms.Padding(2);
             this.updateRadioButton.Name = "updateRadioButton";
             this.updateRadioButton.Size = new System.Drawing.Size(137, 24);
             this.updateRadioButton.TabIndex = 8;
@@ -155,6 +155,15 @@
             this.gbInput.Text = "Input";
             this.gbInput.Visible = false;
             // 
+            // cmbDelete
+            // 
+            this.cmbDelete.FormattingEnabled = true;
+            this.cmbDelete.Location = new System.Drawing.Point(139, 17);
+            this.cmbDelete.Name = "cmbDelete";
+            this.cmbDelete.Size = new System.Drawing.Size(88, 28);
+            this.cmbDelete.TabIndex = 11;
+            this.cmbDelete.Visible = false;
+            // 
             // btnSubmit
             // 
             this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
@@ -162,9 +171,9 @@
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.btnSubmit.Location = new System.Drawing.Point(90, 137);
+            this.btnSubmit.Location = new System.Drawing.Point(100, 145);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(87, 35);
+            this.btnSubmit.Size = new System.Drawing.Size(87, 26);
             this.btnSubmit.TabIndex = 10;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -247,7 +256,7 @@
             this.memberComboBox.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.memberComboBox.FormattingEnabled = true;
             this.memberComboBox.Location = new System.Drawing.Point(532, 284);
-            this.memberComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.memberComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.memberComboBox.Name = "memberComboBox";
             this.memberComboBox.Size = new System.Drawing.Size(196, 28);
             this.memberComboBox.TabIndex = 10;
@@ -278,7 +287,7 @@
             this.ascendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ascendButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.ascendButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.ascendButton.Location = new System.Drawing.Point(18, 278);
+            this.ascendButton.Location = new System.Drawing.Point(22, 247);
             this.ascendButton.Name = "ascendButton";
             this.ascendButton.Size = new System.Drawing.Size(100, 30);
             this.ascendButton.TabIndex = 12;
@@ -293,7 +302,7 @@
             this.descendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descendButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.descendButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.descendButton.Location = new System.Drawing.Point(134, 278);
+            this.descendButton.Location = new System.Drawing.Point(139, 247);
             this.descendButton.Name = "descendButton";
             this.descendButton.Size = new System.Drawing.Size(100, 30);
             this.descendButton.TabIndex = 13;
@@ -306,7 +315,7 @@
             this.filterLabel.AutoSize = true;
             this.filterLabel.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.filterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.filterLabel.Location = new System.Drawing.Point(9, 323);
+            this.filterLabel.Location = new System.Drawing.Point(11, 287);
             this.filterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.filterLabel.Name = "filterLabel";
             this.filterLabel.Size = new System.Drawing.Size(100, 20);
@@ -316,20 +325,11 @@
             // filterTextBox
             // 
             this.filterTextBox.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.filterTextBox.Location = new System.Drawing.Point(119, 320);
+            this.filterTextBox.Location = new System.Drawing.Point(127, 287);
             this.filterTextBox.Name = "filterTextBox";
             this.filterTextBox.Size = new System.Drawing.Size(168, 25);
             this.filterTextBox.TabIndex = 11;
             this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
-            // 
-            // cmbDelete
-            // 
-            this.cmbDelete.FormattingEnabled = true;
-            this.cmbDelete.Location = new System.Drawing.Point(139, 17);
-            this.cmbDelete.Name = "cmbDelete";
-            this.cmbDelete.Size = new System.Drawing.Size(88, 28);
-            this.cmbDelete.TabIndex = 11;
-            this.cmbDelete.Visible = false;
             // 
             // Customer
             // 
