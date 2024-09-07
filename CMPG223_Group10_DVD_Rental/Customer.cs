@@ -405,6 +405,7 @@ namespace CMPG223_Group10_DVD_Rental
             try
             {
                 conn.Open();
+                //Sort Data Ascending in DataGridView
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(@"SELECT * FROM Client ORDER BY Client_Name_Surname ASC", conn);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
@@ -442,6 +443,7 @@ namespace CMPG223_Group10_DVD_Rental
             conn = new SqlConnection(connectionString);
             try
             {
+                //Filter data according to input
                 conn.Open();
                 sqlQuery = @"SELECT * FROM Client WHERE Client_Name_Surname LIKE @filterText";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlQuery, conn);
