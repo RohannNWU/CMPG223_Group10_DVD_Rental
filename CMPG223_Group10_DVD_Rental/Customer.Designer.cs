@@ -63,7 +63,7 @@
             // 
             this.DGVCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVCustomer.Location = new System.Drawing.Point(96, 121);
-            this.DGVCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DGVCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.DGVCustomer.Name = "DGVCustomer";
             this.DGVCustomer.RowHeadersWidth = 51;
             this.DGVCustomer.Size = new System.Drawing.Size(831, 176);
@@ -88,7 +88,7 @@
             // 
             this.rbAdd.AutoSize = true;
             this.rbAdd.Location = new System.Drawing.Point(48, 31);
-            this.rbAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbAdd.Margin = new System.Windows.Forms.Padding(4);
             this.rbAdd.Name = "rbAdd";
             this.rbAdd.Size = new System.Drawing.Size(183, 26);
             this.rbAdd.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             this.rbDelete.AutoSize = true;
             this.rbDelete.Location = new System.Drawing.Point(48, 68);
-            this.rbDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbDelete.Margin = new System.Windows.Forms.Padding(4);
             this.rbDelete.Name = "rbDelete";
             this.rbDelete.Size = new System.Drawing.Size(157, 26);
             this.rbDelete.TabIndex = 6;
@@ -117,10 +117,10 @@
             this.gbCommand.Controls.Add(this.rbDelete);
             this.gbCommand.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.gbCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.gbCommand.Location = new System.Drawing.Point(13, 462);
-            this.gbCommand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCommand.Location = new System.Drawing.Point(59, 422);
+            this.gbCommand.Margin = new System.Windows.Forms.Padding(4);
             this.gbCommand.Name = "gbCommand";
-            this.gbCommand.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCommand.Padding = new System.Windows.Forms.Padding(4);
             this.gbCommand.Size = new System.Drawing.Size(357, 153);
             this.gbCommand.TabIndex = 8;
             this.gbCommand.TabStop = false;
@@ -153,10 +153,10 @@
             this.gbInput.Controls.Add(this.lblName);
             this.gbInput.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.gbInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.gbInput.Location = new System.Drawing.Point(561, 414);
-            this.gbInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInput.Location = new System.Drawing.Point(566, 397);
+            this.gbInput.Margin = new System.Windows.Forms.Padding(4);
             this.gbInput.Name = "gbInput";
-            this.gbInput.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInput.Padding = new System.Windows.Forms.Padding(4);
             this.gbInput.Size = new System.Drawing.Size(391, 218);
             this.gbInput.TabIndex = 9;
             this.gbInput.TabStop = false;
@@ -167,7 +167,7 @@
             // 
             this.cmbDelete.FormattingEnabled = true;
             this.cmbDelete.Location = new System.Drawing.Point(171, 25);
-            this.cmbDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbDelete.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDelete.Name = "cmbDelete";
             this.cmbDelete.Size = new System.Drawing.Size(116, 29);
             this.cmbDelete.TabIndex = 11;
@@ -181,7 +181,7 @@
             this.btnSubmit.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
             this.btnSubmit.Location = new System.Drawing.Point(133, 178);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(116, 32);
             this.btnSubmit.TabIndex = 10;
@@ -193,7 +193,7 @@
             // 
             this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtEmail.Location = new System.Drawing.Point(171, 130);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(193, 30);
             this.txtEmail.TabIndex = 7;
@@ -213,7 +213,7 @@
             // 
             this.txtDOB.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtDOB.Location = new System.Drawing.Point(171, 97);
-            this.txtDOB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDOB.Margin = new System.Windows.Forms.Padding(4);
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.Size = new System.Drawing.Size(193, 30);
             this.txtDOB.TabIndex = 5;
@@ -223,7 +223,7 @@
             // 
             this.txtSurname.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtSurname.Location = new System.Drawing.Point(171, 62);
-            this.txtSurname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(4);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(193, 30);
             this.txtSurname.TabIndex = 4;
@@ -233,7 +233,7 @@
             // 
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtName.Location = new System.Drawing.Point(171, 25);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(193, 30);
             this.txtName.TabIndex = 3;
@@ -273,7 +273,7 @@
             // 
             this.memberComboBox.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.memberComboBox.FormattingEnabled = true;
-            this.memberComboBox.Location = new System.Drawing.Point(709, 350);
+            this.memberComboBox.Location = new System.Drawing.Point(649, 354);
             this.memberComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.memberComboBox.Name = "memberComboBox";
             this.memberComboBox.Size = new System.Drawing.Size(260, 29);
@@ -286,11 +286,11 @@
             this.memberLabel.AutoSize = true;
             this.memberLabel.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.memberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.memberLabel.Location = new System.Drawing.Point(429, 350);
+            this.memberLabel.Location = new System.Drawing.Point(617, 319);
             this.memberLabel.Name = "memberLabel";
-            this.memberLabel.Size = new System.Drawing.Size(249, 22);
+            this.memberLabel.Size = new System.Drawing.Size(323, 22);
             this.memberLabel.TabIndex = 11;
-            this.memberLabel.Text = "Please select the Member:";
+            this.memberLabel.Text = "Please select the Client to update:";
             this.memberLabel.Visible = false;
             // 
             // inputError
@@ -305,7 +305,7 @@
             this.ascendButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.ascendButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
             this.ascendButton.Location = new System.Drawing.Point(29, 304);
-            this.ascendButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ascendButton.Margin = new System.Windows.Forms.Padding(4);
             this.ascendButton.Name = "ascendButton";
             this.ascendButton.Size = new System.Drawing.Size(133, 37);
             this.ascendButton.TabIndex = 12;
@@ -321,7 +321,7 @@
             this.descendButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.descendButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
             this.descendButton.Location = new System.Drawing.Point(185, 304);
-            this.descendButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.descendButton.Margin = new System.Windows.Forms.Padding(4);
             this.descendButton.Name = "descendButton";
             this.descendButton.Size = new System.Drawing.Size(133, 37);
             this.descendButton.TabIndex = 13;
@@ -344,7 +344,7 @@
             // 
             this.filterTextBox.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.filterTextBox.Location = new System.Drawing.Point(169, 353);
-            this.filterTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.filterTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.filterTextBox.Name = "filterTextBox";
             this.filterTextBox.Size = new System.Drawing.Size(223, 30);
             this.filterTextBox.TabIndex = 11;
@@ -367,7 +367,7 @@
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.DGVCustomer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Customer";

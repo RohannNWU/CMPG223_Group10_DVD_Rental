@@ -35,6 +35,7 @@
             this.lblReturnDate = new System.Windows.Forms.Label();
             this.checkoutButton = new System.Windows.Forms.Button();
             this.gbOutstandingDVD = new System.Windows.Forms.GroupBox();
+            this.outstandingDVDsListView = new System.Windows.Forms.ListView();
             this.payButton = new System.Windows.Forms.Button();
             this.lblFine = new System.Windows.Forms.Label();
             this.cmbMember = new System.Windows.Forms.ComboBox();
@@ -45,7 +46,6 @@
             this.returnComboBox = new System.Windows.Forms.ComboBox();
             this.returnDVDLabel = new System.Windows.Forms.Label();
             this.returnButton = new System.Windows.Forms.Button();
-            this.outstandingDVDsListView = new System.Windows.Forms.ListView();
             this.gbOutstandingDVD.SuspendLayout();
             this.rentingGroupBox.SuspendLayout();
             this.returnGroupBox.SuspendLayout();
@@ -54,24 +54,24 @@
             // empLabel
             // 
             this.empLabel.AutoSize = true;
-            this.empLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empLabel.Font = new System.Drawing.Font("Century Gothic", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.empLabel.Location = new System.Drawing.Point(37, 71);
             this.empLabel.Name = "empLabel";
-            this.empLabel.Size = new System.Drawing.Size(204, 22);
+            this.empLabel.Size = new System.Drawing.Size(249, 29);
             this.empLabel.TabIndex = 0;
             this.empLabel.Text = "Employee Logged In:";
             // 
             // memberLabel
             // 
             this.memberLabel.AutoSize = true;
-            this.memberLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memberLabel.Font = new System.Drawing.Font("Century Gothic", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
-            this.memberLabel.Location = new System.Drawing.Point(724, 71);
+            this.memberLabel.Location = new System.Drawing.Point(745, 71);
             this.memberLabel.Name = "memberLabel";
-            this.memberLabel.Size = new System.Drawing.Size(92, 22);
+            this.memberLabel.Size = new System.Drawing.Size(220, 29);
             this.memberLabel.TabIndex = 1;
-            this.memberLabel.Text = "Member:";
+            this.memberLabel.Text = "Choose the Client:";
             // 
             // lblDVD
             // 
@@ -127,7 +127,7 @@
             this.gbOutstandingDVD.Controls.Add(this.outstandingDVDsListView);
             this.gbOutstandingDVD.Controls.Add(this.payButton);
             this.gbOutstandingDVD.Controls.Add(this.lblFine);
-            this.gbOutstandingDVD.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbOutstandingDVD.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOutstandingDVD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.gbOutstandingDVD.Location = new System.Drawing.Point(260, 365);
             this.gbOutstandingDVD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -138,6 +138,17 @@
             this.gbOutstandingDVD.TabStop = false;
             this.gbOutstandingDVD.Text = "Outstanding DVDs";
             this.gbOutstandingDVD.Visible = false;
+            // 
+            // outstandingDVDsListView
+            // 
+            this.outstandingDVDsListView.BackColor = System.Drawing.Color.Silver;
+            this.outstandingDVDsListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
+            this.outstandingDVDsListView.HideSelection = false;
+            this.outstandingDVDsListView.Location = new System.Drawing.Point(6, 28);
+            this.outstandingDVDsListView.Name = "outstandingDVDsListView";
+            this.outstandingDVDsListView.Size = new System.Drawing.Size(613, 286);
+            this.outstandingDVDsListView.TabIndex = 8;
+            this.outstandingDVDsListView.UseCompatibleStateImageBehavior = false;
             // 
             // payButton
             // 
@@ -168,11 +179,12 @@
             // 
             // cmbMember
             // 
+            this.cmbMember.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMember.FormattingEnabled = true;
-            this.cmbMember.Location = new System.Drawing.Point(845, 69);
+            this.cmbMember.Location = new System.Drawing.Point(1003, 75);
             this.cmbMember.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbMember.Name = "cmbMember";
-            this.cmbMember.Size = new System.Drawing.Size(257, 24);
+            this.cmbMember.Size = new System.Drawing.Size(257, 29);
             this.cmbMember.TabIndex = 7;
             this.cmbMember.SelectedIndexChanged += new System.EventHandler(this.cmbMember_SelectedIndexChanged);
             this.cmbMember.TextUpdate += new System.EventHandler(this.cmbMember_TextUpdate);
@@ -183,7 +195,7 @@
             this.cmbDVD.Location = new System.Drawing.Point(159, 52);
             this.cmbDVD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbDVD.Name = "cmbDVD";
-            this.cmbDVD.Size = new System.Drawing.Size(405, 29);
+            this.cmbDVD.Size = new System.Drawing.Size(405, 30);
             this.cmbDVD.TabIndex = 8;
             this.cmbDVD.SelectedIndexChanged += new System.EventHandler(this.cmbDVD_SelectedIndexChanged);
             this.cmbDVD.TextUpdate += new System.EventHandler(this.cmbDVD_TextUpdate);
@@ -191,11 +203,11 @@
             // headerLabel
             // 
             this.headerLabel.AutoSize = true;
-            this.headerLabel.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.headerLabel.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.headerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.headerLabel.Location = new System.Drawing.Point(608, 9);
             this.headerLabel.Name = "headerLabel";
-            this.headerLabel.Size = new System.Drawing.Size(204, 40);
+            this.headerLabel.Size = new System.Drawing.Size(244, 49);
             this.headerLabel.TabIndex = 9;
             this.headerLabel.Text = "DVD Rental";
             // 
@@ -206,7 +218,7 @@
             this.rentingGroupBox.Controls.Add(this.lblToday);
             this.rentingGroupBox.Controls.Add(this.lblReturnDate);
             this.rentingGroupBox.Controls.Add(this.checkoutButton);
-            this.rentingGroupBox.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rentingGroupBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentingGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.rentingGroupBox.Location = new System.Drawing.Point(41, 111);
             this.rentingGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -223,7 +235,7 @@
             this.returnGroupBox.Controls.Add(this.returnComboBox);
             this.returnGroupBox.Controls.Add(this.returnDVDLabel);
             this.returnGroupBox.Controls.Add(this.returnButton);
-            this.returnGroupBox.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnGroupBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.returnGroupBox.Location = new System.Drawing.Point(749, 111);
             this.returnGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -241,7 +253,7 @@
             this.returnComboBox.Location = new System.Drawing.Point(159, 52);
             this.returnComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.returnComboBox.Name = "returnComboBox";
-            this.returnComboBox.Size = new System.Drawing.Size(288, 29);
+            this.returnComboBox.Size = new System.Drawing.Size(288, 30);
             this.returnComboBox.TabIndex = 8;
             // 
             // returnDVDLabel
@@ -270,17 +282,6 @@
             this.returnButton.Text = "Return DVDs";
             this.returnButton.UseVisualStyleBackColor = false;
             this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
-            // 
-            // outstandingDVDsListView
-            // 
-            this.outstandingDVDsListView.BackColor = System.Drawing.Color.Silver;
-            this.outstandingDVDsListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.outstandingDVDsListView.HideSelection = false;
-            this.outstandingDVDsListView.Location = new System.Drawing.Point(6, 28);
-            this.outstandingDVDsListView.Name = "outstandingDVDsListView";
-            this.outstandingDVDsListView.Size = new System.Drawing.Size(613, 286);
-            this.outstandingDVDsListView.TabIndex = 8;
-            this.outstandingDVDsListView.UseCompatibleStateImageBehavior = false;
             // 
             // DashboardForm
             // 

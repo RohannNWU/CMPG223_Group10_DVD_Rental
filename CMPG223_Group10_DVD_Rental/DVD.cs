@@ -41,6 +41,7 @@ namespace CMPG223_Group10_DVD_Rental
             cmbNames.Visible = false;
             string selectedIndex = cmbCommand.Text;
             gbInput.Visible = false;
+            cmbNames.Items.Clear();
 
             switch (selectedIndex)
             {
@@ -212,7 +213,6 @@ namespace CMPG223_Group10_DVD_Rental
             if (update == false)
             {
                 int selectedIndex = cmbCommand.SelectedIndex;
-
                 try
                 {
                     conn.Open();
@@ -239,6 +239,7 @@ namespace CMPG223_Group10_DVD_Rental
             {
                 gbInput.Visible = true;
                 btnSubmit.Text = "Update";
+                PopulateGenres();
                 try
                 {
                     conn.Open();

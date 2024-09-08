@@ -43,6 +43,8 @@ namespace CMPG223_Group10_DVD_Rental
                     decimal getAmount;
                     if (Decimal.TryParse(amountTextBox.Text, out getAmount)) {
                         fine -= getAmount;
+                        MessageBox.Show("The outstanding amount is: " + fine.ToString("C"));
+                        this.Close();
                     } else
                     {
                         MessageBox.Show("Please enter a valid number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

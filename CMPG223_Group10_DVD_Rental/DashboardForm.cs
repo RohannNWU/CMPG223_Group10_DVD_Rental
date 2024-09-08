@@ -364,10 +364,9 @@ namespace CMPG223_Group10_DVD_Rental
                 {
                     // delete the late rental from the rental table
                     conn.Open();
-                    sqlQuery = "DELETE FROM Rental WHERE Client_ID = @client AND DVD_ID = @dvd";
+                    sqlQuery = "DELETE FROM Rental WHERE Client_ID = @client";
                     command = new SqlCommand(sqlQuery, conn);
                     command.Parameters.AddWithValue("@client", fineID);
-                    command.Parameters.AddWithValue("@dvd", fineDVD);
                     command.ExecuteNonQuery();
                     conn.Close();
 
