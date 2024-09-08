@@ -1,0 +1,1018 @@
+
+Jacques@DESKTOP-2RRSLKL MINGW64 ~
+$ cd C:\CMPG223\CMPG223_Group10_DVD_Rental
+bash: cd: C:CMPG223CMPG223_Group10_DVD_Rental: No such file or directory
+
+Jacques@DESKTOP-2RRSLKL MINGW64 ~
+$ cd "C:\CMPG223\CMPG223_Group10_DVD_Rental"
+
+Jacques@DESKTOP-2RRSLKL MINGW64 /c/CMPG223/CMPG223_Group10_DVD_Rental (master)
+$ git log --all
+commit dd07a3d7494edcc731f3b962b32892fe65552353 (refs/stash)
+Merge: 57e976d 7ca8593
+Author: Jacques van Heerden <35317906@mynwu.ac.za>
+Date:   Sun Sep 8 07:24:33 2024 -0400
+
+    On master: !!GitHub_Desktop<master>
+
+commit 7ca8593391577ab000e20c323dae39518be064fb
+Author: Jacques van Heerden <35317906@mynwu.ac.za>
+Date:   Sun Sep 8 07:24:33 2024 -0400
+
+    index on master: 57e976d Changed the Help Guide link in the code
+
+commit 4bb3219249f7e97d1165827226b9ebbd6e0af8a7 (HEAD -> master, origin/master, origin/HEAD)
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sun Sep 8 13:23:48 2024 +0200
+
+    Fixing some bugs during final test run
+
+commit 9be1b4205a1203aeaa74cf1122555550776b1b42
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sun Sep 8 11:23:29 2024 +0200
+:...skipping...
+commit dd07a3d7494edcc731f3b962b32892fe65552353 (refs/stash)
+Merge: 57e976d 7ca8593
+Author: Jacques van Heerden <35317906@mynwu.ac.za>
+Date:   Sun Sep 8 07:24:33 2024 -0400
+
+    On master: !!GitHub_Desktop<master>
+
+commit 7ca8593391577ab000e20c323dae39518be064fb
+Author: Jacques van Heerden <35317906@mynwu.ac.za>
+Date:   Sun Sep 8 07:24:33 2024 -0400
+
+    index on master: 57e976d Changed the Help Guide link in the code
+
+commit 4bb3219249f7e97d1165827226b9ebbd6e0af8a7 (HEAD -> master, origin/master,
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sun Sep 8 13:23:48 2024 +0200
+
+    Fixing some bugs during final test run
+
+commit 9be1b4205a1203aeaa74cf1122555550776b1b42
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sun Sep 8 11:23:29 2024 +0200
+
+    Added Reporting Fixes and Shelf Management
+
+commit fc89bc5f0fdc2eea63f4ef68ecead01834d58f62
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Sep 7 16:37:10 2024 +0200
+
+    Update Customer Gui ERROR
+
+commit 0fc0a5677dbca1a80ca02b7f965584a896b3e5bd
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Sep 7 16:24:19 2024 +0200
+
+    Added code comments
+
+commit f3a6f45bc585bfd1b1f71bce255444e5953b108a
+Author: ChristolPrinsloo <114835933+ChristolPrinsloo@users.noreply.github.com>
+Date:   Sat Sep 7 15:44:13 2024 +0200
+
+    Enlarge combobox so full command is visible
+
+commit b94fdc32bc02792f64bc6cb8c4ab3fc255d1869c
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Sep 7 13:03:20 2024 +0200
+
+    Bugs fixed and Database data updates
+
+commit 2e7cdbcb32291d10ae08f1c70f45821d5228417c
+Author: ChristolPrinsloo <114835933+ChristolPrinsloo@users.noreply.github.com>
+Date:   Fri Sep 6 22:15:32 2024 +0200
+
+    fix typo in db
+
+commit f46ad2b9afdf672aa281c7c84e4c63bcf6cdc3f0
+Author: ChristolPrinsloo <114835933+ChristolPrinsloo@users.noreply.github.com>
+Date:   Fri Sep 6 22:12:18 2024 +0200
+
+    WIP
+
+    - Add help url
+
+commit 57e976d370c382681e151b53f24802eb3170633b
+Author: Jacques van Heerden <35317906@mynwu.ac.za>
+Date:   Fri Sep 6 15:26:50 2024 -0400
+
+    Changed the Help Guide link in the code
+
+    Tried adding the new code
+    https://sacmpg223g10.z1.web.core.windows.net/
+
+commit e1a6d80267341320f8239f401457d712e4ae765f
+Author: Jacques van Heerden <35317906@mynwu.ac.za>
+Date:   Fri Sep 6 15:03:28 2024 -0400
+
+    Created Help Guide
+
+    Next step, upload help guide to Azure Web Service and link to application
+
+commit 766c6e6c1fc497ab0a8adfe8ded60a177d51c362
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Fri Sep 6 20:18:08 2024 +0200
+
+    Fixed minor bugs in DVD.cs
+
+commit 0fcad91131ec19d1541c806e95bf804816cfcee1
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Fri Sep 6 15:25:35 2024 +0200
+
+    Updated Output Flow
+
+commit a68214d825fc07651e06d6ebcc5e9541295db788
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Fri Sep 6 14:55:42 2024 +0200
+
+    Updated delete functionality of program
+
+commit 7883fac145985ac3fc1f647f8692bc88b9023bd9
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Fri Sep 6 13:22:37 2024 +0200
+
+    Work in progress
+
+    Working on bugs and updating features
+
+commit d6ed3fd983767c00c346a7aecb592774d95d26ce
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Mon Sep 2 20:55:47 2024 +0200
+
+    Update DVD.cs
+
+commit aecab9044cc88c88b40a8c31ca434fd5d73680fe
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Wed Aug 28 14:23:03 2024 +0200
+
+    Bugs fixed
+
+commit ae112f22a2bb7f68d994e02f42bf9c3f310c037b
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Wed Aug 28 13:26:34 2024 +0200
+
+    Fixed some minor bugs and added sort and filter
+
+commit b8a174f9d3c7aa3a8a730a55e91420b3d9716169
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Wed Aug 28 12:31:32 2024 +0200
+
+    Updated database
+
+commit 2e8af30094bdb1e1fc03c2b15006dbad11c56fd8
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Wed Aug 28 12:20:14 2024 +0200
+
+    Final Project Trimmings Done
+
+commit 7605de46a51ec299ac87d145cac066a415967d8a
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Wed Aug 28 02:48:16 2024 +0200
+
+    Added Report Function
+
+commit ab0e1b930c0494f4d21fb80d57a37dfa61472e78
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Wed Aug 28 01:33:50 2024 +0200
+
+    .csproj change
+
+commit e936bb2d856b710ca854d0331839af934da05c47
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Wed Aug 28 01:30:31 2024 +0200
+
+    Finalizing the Project
+
+commit 574f3f3f1f0e042a67a961e7d85884548e71a269
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Tue Aug 27 08:54:54 2024 +0200
+
+    Work in progress
+
+    Added a payment form
+
+commit f27054e82b1f016584a8c270e6160fbc336ec032
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Tue Aug 27 01:47:17 2024 +0200
+
+    Work in progress
+
+commit ecd7d39177a9e868d2dce3ad308d14e56a4acded
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Mon Aug 26 01:32:33 2024 +0200
+
+    Added Functionality
+
+    Added renting and returning functionality to the program. Also changed the r
+
+commit ffad488cf7faae037913862e74e6228733049870
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sun Aug 25 04:49:44 2024 +0200
+
+    Work done on the program
+
+    Added user input validation to all forms, completed employee and client func
+
+commit fdba39443265fd5932d5929aef4d3c576872424e
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Aug 24 18:45:18 2024 +0200
+
+    Updated Rent Form with new code
+
+commit b06fcc45cfb98c516753402a46bd53e6cf93611e
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 24 17:01:10 2024 +0200
+
+    Finished Update on DVD
+
+commit 9c0d7beb8c4f3ecffda95939d391f6c64b4d8bf1
+Merge: e5f59e1 af526cd
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Aug 24 16:36:26 2024 +0200
+
+    Merge branch 'master' of https://github.com/RohannNWU/CMPG223_Group10_DVD_Re
+
+commit af526cd861fcb7c147400bd6cc9f4835b73c72b2
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 24 16:34:05 2024 +0200
+
+    Work in progress
+
+commit 1d53d1cf69177bac24288be7481d76495440bd3e
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 24 16:33:32 2024 +0200
+
+    Work in progress
+
+commit e5f59e1dd9fb9034f9a901ceece840a8ab01367c (origin/FrancoisBranch)
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Aug 24 16:33:13 2024 +0200
+
+    Dashboard code added
+
+commit 5c935dc93eb8556c8b605ebf706d2ce1ee8c1848
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 24 15:42:17 2024 +0200
+
+    Work in progress
+
+commit 25c3b0c4532c2b37eab53621b294183bff721313
+Merge: 06db024 388e08a
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 24 14:44:15 2024 +0200
+
+    Merge branch 'master' into FrancoisBranch
+
+commit 388e08aeb7ad33c55a5ae884e32a5b832d1d43fc
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 24 14:28:50 2024 +0200
+
+    Committed some work in progress
+
+commit 06db0249f93b9e5b488d582db185cad2a4cee25a
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Aug 24 13:51:13 2024 +0200
+
+    Update DVD.Designer.cs
+
+commit 044808e8fd0d1d1f79921c16cd30cef3ab01c21e
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Fri Aug 23 16:59:04 2024 +0200
+
+    Updated DVD form (Added delete)
+
+commit ea1665615d1d3d0b6c1fa17728e2b85d02e70c17
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Fri Aug 23 16:28:53 2024 +0200
+
+    Worked on the Updating of the employees, members and DVD form
+
+commit 62f01347e5bd5f36cbf8abc260febff9ead30c24
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Fri Aug 23 12:04:19 2024 +0200
+
+    Updated rental
+
+commit 802c952d9e58d7a22e74ee0afb380bb8c9f2b5ab
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Wed Aug 21 14:05:32 2024 +0200
+
+    Removed unnecessary Form
+
+commit 7585aa17c1b03005c8d749ba4aa764aaa2c09e5b
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Wed Aug 21 13:54:06 2024 +0200
+
+    Update Employee.cs
+
+commit fc1e304611fd42b4192fe20202d0d3a6e2e6bcc8
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Wed Aug 21 13:50:00 2024 +0200
+
+    Updated DVD form
+
+commit 47cd32b9342921ee018b0ff97846ee99d941fb79
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sun Aug 18 01:10:11 2024 +0200
+
+    Edited some code
+
+commit c4bce6a19aba4ecf56c2699ea4da7a0dbd58f77b
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Aug 17 21:43:56 2024 +0200
+
+    Add code to DVD form
+
+commit b42c6581973409f34ef85f7eedbfcba985a31e28
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Aug 17 21:24:31 2024 +0200
+
+    Created DVD form
+
+commit db258a9ee7fd49da0ad7889485db552c9352a172
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Wed Aug 14 14:17:39 2024 +0200
+
+    Created and worked on Client form
+
+commit e310a94c2cdbb112cb8727cf9e3267e9354de50d
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Tue Aug 13 15:29:42 2024 +0200
+
+    Updated Employee Form
+
+commit 330f3905b6f0dbe92be314a6a45981bce78432da
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Tue Aug 13 13:48:40 2024 +0200
+
+    Created Employee Form
+
+commit 2331bf52a016b0f966505bdbfea960b2f69c2118
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Mon Aug 12 23:46:56 2024 +0200
+
+    Edited Employee and Admin Main Menu
+
+    Added code to enable launching of the web app for Help Guide
+
+commit b7de31f4890a1089ec8a593da0beb222376c5f52
+Author: Jacques van Heerden <35317906@mynwu.ac.za>
+Date:   Sun Aug 11 19:46:31 2024 +0200
+
+    Removed Tables from DB
+
+    Report & Fine
+
+commit 117911829168ff46cf2f3a0f28c915e88e53c19c
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 10 22:15:35 2024 +0200
+
+    Update CMPG223_Group10_DVD_Rental.csproj
+
+commit 534b903b11fcd618d8669fcde967a540f729ed74
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 10 22:14:41 2024 +0200
+
+    Updated Databases
+
+    Finalized the database tables
+
+commit 77fe37331e19fd47fd35743f3b5a91dd5e5c7b0a
+Author: ChristolPrinsloo <114835933+ChristolPrinsloo@users.noreply.github.com>
+Date:   Sat Aug 10 19:54:07 2024 +0200
+
+    Update EmployeeMainMenu.cs
+
+commit 58f36240c4d32a60f53d214a03684499dbdcbddd (origin/StefanBranch)
+Author: stefaans101 <stefaans101@gmail.com>
+Date:   Sat Aug 10 19:47:17 2024 +0200
+
+    Create Inventory.resx
+
+commit 99462a3e4a5bcbb68690c2d9a235ad2cff5ee943 (origin/JacquesBranch)
+Author: Jacques van Heerden <35317906@mynwu.ac.za>
+Date:   Sat Aug 10 13:47:16 2024 -0400
+
+    Review
+
+    Secure code
+
+commit 81dcd5965f495fcc7f4fcc711ab83f5a57736c9e
+Author: stefaans101 <stefaans101@gmail.com>
+Date:   Sat Aug 10 19:36:05 2024 +0200
+
+    Update Login.Designer.cs
+
+    :P
+
+commit db79946502071e33c6bd04f3a86b8f564fb8db2a
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 10 19:31:14 2024 +0200
+
+    Update AdminMainMenu.Designer.cs
+
+commit a69bc4eca2af23c9fd5efcb31c732d8c308ddf80
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Thu Aug 8 15:35:39 2024 +0200
+
+    Update Database
+
+commit 56244d9d17661ca225d5288b0001852b52d8744e
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Thu Aug 8 15:29:24 2024 +0200
+
+    Updated database
+
+    Inserted data into client table
+
+commit 39c6babe22cf61ea98f577c4a5c3b593a7ea1520
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Thu Aug 8 15:04:15 2024 +0200
+
+    Updated Database
+
+    Updated Database tables
+
+commit d1c908d6cc19ea149485c678d1f1ba9944579c28
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Thu Aug 8 13:53:15 2024 +0200
+
+    Finalized Login and MainMenu code
+
+    Allowed the name and role to be sent to the dashboard form
+
+commit 34e8ca3b7fa3f66daae1125dafb7018544da74f0
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Thu Aug 8 13:42:09 2024 +0200
+
+    Updated Database
+
+commit db26a66dd49a22b5775043670b5cc12eccd181be
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Thu Aug 8 13:27:20 2024 +0200
+
+    Unignored DB
+
+commit eb64a8ad76e560f3fe9a24ebaed6d68cf11915a6
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Thu Aug 8 13:16:18 2024 +0200
+
+    Ignored MDF file
+
+commit d1b3ac45ca43bd2a4bf58e1938e65729f02d4c6f
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Thu Aug 8 13:10:56 2024 +0200
+
+    Added DB Table SQL Query
+
+commit 10e5e975234d796f083e425580ccbd54d3077f25
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Thu Aug 8 12:48:51 2024 +0200
+
+    Update CMPG223_Group10_DVD_Rental.csproj
+
+commit 9453c6bf9b934f6be99c702694e62c9179ac396d
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Thu Aug 8 12:48:29 2024 +0200
+
+    Added Database
+
+commit 1882f675f9db67d15009a0e196c3b1445bf7293b
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Thu Aug 8 11:42:43 2024 +0200
+
+    Moved Dashboard Label
+
+commit 48a14b1c29965a01c7ec568a3d9e10ebf54a49fb
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Wed Aug 7 19:02:47 2024 +0200
+
+    Update DashboardForm.Designer.cs
+
+commit 7350c8677497905765a0ac541b71943a4ab1d8c5
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Wed Aug 7 11:48:46 2024 +0200
+
+    Edited Dashboard Form
+
+    Added a child to the mdi for the dashboard
+
+commit b53d65f352e775e52a2ccffd8f04db7dc68151e0
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Tue Aug 6 23:26:25 2024 +0200
+
+    Dashboards
+
+    Worked on the 2 different dashboards
+
+commit c6ff0e8545f927220114b580a068ae9090ab3b5c
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Tue Aug 6 15:08:37 2024 +0200
+
+    Update to Project File
+
+    Finalized Login Form. Added the dashboards for Administrator and Employee
+
+commit db6cc62040e14a1f63618650928afd2d77cfa0db
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 3 23:41:02 2024 +0200
+
+    Login Form
+
+    Login Form completed, only need to add code to go to dashboards
+
+commit 8e6d781c135a7d1833480a97c6c1882986aa2769
+Merge: c688480 bdb0830
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 3 14:52:13 2024 +0200
+
+    Merge branch 'master' of https://github.com/RohannNWU/CMPG223_Group10_DVD_Re
+
+commit c688480d9f41a9b138190a3068524252f5d76ec8
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 3 14:51:45 2024 +0200
+
+    Update
+
+    Update .csproj
+
+commit bdb0830204dbce9d4a0e5af2c616d3e52449ad0f
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Aug 3 14:48:07 2024 +0200
+
+    Deleted test DBs
+
+    Deleted test databases
+
+commit 6c0f67a84ce7280115fc66fdb2533bc4ef66320b
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 3 14:44:50 2024 +0200
+
+    Database SQLQuery
+
+    Added SQL Query file to repository
+
+commit 6afe991e549557f3e4e08a09e220c2c0465d5786
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 3 14:41:28 2024 +0200
+
+    Database Deletion
+
+    Deleted test databses
+
+commit 05bb1636869124af63b52c3f7a311f278aa6861c
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 3 11:56:50 2024 +0200
+
+    Committed not saved projects
+
+commit cfa2b2c6caeb07e9d5caf85e9d8bc49ec1a65d15
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 3 11:55:51 2024 +0200
+
+    Database Files
+
+    Find database files
+
+commit 5bff71b474fb6caa699927de109a68aae3339dbe
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 3 11:49:43 2024 +0200
+
+    Added btnLogin click method
+
+commit 8cf915563ececfb87b29820fd5230ebd43fbbb52
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Aug 3 11:27:36 2024 +0200
+
+    Login Form updated
+
+    Modified login form GUI
+
+commit bacb5a561f8868717ffc09d3d814852be6fc3b18
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Aug 3 11:14:09 2024 +0200
+
+    Update Menu
+
+    Menu updated
+
+commit f0c56c476aa3cda2d6b556513e2ee15b723f9d58
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Thu Aug 1 17:57:29 2024 +0200
+
+    Edit Main Menu
+
+    Menu edited
+
+commit 7c025ac47edd9cb4ff69a4f583a844c827f0ed70
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 14:16:31 2024 +0200
+
+    Edited Login.Designer.cs
+
+commit 682a95af3b7516d24a7b3462df802f062487ba75
+Merge: f2c9e2d fea6688
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 14:11:00 2024 +0200
+
+    Added detail to LoginForm
+
+commit fea6688f17a2018831cfe1722c17e1e70511aa70 (origin/RohannBranch)
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 14:08:49 2024 +0200
+
+    Added detail to LoginForm
+
+commit f2c9e2da78b64c8136d92bccbf0ad04f7f8f1fed
+Merge: df3eab3 50434d8
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 14:04:52 2024 +0200
+
+    Merge Error resolved
+
+commit 50434d84ced8f98bb4a1cf8311d1f7cd97717a83
+Merge: 701b82d fc11e1e
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 13:53:57 2024 +0200
+
+    Merge branch 'FrancoisBranch'
+
+commit fc11e1ed1b055db0a454fc0170668625cf98bf21
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 13:52:50 2024 +0200
+
+    Edit MemberForm
+
+commit df3eab3d4dc43b103575f6bc25188bc0366d5a7f
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 13:49:19 2024 +0200
+
+    Changes
+
+commit 5ba7c039ec2793aa3858f32a4fa6c01f4ac0748b
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 13:47:52 2024 +0200
+
+    Member Form Edit
+
+commit e181b926b83b21971e7ce133a0cc23d61135f9f5
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 13:40:40 2024 +0200
+
+    Made change to Login Form
+
+commit 701b82d9496629fc9e7fa16e9ca2ca0dc8d726ff
+Merge: 6874432 fb7197e
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 13:36:31 2024 +0200
+
+    Merge branch 'FrancoisBranch'
+
+commit fb7197e8310fadc3e3572de738b643f650a83fbb
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 13:35:29 2024 +0200
+
+    Edit Inventory Form
+
+commit 68744326be67ce0efac037b71898864bffafbf7b
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 13:34:08 2024 +0200
+
+    Edit Login Form
+
+commit 84ce3fe005fba6dc98fa41424fbefa7b873635ac
+Merge: 7158b82 c7dcdbf
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 13:32:02 2024 +0200
+
+    Merge branch 'FrancoisBranch' of https://github.com/RohannNWU/CMPG223_Group1
+
+commit 244195f9eba3d9286e55a39dbeab103ee67d61a3
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 13:30:48 2024 +0200
+
+    Added comment
+
+commit c7dcdbf075ddcd0aae3814ed617da32822ac0f0b
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 13:20:44 2024 +0200
+
+    1
+
+commit 7158b82f1a8caaa4b9d22ab38d5d08cc849fcea8
+Merge: 3518509 7b18aaf
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 13:02:09 2024 +0200
+
+    Merge branch 'FrancoisBranch' of https://github.com/RohannNWU/CMPG223_Group1
+
+commit 35185090f9ae52edcb8ec3b0ecf928a9405389aa
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 13:02:01 2024 +0200
+
+    Employee edit
+
+commit ee9737b213923b04fe2bc040a26ec36b011045b6
+Merge: 624780e 7b18aaf
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Jul 27 12:56:23 2024 +0200
+
+    Merge pull request #4 from RohannNWU/FrancoisBranch
+
+    Deleted form1
+
+commit 7b18aaf05394ab321537df3cf5a4e66de123e88b
+Merge: b0ed4da 624780e
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Jul 27 12:56:12 2024 +0200
+
+    Merge branch 'master' into FrancoisBranch
+
+commit b0ed4da5d254fe9c228062e0dac602981de26cb5
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 12:44:53 2024 +0200
+
+    Deleted form1
+
+commit 624780e8302e16a3702b076b00e4addfc314e6d3
+Merge: f0fbe14 3abce9e
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 12:42:32 2024 +0200
+
+    Merge branch 'FrancoisBranch'
+
+commit 3abce9e2e17b491183f903b43fc1c93b4f0f79f8
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 12:37:07 2024 +0200
+
+    Added Exit button code
+
+commit f0fbe140de16eb53325b38826c691811d4ed6722
+Merge: 471c969 0bd9a7f
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Jul 27 12:32:50 2024 +0200
+
+    Merge pull request #3 from RohannNWU/FrancoisBranch
+
+    Created Main Menu Form
+
+commit 0bd9a7f3ec18c8472f6ee97ec164c5045ff997b3
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 12:28:34 2024 +0200
+
+    Created Main Menu Form
+
+commit 471c969f4d0b5c0a3949b1826b90083c97f97b0b
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 12:23:29 2024 +0200
+
+    Deleted MainMenu.resx
+
+commit 55588a7c83c14514c72b9df573815cfc92be390b
+Merge: 01494e6 3d3515e
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 12:19:33 2024 +0200
+
+    Merge branch 'FrancoisBranch'
+
+commit 3d3515e0b220053e99a276d895570e8bad2fe5e3
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 12:17:35 2024 +0200
+
+    Menu Updated
+
+commit 649db525e13fc72960d791e42ab9481f68330d40
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 12:15:19 2024 +0200
+
+    Main Menu Form Created
+
+commit 01494e6551e778a5a8e5a2d69daccdd8facc4763
+Merge: 5fcc083 298da63
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 12:10:27 2024 +0200
+
+    Merge branch 'master' of https://github.com/RohannNWU/CMPG223_Group10_DVD_Re
+
+commit 5fcc0833d9d0fd3c4320a64735d6d1e682fbdcaa
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 12:10:10 2024 +0200
+
+    Updated MeetingLogs.txt
+    Created Rentals.mdf
+    Created Employees table
+
+commit 298da6381a695f4d391930d96b3ea477b7deeeec
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 12:07:12 2024 +0200
+
+    Created empty Employee,Inventory and Member Forms
+
+commit 15e5455b0bb9ac4ed358683de2930520d0f546a6
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 12:01:34 2024 +0200
+
+    Deleted Form 1
+
+commit c71fcb194d33679e227bee109bc1257011059ea8
+Merge: 288497c fe46ec7
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Jul 27 11:57:45 2024 +0200
+
+    Merge pull request #2 from RohannNWU/FrancoisBranch
+
+    Created Login Form
+
+commit 288497c039d7a2de8e8e161c631f3f22eb816fee
+Merge: c296a8e eaafdcb
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Sat Jul 27 11:52:41 2024 +0200
+
+    Merge pull request #1 from RohannNWU/RohannBranch
+
+    Added the Rental Form
+
+commit eaafdcbf9fe096fc61220d9d471e209944f483f9
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 11:50:25 2024 +0200
+
+    Added the Rental Form
+
+commit fe46ec7f17895ce471d19c0b433be4a75956e5d4
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 11:45:52 2024 +0200
+
+    Created Login Form
+
+commit c296a8eb290e40a015527eca8756ae9f8beeb152
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 11:38:27 2024 +0200
+
+    Updated MeetingLogs
+
+commit 1a0488c603aec30287ab886c9b2519d4c7a7fc30
+Merge: aa47f2b 5614745
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Sat Jul 27 11:35:42 2024 +0200
+
+    Updated MeetingLogs
+
+commit 5614745dd2eaaa4277cfde3051ad37e07f3db99c (origin/ChristoBranch)
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Sat Jul 27 10:30:17 2024 +0200
+
+    Updated MeetingLogs
+
+commit aa47f2b279c2914621a0165c7e1f7fc1a89d3441
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Fri Jul 19 16:37:50 2024 +0200
+
+    MeetingLog.txt updated
+
+commit bdf48784dbfd4e9c7d8be0a105cdbfa64f7a4140
+Merge: ab960f9 266d607
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 23:48:27 2024 +0200
+
+    Merge branch 'master' of https://github.com/RohannNWU/CMPG223_Group10_DVD_Re
+
+commit ab960f9aa391e8ea49b8d729f21f40765cdf5c3c
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 23:48:01 2024 +0200
+
+    Updated the MeetingLogs file
+
+commit 266d60746a796ba951e48ae3d6dec2bf92e18799
+Author: Jacques van Heerden <35317906@mynwu.ac.za>
+Date:   Thu Jul 11 17:19:10 2024 -0400
+
+    Added Name and Student Number
+
+commit 2d43f7b5fcee3e8546b4f82cd31e66fe4a757454
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 13:21:21 2024 +0200
+
+    Added name and student number to the comment block on top
+
+commit 9b25702f2b986d05bb880a37c76c9debc31f210a
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Thu Jul 11 13:19:13 2024 +0200
+
+    Added Name to comment block
+
+commit ef253c2454b87ddbc81e2ebfb11410572cb07dd9
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 13:17:47 2024 +0200
+
+    Removed comment in line 22
+
+commit dd3cb3938cfdbe7d985effc48927ef3c14073b21
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Thu Jul 11 13:15:20 2024 +0200
+
+    Added comment line 22
+
+commit 9c9729060c70f3f738b60879f7e90c210481b3e4
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 13:12:56 2024 +0200
+
+    Added comment block on top of code
+
+commit 2d3b83d8a6486329848a3066bb7e3f33f21210ab
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Thu Jul 11 13:06:09 2024 +0200
+
+    Create MeetingLogs.txt
+
+commit 88fa8bb2c79fe50f4590459c88eb83c61c34dcdc
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Thu Jul 11 13:04:16 2024 +0200
+
+    Create README.md
+
+commit a4824bf7a3de045f114394d6276f77589aae51a7
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 12:54:25 2024 +0200
+
+    Add project files.
+
+commit a5edd423545f4420066af18c8907ce4fa535b3cb
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 12:54:22 2024 +0200
+
+    Add .gitattributes and .gitignore.
+(END)
+Merge: ab960f9 266d607
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 23:48:27 2024 +0200
+
+    Merge branch 'master' of https://github.com/RohannNWU/CMPG223_Group10_DVD_Rental
+
+commit ab960f9aa391e8ea49b8d729f21f40765cdf5c3c
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 23:48:01 2024 +0200
+
+    Updated the MeetingLogs file
+
+commit 266d60746a796ba951e48ae3d6dec2bf92e18799
+Author: Jacques van Heerden <35317906@mynwu.ac.za>
+Date:   Thu Jul 11 17:19:10 2024 -0400
+
+    Added Name and Student Number
+
+commit 2d43f7b5fcee3e8546b4f82cd31e66fe4a757454
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 13:21:21 2024 +0200
+
+    Added name and student number to the comment block on top
+
+commit 9b25702f2b986d05bb880a37c76c9debc31f210a
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Thu Jul 11 13:19:13 2024 +0200
+
+    Added Name to comment block
+
+commit ef253c2454b87ddbc81e2ebfb11410572cb07dd9
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 13:17:47 2024 +0200
+
+    Removed comment in line 22
+
+commit dd3cb3938cfdbe7d985effc48927ef3c14073b21
+Author: FrancoisNWU <40723380@mynwu.ac.za>
+Date:   Thu Jul 11 13:15:20 2024 +0200
+
+    Added comment line 22
+
+commit 9c9729060c70f3f738b60879f7e90c210481b3e4
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 13:12:56 2024 +0200
+
+    Added comment block on top of code
+
+commit 2d3b83d8a6486329848a3066bb7e3f33f21210ab
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Thu Jul 11 13:06:09 2024 +0200
+
+    Create MeetingLogs.txt
+
+commit 88fa8bb2c79fe50f4590459c88eb83c61c34dcdc
+Author: RohannNWU <25130757@mynwu.ac.za>
+Date:   Thu Jul 11 13:04:16 2024 +0200
+
+    Create README.md
+
+commit a4824bf7a3de045f114394d6276f77589aae51a7
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 12:54:25 2024 +0200
+
+    Add project files.
+
+commit a5edd423545f4420066af18c8907ce4fa535b3cb
+Author: RohannNWU <rohven21@gmail.com>
+Date:   Thu Jul 11 12:54:22 2024 +0200
+
+    Add .gitattributes and .gitignore.
+(END)
