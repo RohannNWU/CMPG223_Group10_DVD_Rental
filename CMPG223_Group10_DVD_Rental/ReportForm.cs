@@ -22,6 +22,9 @@ namespace CMPG223_Group10_DVD_Rental
         private SqlConnection conn;
         private SqlCommand command;
         private SqlDataReader reader;
+        private System.Windows.Forms.SortOrder sortOrder = System.Windows.Forms.SortOrder.None;
+        private int sortColumn = -1;
+        private List<ListViewItem> allItems = new List<ListViewItem>();
         public ReportForm()
         {
             InitializeComponent();
@@ -32,16 +35,45 @@ namespace CMPG223_Group10_DVD_Rental
             if (!String.IsNullOrEmpty(reportComboBox.Text))
             {
                 string selectedReport = reportComboBox.Text;
+                filterGroupBox.Visible = true;
+                sortNameButton.Visible = true;
                 switch (selectedReport)
                 {
                     case "Late DVD Report":
-                        GetLateReport();
+                        sqlQuery = "SELECT Client_ID, DVD_ID, Start_Date, Return_Date FROM Rental WHERE Return_Date < @today";
+                        sortNameButton.Visible = true;
+                        GetLateReport(sqlQuery);
                         break;
-                    case "DVD Inventory":
-                        GetInventoryList();
+                    case "DVD Inventory Report":
+                        sqlQuery = "SELECT DVD_ID, DVD_Name, DVD_Copies FROM DVD";
+                        sortNameButton.Visible = true;
+                        GetInventoryList(sqlQuery);
                         break;
                     default:
                         break;
+                }
+
+                if (!String.IsNullOrEmpty(reportComboBox.Text))
+                {
+                    switch (reportComboBox.Text)
+                    {
+                        case "DVD Inventory Report":
+                            sortDateButton.Visible = false;
+                            reportDate.Text = reportComboBox.Text + " as per date: " + DateTime.Today.ToShortDateString();
+                            reportDate.Visible = true;
+                            filterGroupBox.Visible = false;
+                            break;
+                        case "Late DVD Report":
+                            sortDateButton.Visible = true;
+                            reportDate.Text = reportComboBox.Text + " as per date: " + DateTime.Today.ToShortDateString();
+                            reportDate.Visible = true;
+                            filterGroupBox.Visible = true;
+                            break;
+                    }
+                }
+                else
+                {
+                    reportDate.Visible = false;
                 }
             } else
             {
@@ -49,7 +81,7 @@ namespace CMPG223_Group10_DVD_Rental
             }
         }
 
-        private void GetLateReport()
+        private void GetLateReport(string sqlQuery)
         {
             reportListView.Items.Clear();
             reportListView.Columns.Clear();
@@ -63,13 +95,11 @@ namespace CMPG223_Group10_DVD_Rental
             List<int> dvdID = new List<int>();
             List<string> returnDates = new List<string>();
             conn = new SqlConnection(connectionString);
-
             try
             {
                 conn.Open();
-                sqlQuery = "SELECT Client_ID, DVD_ID, Return_Date FROM Rental WHERE Return_Date < @today";
                 command = new SqlCommand(sqlQuery, conn);
-                command.Parameters.AddWithValue("@today", DateTime.Today.ToShortDateString());
+                command.Parameters.AddWithValue("@today", (DateTime.Today.ToShortDateString()));
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -77,18 +107,23 @@ namespace CMPG223_Group10_DVD_Rental
                     dvdID.Add((int)reader.GetValue(1));
                     returnDates.Add(Convert.ToDateTime(reader.GetValue(2)).ToString("yyyy/MM/dd"));
                 }
+                reader.Close();
                 conn.Close();
 
                 conn.Open();
-                sqlQuery = "SELECT Client_Name_Surname FROM CLIENT WHERE Client_ID = @client";
-                command = new SqlCommand(sqlQuery, conn);
                 foreach (int id in clientID)
                 {
-                    command.Parameters.AddWithValue("@client", id);
-                    reader = command.ExecuteReader();
-                    if (reader.Read())
+                    sqlQuery = "SELECT Client_Name_Surname FROM CLIENT WHERE Client_ID = @client";
+                    using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                     {
-                        clientNames.Add(reader.GetValue(0).ToString());
+                        cmd.Parameters.AddWithValue("@client", id);
+                        using (SqlDataReader rdr = cmd.ExecuteReader())
+                        {
+                            if (rdr.Read())
+                            {
+                                clientNames.Add(rdr.GetValue(0).ToString());
+                            }
+                        }
                     }
                 }
                 conn.Close();
@@ -99,17 +134,19 @@ namespace CMPG223_Group10_DVD_Rental
                     item.SubItems.Add(dvdID[i].ToString());
                     item.SubItems.Add(returnDates[i].ToString());
                     reportListView.Items.Add(item);
+                    allItems.Add(item);
                 }
+                
             } catch (SqlException sqlEx)
             {
                 MessageBox.Show("Sql Error. " + sqlEx.Message);
             } catch (Exception ex)
             {
-                MessageBox.Show("Exception. " + ex.Message);
+                MessageBox.Show("Error. " + ex.Message);
             }
         }
 
-        private void GetInventoryList()
+        private void GetInventoryList(string sqlQuery)
         {
             reportListView.Items.Clear();
             reportListView.Columns.Clear();
@@ -125,7 +162,6 @@ namespace CMPG223_Group10_DVD_Rental
             try
             {
                 conn.Open();
-                sqlQuery = "SELECT DVD_ID, DVD_Name, DVD_Copies FROM DVD";
                 command = new SqlCommand(sqlQuery, conn);
                 reader = command.ExecuteReader();
                 while (reader.Read()) {
@@ -133,6 +169,7 @@ namespace CMPG223_Group10_DVD_Rental
                     dvdName.Add(reader.GetValue(1).ToString());
                     dvdCopies.Add((int)(reader.GetValue(2)));
                 }
+                reader.Close();
                 conn.Close();
 
                 for (int i = 0; i < dvdID.Count; i++)
@@ -156,6 +193,105 @@ namespace CMPG223_Group10_DVD_Rental
             inputError.Clear();
             reportListView.Items.Clear();
             reportListView.Columns.Clear();
+            filterGroupBox.Visible = false;
+            sortNameButton.Visible = false;
+            sortDateButton.Visible = false;
+            reportDate.Visible = false;
+        }
+
+        private void customDay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (customDay.Checked)
+            {
+                startLabel.Visible = true;
+                startDatePicker.Visible = true;
+                endDateLabel.Visible = true;
+                endDatePicker.Visible = true;
+            } else
+            {
+                startLabel.Visible = false;
+                startDatePicker.Visible = false;
+                endDateLabel.Visible = false;
+                endDatePicker.Visible = false;
+            }
+        }
+
+        private void sortNameButton_Click(object sender, EventArgs e)
+        {
+            int columnToSort = 1;
+            if (sortColumn == columnToSort && sortOrder == System.Windows.Forms.SortOrder.Ascending)
+            {
+                sortOrder = System.Windows.Forms.SortOrder.Descending;
+            }
+            else
+            {
+                sortOrder = System.Windows.Forms.SortOrder.Ascending;
+            }
+            sortColumn = columnToSort;
+
+            reportListView.ListViewItemSorter = new ListViewItemComparer(sortColumn, sortOrder);
+            reportListView.Sort();
+        }
+
+        private void sortDateButton_Click(object sender, EventArgs e)
+        {
+            int columnToSort = 3;
+            if (sortColumn == columnToSort && sortOrder == System.Windows.Forms.SortOrder.Ascending)
+            {
+                sortOrder = System.Windows.Forms.SortOrder.Descending;
+            }
+            else
+            {
+                sortOrder = System.Windows.Forms.SortOrder.Ascending;
+            }
+            sortColumn = columnToSort;
+
+            reportListView.ListViewItemSorter = new ListViewItemComparer(sortColumn, sortOrder);
+            reportListView.Sort();
+        }
+
+        private void customButton_Click(object sender, EventArgs e)
+        {
+            DateTime fromDate;
+            DateTime toDate = DateTime.Today;
+
+            if (thirtyDay.Checked)
+            {
+                fromDate = DateTime.Today.AddDays(-30);
+            }
+            else if (sixtyDay.Checked)
+            {
+                fromDate = DateTime.Today.AddDays(-60);
+            }
+            else if (ninetyDay.Checked)
+            {
+                fromDate = DateTime.Today.AddDays(-90);
+            }
+            else if (customDay.Checked)
+            {
+                fromDate = startDatePicker.Value.Date;
+                toDate = endDatePicker.Value.Date;
+            }
+            else
+            {
+                MessageBox.Show("Please select a filter option.");
+                return;
+            }
+
+            FilterListViewItems(fromDate, toDate);
+        }
+
+        private void FilterListViewItems(DateTime fromDate, DateTime toDate)
+        {
+            reportListView.Items.Clear();
+            foreach (var item in allItems)
+            {
+                DateTime itemDate = DateTime.Parse(item.SubItems[3].Text);
+                if (itemDate >= fromDate && itemDate <= toDate)
+                {
+                    reportListView.Items.Add(item);
+                }
+            }
         }
     }
 }

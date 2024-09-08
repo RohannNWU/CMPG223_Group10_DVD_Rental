@@ -27,6 +27,7 @@ namespace CMPG223_Group10_DVD_Rental
         private string expectedShelf;
         private bool update = false;
         private int dvdID = 0;
+        private int amountOfCopies;
         public DVD()
         {
             InitializeComponent();
@@ -300,6 +301,7 @@ namespace CMPG223_Group10_DVD_Rental
                             {
                                 try
                                 {
+                                    // insert a new dvd into dvd table
                                     conn.Open();
                                     sqlQuery = "INSERT INTO DVD (Shelf_ID, DVD_Name, DVD_Year, DVD_Genre, DVD_Copies) VALUES (@shelf, @name, @year, @genre, @copies)";
                                     command = new SqlCommand(sqlQuery, conn);
@@ -308,6 +310,41 @@ namespace CMPG223_Group10_DVD_Rental
                                     command.Parameters.AddWithValue("@year", txtYear.Text);
                                     command.Parameters.AddWithValue("@genre", cmbDrop.Text);
                                     command.Parameters.AddWithValue("@copies", copies.ToString());
+                                    command.ExecuteNonQuery();
+                                    conn.Close();
+
+                                    // get the shelf's dvd capacity to update
+                                    conn.Open();
+                                    int getCapacity = 0;
+                                    sqlQuery = "SELECT DVD_Capacity FROM Shelf";
+                                    command = new SqlCommand(sqlQuery, conn);
+                                    reader = command.ExecuteReader();
+
+                                    if (reader.Read())
+                                    {
+                                        getCapacity = (int) reader.GetValue(0);
+                                        amountOfCopies = getCapacity - copies;
+                                    }
+                                    reader.Close();
+                                    conn.Close();
+
+                                    DialogResult getResult = DialogResult.None;
+                                    if (amountOfCopies < 5)
+                                    {
+                                        getResult = MessageBox.Show("A new shelf has to be opened for Genre: " + cmbDrop.Text + "\nDo you want to add a new Shelf?", "Shelf Update", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                    }
+
+                                    if (getResult == DialogResult.Yes)
+                                    {
+                                        ShelfForm shelfForm = new ShelfForm();
+                                        shelfForm.Show();
+                                    }
+
+                                    // update the shelf's capacity left
+                                    conn.Open();
+                                    sqlQuery = "UPDATE Shelf SET DVD_Capacity = @amount";
+                                    command = new SqlCommand(sqlQuery, conn);
+                                    command.Parameters.AddWithValue("@amount", amountOfCopies);
                                     command.ExecuteNonQuery();
                                     conn.Close();
                                     ResetInput();
@@ -378,23 +415,52 @@ namespace CMPG223_Group10_DVD_Rental
                         try
                         {
                             conn.Open();
-                            sqlQuery = "SELECT DVD_Name FROM DVD WHERE DVD_ID = @DVD_ID";
+                            int shelfID = 0;
+                            int getCopies = 0;
+                            int copiesToWrite = 0;
+                            sqlQuery = "SELECT DVD_Name, Shelf_ID, DVD_Copies FROM DVD WHERE DVD_ID = @DVD_ID";
                             command = new SqlCommand(sqlQuery, conn);
                             command.Parameters.AddWithValue("@DVD_ID", dvdID);
                             reader = command.ExecuteReader();
                             DialogResult getResult = DialogResult.None;
                             if (reader.Read())
                             {
-                                getResult = MessageBox.Show("Are you sure you want to delete: " + reader.GetValue(0).ToString(), "Delete Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);                            
+                                getResult = MessageBox.Show("Are you sure you want to delete: " + reader.GetValue(0).ToString(), "Delete Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                shelfID = (int) reader.GetValue(1);
+                                getCopies = (int) reader.GetValue(2);
                             }
+                            reader.Close();
                             conn.Close();
 
                             if (getResult == DialogResult.Yes)
                             {
+                                // delete the dvd from the dvd table
                                 conn.Open();
                                 sqlQuery = "DELETE FROM DVD WHERE DVD_ID = @DVD_ID";
                                 command = new SqlCommand(sqlQuery, conn);
                                 command.Parameters.AddWithValue("@DVD_ID", dvdID);
+                                command.ExecuteNonQuery();
+                                conn.Close();
+
+                                // fetch the capacity in the shelf table
+                                conn.Open();
+                                sqlQuery = "SELECT DVD_Capacity FROM Shelf WHERE Shelf_ID = @shelfID";
+                                command = new SqlCommand(sqlQuery, conn);
+                                command.Parameters.AddWithValue("@shelfID", shelfID);
+                                reader = command.ExecuteReader();
+                                if (reader.Read())
+                                {
+                                    int getCapacity = (int) reader.GetValue(0);
+                                    copiesToWrite = getCapacity + getCopies;
+                                }
+                                reader.Close();
+                                conn.Close();
+
+                                // update the capacity available in the shelf table
+                                conn.Open();
+                                sqlQuery = "UPDATE Shelf SET DVD_Capacity = @amount";
+                                command = new SqlCommand(sqlQuery, conn);
+                                command.Parameters.AddWithValue("@amount", copiesToWrite);
                                 command.ExecuteNonQuery();
                                 conn.Close();
                                 ResetInput();
@@ -416,15 +482,7 @@ namespace CMPG223_Group10_DVD_Rental
             }
         }
 
-        private bool ValidateDeleteInput()
-        {
-            bool allValid = true;
-            if (String.IsNullOrEmpty(cmbDelete.Text))
-            {
-                allValid = false;
-            }
-            return allValid;
-        }
+        
 
         private void cmbDrop_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -447,6 +505,7 @@ namespace CMPG223_Group10_DVD_Rental
                     {
                         if (selectedGenre == genres[i])
                         {
+                            amountOfCopies = (int)reader.GetValue(0);
                             shelfLabel.Text = "Expected Shelf Location: " + reader.GetValue(0).ToString();
                             expectedShelf = reader.GetValue(0).ToString();
                         }
@@ -463,6 +522,16 @@ namespace CMPG223_Group10_DVD_Rental
             {
                 MessageBox.Show("Error. " + ex.Message);
             }
+        }
+
+        private bool ValidateDeleteInput()
+        {
+            bool allValid = true;
+            if (String.IsNullOrEmpty(cmbDelete.Text))
+            {
+                allValid = false;
+            }
+            return allValid;
         }
 
         private bool ValidateUserInput()

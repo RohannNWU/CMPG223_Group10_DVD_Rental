@@ -97,11 +97,13 @@ namespace CMPG223_Group10_DVD_Rental
                     }
                 }
 
+                // verifies if the member already has rented the dvd
                 if (alreadyRented == false)
                 {
                     //Add new Rental
                     try
                     {
+                        // inserts the new rental to the rental table
                         conn.Open();
                         SqlCommand cmd = new SqlCommand("INSERT INTO Rental (Employee_ID, Client_ID, DVD_ID, Start_Date, Return_Date) VALUES (@Employee_ID, @Client_ID, @DVD_ID, @Start_Date, @Return_Date)", conn);
                         cmd.Parameters.AddWithValue("@Employee_ID", employeeID);
@@ -123,6 +125,7 @@ namespace CMPG223_Group10_DVD_Rental
                         cmd.Parameters.AddWithValue("@Return_Date", DateTime.Today.AddDays(14));
                         cmd.ExecuteNonQuery();
 
+                        // fetch the available copies of the dvd rented to decrement
                         sqlQuery = "SELECT DVD_Copies FROM DVD WHERE DVD_ID = @id";
                         SqlCommand comm = new SqlCommand(sqlQuery, conn);
                         comm.Parameters.AddWithValue("@id", DVD_ID);
@@ -135,6 +138,7 @@ namespace CMPG223_Group10_DVD_Rental
                         }
                         dataReader.Close();
 
+                        // update the available copies in dvd table
                         sqlQuery = "UPDATE DVD SET DVD_Copies = @copies WHERE DVD_ID = @id";
                         SqlCommand com = new SqlCommand(sqlQuery, conn);
                         com.Parameters.AddWithValue("@copies", copies);
@@ -402,10 +406,12 @@ namespace CMPG223_Group10_DVD_Rental
             }
         }
 
+        // return a rental
         private void returnButton_Click(object sender, EventArgs e)
         {
             try
             {
+                // delete the rental from the rental table
                 conn.Open();
                 string[] dvd = returnComboBox.Text.Split('-');
                 sqlQuery = "DELETE FROM Rental WHERE Client_ID = @client AND DVD_ID = @dvd";
@@ -415,6 +421,7 @@ namespace CMPG223_Group10_DVD_Rental
                 command.ExecuteNonQuery();
                 conn.Close();
 
+                // fetch the dvd copies available to increment
                 conn.Open();
                 sqlQuery = "SELECT DVD_Copies FROM DVD WHERE DVD_ID = @dvd";
                 command = new SqlCommand(sqlQuery, conn);
@@ -428,6 +435,7 @@ namespace CMPG223_Group10_DVD_Rental
                 }
                 conn.Close();
 
+                // update the copies available and re-populate the combo box
                 conn.Open();
                 sqlQuery = "UPDATE DVD SET DVD_Copies = @copies WHERE DVD_ID = @id";
                 command = new SqlCommand(sqlQuery, conn);
