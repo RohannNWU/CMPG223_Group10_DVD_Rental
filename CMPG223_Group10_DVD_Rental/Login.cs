@@ -107,5 +107,10 @@ namespace CMPG223_Group10_DVD_Rental
         {
             usernameTextBox.Focus();
         }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

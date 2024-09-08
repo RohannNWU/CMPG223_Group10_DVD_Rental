@@ -58,7 +58,7 @@
             this.dvdGridView.BackgroundColor = System.Drawing.Color.Silver;
             this.dvdGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvdGridView.Location = new System.Drawing.Point(25, 91);
-            this.dvdGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dvdGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dvdGridView.Name = "dvdGridView";
             this.dvdGridView.RowHeadersWidth = 51;
             this.dvdGridView.Size = new System.Drawing.Size(911, 185);
@@ -89,7 +89,7 @@
             "Update DVD",
             "Search Genre and Location"});
             this.cmbCommand.Location = new System.Drawing.Point(549, 287);
-            this.cmbCommand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCommand.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCommand.Name = "cmbCommand";
             this.cmbCommand.Size = new System.Drawing.Size(296, 29);
             this.cmbCommand.TabIndex = 5;
@@ -122,9 +122,9 @@
             this.gbInput.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.gbInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(198)))), ((int)(((byte)(225)))));
             this.gbInput.Location = new System.Drawing.Point(25, 375);
-            this.gbInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInput.Margin = new System.Windows.Forms.Padding(4);
             this.gbInput.Name = "gbInput";
-            this.gbInput.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInput.Padding = new System.Windows.Forms.Padding(4);
             this.gbInput.Size = new System.Drawing.Size(528, 276);
             this.gbInput.TabIndex = 7;
             this.gbInput.TabStop = false;
@@ -145,17 +145,8 @@
             // 
             this.cmbDrop.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.cmbDrop.FormattingEnabled = true;
-            this.cmbDrop.Items.AddRange(new object[] {
-            "Action",
-            "Animation",
-            "Comedy",
-            "Drama",
-            "Fantasy",
-            "Horror",
-            "Romance",
-            "Science Fiction"});
             this.cmbDrop.Location = new System.Drawing.Point(279, 124);
-            this.cmbDrop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbDrop.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDrop.Name = "cmbDrop";
             this.cmbDrop.Size = new System.Drawing.Size(201, 29);
             this.cmbDrop.TabIndex = 9;
@@ -169,7 +160,7 @@
             this.btnSubmit.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
             this.btnSubmit.Location = new System.Drawing.Point(209, 219);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(107, 49);
             this.btnSubmit.TabIndex = 8;
@@ -181,7 +172,7 @@
             // 
             this.txtCopies.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtCopies.Location = new System.Drawing.Point(279, 165);
-            this.txtCopies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCopies.Margin = new System.Windows.Forms.Padding(4);
             this.txtCopies.Name = "txtCopies";
             this.txtCopies.Size = new System.Drawing.Size(201, 30);
             this.txtCopies.TabIndex = 7;
@@ -191,7 +182,7 @@
             // 
             this.txtYear.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtYear.Location = new System.Drawing.Point(279, 84);
-            this.txtYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(4);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(201, 30);
             this.txtYear.TabIndex = 5;
@@ -201,7 +192,7 @@
             // 
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtName.Location = new System.Drawing.Point(279, 46);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(201, 30);
             this.txtName.TabIndex = 4;
@@ -265,7 +256,7 @@
             this.cmbNames.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.cmbNames.FormattingEnabled = true;
             this.cmbNames.Location = new System.Drawing.Point(549, 324);
-            this.cmbNames.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbNames.Margin = new System.Windows.Forms.Padding(4);
             this.cmbNames.Name = "cmbNames";
             this.cmbNames.Size = new System.Drawing.Size(296, 29);
             this.cmbNames.TabIndex = 9;
@@ -286,6 +277,7 @@
             // 
             // inputError
             // 
+            this.inputError.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.inputError.ContainerControl = this;
             // 
             // DVD
@@ -303,7 +295,7 @@
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.dvdGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DVD";

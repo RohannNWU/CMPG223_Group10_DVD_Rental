@@ -293,5 +293,10 @@ namespace CMPG223_Group10_DVD_Rental
                 }
             }
         }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

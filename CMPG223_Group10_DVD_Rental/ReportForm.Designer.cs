@@ -47,6 +47,7 @@
             this.ninetyDay = new System.Windows.Forms.RadioButton();
             this.sixtyDay = new System.Windows.Forms.RadioButton();
             this.thirtyDay = new System.Windows.Forms.RadioButton();
+            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.inputError)).BeginInit();
             this.filterGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -125,7 +126,7 @@
             this.sortNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sortNameButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.sortNameButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.sortNameButton.Location = new System.Drawing.Point(24, 469);
+            this.sortNameButton.Location = new System.Drawing.Point(24, 447);
             this.sortNameButton.Name = "sortNameButton";
             this.sortNameButton.Size = new System.Drawing.Size(178, 69);
             this.sortNameButton.TabIndex = 7;
@@ -141,7 +142,7 @@
             this.sortDateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sortDateButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.sortDateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
-            this.sortDateButton.Location = new System.Drawing.Point(24, 555);
+            this.sortDateButton.Location = new System.Drawing.Point(24, 533);
             this.sortDateButton.Name = "sortDateButton";
             this.sortDateButton.Size = new System.Drawing.Size(178, 69);
             this.sortDateButton.TabIndex = 8;
@@ -271,12 +272,29 @@
             this.thirtyDay.Text = "30 Days";
             this.thirtyDay.UseVisualStyleBackColor = true;
             // 
+            // exitButton
+            // 
+            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(4)))), ((int)(((byte)(8)))));
+            this.exitButton.Location = new System.Drawing.Point(24, 614);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(178, 69);
+            this.exitButton.TabIndex = 10;
+            this.exitButton.Text = "Close";
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Visible = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(93)))));
-            this.ClientSize = new System.Drawing.Size(1139, 688);
+            this.ClientSize = new System.Drawing.Size(1139, 704);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.filterGroupBox);
             this.Controls.Add(this.sortDateButton);
             this.Controls.Add(this.sortNameButton);
@@ -318,5 +336,6 @@
         private System.Windows.Forms.DateTimePicker endDatePicker;
         private System.Windows.Forms.DateTimePicker startDatePicker;
         private System.Windows.Forms.Button customButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }

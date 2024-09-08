@@ -12,6 +12,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CMPG223_Group10_DVD_Rental
 {
@@ -184,6 +185,8 @@ namespace CMPG223_Group10_DVD_Rental
                 {
                     MessageBox.Show("Please select a database command");
                 }
+                ShowAllData();
+                EmptyInput();
             }
             
             if (ValidateDeleteInput())
@@ -235,9 +238,9 @@ namespace CMPG223_Group10_DVD_Rental
                     }
                     memberComboBox.SelectedIndex = -1;
                 }
+                ShowAllData();
+                EmptyInput();
             }
-            ShowAllData();
-            EmptyInput();
         }
 
         //Method reset input controls
@@ -354,7 +357,7 @@ namespace CMPG223_Group10_DVD_Rental
         {
             bool allInputValid = true;
 
-            foreach (TextBox textBox in new[] { txtName, txtSurname, txtDOB, txtEmail })
+            foreach (System.Windows.Forms.TextBox textBox in new[] {txtName, txtSurname, txtDOB, txtEmail})
             {
                 if (String.IsNullOrEmpty(textBox.Text))
                 {
@@ -374,6 +377,7 @@ namespace CMPG223_Group10_DVD_Rental
             if (String.IsNullOrEmpty(cmbDelete.Text))
             {
                 allValid = false;
+                inputError.SetError(cmbDelete, "Input is required. Cannot be blank");
             }
             return allValid;
         }

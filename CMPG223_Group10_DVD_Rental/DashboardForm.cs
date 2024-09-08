@@ -162,6 +162,7 @@ namespace CMPG223_Group10_DVD_Rental
 
         private void cmbMember_SelectedIndexChanged(object sender, EventArgs e)
         {
+            totalFine = 0.0M;
             rentingGroupBox.Visible = false;
             returnGroupBox.Visible = false;
             gbOutstandingDVD.Visible = false;
@@ -208,13 +209,19 @@ namespace CMPG223_Group10_DVD_Rental
                 command.Parameters.AddWithValue("@ID", clientID);
                 reader = command.ExecuteReader();
                 SqlConnection local = new SqlConnection(connectionString);
+                outstandingDVDsListView.Columns.Clear();
+                outstandingDVDsListView.View = View.Details;
+                outstandingDVDsListView.Columns.Add("DVD Name", 100, HorizontalAlignment.Left);
+                outstandingDVDsListView.Columns.Add("Start Date", 100, HorizontalAlignment.Left);
+                outstandingDVDsListView.Columns.Add("Due Date", 100, HorizontalAlignment.Left);
+                outstandingDVDsListView.Columns.Add("Fine Due", 100, HorizontalAlignment.Left);
+                int counter = 1;
                 while (reader.Read())
                 {
                     local.Open();
                     command = new SqlCommand(@"SELECT DVD_Name FROM DVD WHERE DVD_ID = @ID", local);
                     command.Parameters.AddWithValue("@ID", reader.GetValue(0));
                     SqlDataReader dataReader = command.ExecuteReader();
-                    int counter = 1;
 
                     while (dataReader.Read())
                     {
@@ -226,14 +233,8 @@ namespace CMPG223_Group10_DVD_Rental
                             rentingGroupBox.Visible = false;
                             decimal penalty = daysPastDue > 0 ? daysPastDue * LATE_FEE : 0;
                             totalFine += penalty;
-                            outstandingDVDsListView.Items.Clear();
-                            outstandingDVDsListView.Columns.Clear();
-                            outstandingDVDsListView.View = View.Details;
-                            outstandingDVDsListView.Columns.Add("DVD Name", 100, HorizontalAlignment.Left);
-                            outstandingDVDsListView.Columns.Add("Start Date", 100, HorizontalAlignment.Left);
-                            outstandingDVDsListView.Columns.Add("Due Date", 100, HorizontalAlignment.Left);
-                            outstandingDVDsListView.Columns.Add("Fine Due", 100, HorizontalAlignment.Left);
-                            ListViewItem item = new ListViewItem(counter.ToString() + "." + dataReader.GetValue(0).ToString());
+                            
+                            ListViewItem item = new ListViewItem(counter.ToString() + ". " + dataReader.GetValue(0).ToString());
                             item.SubItems.Add(reader.GetDateTime(1).ToString("yyyy/MM/dd"));
                             item.SubItems.Add(reader.GetDateTime(2).ToString("yyyy/MM/dd"));
                             item.SubItems.Add(penalty.ToString("C"));
@@ -242,6 +243,7 @@ namespace CMPG223_Group10_DVD_Rental
                             fineDVD = (int)reader.GetValue(0);
                             fineID = clientID;
                             gbOutstandingDVD.Visible = true;
+                            
                         }
                         else
                         {

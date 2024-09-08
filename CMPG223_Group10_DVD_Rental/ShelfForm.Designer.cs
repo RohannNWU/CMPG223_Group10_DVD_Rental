@@ -52,6 +52,7 @@
             this.btnSubmit.TabIndex = 9;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // genreLabel
             // 
@@ -144,8 +145,9 @@
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(107, 49);
             this.exitButton.TabIndex = 16;
-            this.exitButton.Text = "Exit";
+            this.exitButton.Text = "Close";
             this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // ShelfForm
             // 
@@ -166,6 +168,7 @@
             this.MinimizeBox = false;
             this.Name = "ShelfForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Maintaining Shelves";
             this.ResumeLayout(false);
             this.PerformLayout();
