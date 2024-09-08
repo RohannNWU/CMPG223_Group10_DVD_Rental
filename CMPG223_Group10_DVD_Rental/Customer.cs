@@ -196,9 +196,7 @@ namespace CMPG223_Group10_DVD_Rental
                     conn = new SqlConnection(connectionString);
                     try
                     {
-
                         int clientID = int.Parse(cmbDelete.Text);
-
                         conn.Open();
                         command = new SqlCommand(@"SELECT Client_Name_Surname FROM Client WHERE Client_ID = @Client_ID", conn);
                         command.Parameters.AddWithValue("@Client_ID", clientID);
@@ -212,21 +210,15 @@ namespace CMPG223_Group10_DVD_Rental
                         }
                         conn.Close();
                        
-                        
                         if (getResult == DialogResult.Yes)
                         {
                             conn.Open();
-
                             command = new SqlCommand(@"DELETE FROM Client WHERE Client_ID = @Client_ID", conn);
                             command.Parameters.AddWithValue("@Client_ID", clientID);
                             command.ExecuteNonQuery();
-                            
                             conn.Close();
-
                             EmptyInput();
                         }
-                        
-
                     }
                     catch (SqlException sqlEx)
                     {

@@ -13,6 +13,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CMPG223_Group10_DVD_Rental
 {
@@ -431,6 +432,7 @@ namespace CMPG223_Group10_DVD_Rental
             if (String.IsNullOrEmpty(cmbDelete.Text))
             {
                 allValid = false;
+                inputError.SetError(cmbDelete, "Input is required. Cannot be blank");
             }
             return allValid;
         }
@@ -438,7 +440,7 @@ namespace CMPG223_Group10_DVD_Rental
         {
             bool allValid = true;
 
-            foreach (TextBox textBox in new[] {txtName, txtSurname, txtDOB, txtContactNumber, txtUsername, txtPassword})
+            foreach (System.Windows.Forms.TextBox textBox in new[] {txtName, txtSurname, txtDOB, txtContactNumber, txtUsername, txtPassword})
             {
                 if (String.IsNullOrEmpty(textBox.Text)) {
                     allValid = false;
